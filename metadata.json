@@ -1,0 +1,7 @@
+{
+  "name": "ED Unplugged AI",
+  "description": "Long-term AI companion, strategic partner, and autonomous operating intelligence in the tradition of JARVIS to Tony Stark.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

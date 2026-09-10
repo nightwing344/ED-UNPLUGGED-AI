@@ -50,10 +50,47 @@ export interface EDMessage {
   };
 }
 
+export type MemoryRelationType = 
+  | 'governs'
+  | 'influences'
+  | 'implements'
+  | 'strategic_risk'
+  | 'depends_on'
+  | 'mitigates'
+  | 'precedent_for'
+  | 'related_to';
+
+export interface MemoryLink {
+  id: string;
+  sourceId: string;
+  targetId: string;
+  relationType: MemoryRelationType;
+  label?: string;
+  notes?: string;
+  createdAt: number;
+}
+
+export type MemoryCategory = 'project' | 'decision' | 'preference' | 'context' | 'architecture' | 'legal' | 'unfinished';
+
+export interface VaultTagSuggestion {
+  category: MemoryCategory;
+  categoryLabel?: string;
+  reasoning: string;
+  tags: string[];
+  confidence: number;
+  alternativeCategories?: {
+    category: MemoryCategory;
+    confidence: number;
+    reason?: string;
+    label?: string;
+  }[];
+  suggestedConnections?: string[];
+}
+
 export interface ProjectMemoryItem {
   id: string;
   title: string;
-  category: 'project' | 'decision' | 'preference' | 'context' | 'architecture' | 'legal' | 'unfinished';
+  category: MemoryCategory;
   description: string;
   tags: string[];
   lastUpdated: number;
@@ -61,6 +98,7 @@ export interface ProjectMemoryItem {
   notes?: string;
   isPinned?: boolean;
   autoLearned?: boolean;
+  linkedMemoryIds?: string[];
 }
 
 export interface AgentTask {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { EDModule, ThinkingMode, EDMessage, ProjectMemoryItem, AgentTask } from './types';
-import { getStoredMemories, saveStoredMemories } from './utils/storage';
+import { EDModule, ThinkingMode, EDMessage, ProjectMemoryItem, AgentTask, MemoryLink } from './types';
+import { getStoredMemories, saveStoredMemories, getStoredMemoryLinks, saveStoredMemoryLinks } from './utils/storage';
 import { Header } from './components/Header';
 import { OSDock } from './components/OSDock';
 import { CommandPalette } from './components/CommandPalette';
@@ -28,6 +28,7 @@ export default function App() {
 
   // Memories & Persistence
   const [memories, setMemories] = useState<ProjectMemoryItem[]>(() => getStoredMemories());
+  const [memoryLinks, setMemoryLinks] = useState<MemoryLink[]>(() => getStoredMemoryLinks());
 
   // Conversation history
   const [messages, setMessages] = useState<EDMessage[]>([
@@ -74,10 +75,14 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
     },
   ]);
 
-  // Synchronize memory to local storage
+  // Synchronize memory and visual links to local storage
   useEffect(() => {
     saveStoredMemories(memories);
   }, [memories]);
+
+  useEffect(() => {
+    saveStoredMemoryLinks(memoryLinks);
+  }, [memoryLinks]);
 
   // Audio speech synthesis helper
   const playAudioVoice = useCallback((text: string) => {
@@ -245,14 +250,43 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
     setMemories((prev) => [newItem, ...prev]);
   };
 
-  // Delete memory item
-  const handleDeleteMemory = (id: string) => {
-    setMemories((prev) => prev.filter((m) => m.id !== id));
+  // Update memory item in vault
+  const handleUpdateMemory = (id: string, updates: Partial<ProjectMemoryItem>) => {
+    setMemories((prev) =>
+      prev.map((m) => (m.id === id ? { ...m, ...updates, lastUpdated: Date.now() } : m))
+    );
   };
 
-  // Export Vault to JSON
+  // Delete memory item (and cleanup associated visual links)
+  const handleDeleteMemory = (id: string) => {
+    setMemories((prev) => prev.filter((m) => m.id !== id));
+    setMemoryLinks((prev) => prev.filter((l) => l.sourceId !== id && l.targetId !== id));
+  };
+
+  // Add visual relational link
+  const handleAddLink = (link: Omit<MemoryLink, 'id' | 'createdAt'>) => {
+    const newLink: MemoryLink = {
+      ...link,
+      id: 'link-' + Math.random().toString(36).substring(2, 9),
+      createdAt: Date.now(),
+    };
+    setMemoryLinks((prev) => [newLink, ...prev]);
+  };
+
+  // Delete visual relational link
+  const handleDeleteLink = (linkId: string) => {
+    setMemoryLinks((prev) => prev.filter((l) => l.id !== linkId));
+  };
+
+  // Export Vault to JSON (including visual links graph)
   const handleExportJSON = () => {
-    const dataStr = JSON.stringify(memories, null, 2);
+    const payload = {
+      version: '2.4',
+      exportDate: new Date().toISOString(),
+      memories,
+      links: memoryLinks,
+    };
+    const dataStr = JSON.stringify(payload, null, 2);
     const blob = new Blob([dataStr], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -271,6 +305,12 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
         if (Array.isArray(parsed)) {
           setMemories(parsed);
           alert(`Successfully imported ${parsed.length} memory items.`);
+        } else if (parsed && Array.isArray(parsed.memories)) {
+          setMemories(parsed.memories);
+          if (Array.isArray(parsed.links)) {
+            setMemoryLinks(parsed.links);
+          }
+          alert(`Successfully imported ${parsed.memories.length} memories and ${parsed.links?.length || 0} relational visual links.`);
         } else {
           alert('Invalid JSON file format.');
         }
@@ -454,8 +494,12 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
         {currentModule === 'memory' && (
           <MemoryVaultModule
             memories={memories}
+            links={memoryLinks}
             onAddMemory={handleAddMemory}
+            onUpdateMemory={handleUpdateMemory}
             onDeleteMemory={handleDeleteMemory}
+            onAddLink={handleAddLink}
+            onDeleteLink={handleDeleteLink}
             onExportJSON={handleExportJSON}
             onImportJSON={handleImportJSON}
           />

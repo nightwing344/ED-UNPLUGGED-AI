@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import dotenv from 'dotenv';
-import { GoogleGenAI } from '@google/genai';
+import { GoogleGenAI, Type } from '@google/genai';
 
 dotenv.config();
 
@@ -96,7 +96,7 @@ async function generateEDContent(prompt: string, systemInstruction: string, opti
     }
 
     const response = await ai.models.generateContent({
-      model: 'gemini-3.7-flash',
+      model: 'gemini-3.8-flash',
       contents: prompt,
       config,
     });
@@ -566,6 +566,240 @@ Execute your mission thoroughly:
   } catch (error: any) {
     console.error('ED Agent Error:', error);
     res.status(500).json({ error: error.message || 'Agent dispatch failed.' });
+  }
+});
+
+// Heuristic fallback classifier for Memory Vault when offline or before Gemini returns
+function suggestVaultTagsFallback(title: string, description: string, existingTags: string[] = []) {
+  const combined = `${title} ${description}`.toLowerCase();
+
+  const scores: Record<string, number> = {
+    legal: 0,
+    architecture: 0,
+    decision: 0,
+    project: 0,
+    preference: 0,
+    context: 0,
+    unfinished: 0,
+  };
+
+  const legalTerms = ['custody', 'parenting', 'divorce', 'child', 'statut', 'court', 'visitation', 'decree', 'support', 'qdro', 'alimony', 'contract', 'liability', 'uccjea', 'jurisdiction', 'covenant', 'alienation', 'best interests', 'indemnity', 'ip licensing', 'nda', 'attorney'];
+  const archTerms = ['postgres', 'sql', 'database', 'docker', 'api', 'schema', 'endpoint', 'server', 'rest', 'graphql', 'cache', 'redis', 'auth', 'oauth', 'token', 'stack', 'architecture', 'microservice', 'backend', 'frontend', 'vite', 'react', 'node', 'typescript'];
+  const decisionTerms = ['pivot', 'strategy', 'decision', 'trade-off', 'risk', 'hedge', 'capital', 'leverage', 'strategic', 'roadmap', 'veto', 'governance', 'trust', 'asset protection'];
+  const projectTerms = ['mvp', 'build', 'app', 'feature', 'prototype', 'repo', 'release', 'sprint', 'module', 'v1', 'v2', 'launch', 'product'];
+  const prefTerms = ['principle', 'taste', 'rule', 'mindset', 'prefer', 'habit', 'philosophy', 'heuristic', 'value', 'lifestyle', 'ethos', 'standard'];
+  const contextTerms = ['tesla', 'da vinci', 'scott robertson', 'durer', 'history', 'inspiration', 'influence', 'biography', 'research', 'article', 'reading', 'theory'];
+  const unfinTerms = ['todo', 'unfinished', 'pending', 'wip', 'open loop', 'investigate', 'backlog', 'draft', 'in progress', 'fixme'];
+
+  legalTerms.forEach(term => { if (combined.includes(term)) scores.legal += 3; });
+  archTerms.forEach(term => { if (combined.includes(term)) scores.architecture += 3; });
+  decisionTerms.forEach(term => { if (combined.includes(term)) scores.decision += 3; });
+  projectTerms.forEach(term => { if (combined.includes(term)) scores.project += 3; });
+  prefTerms.forEach(term => { if (combined.includes(term)) scores.preference += 3; });
+  contextTerms.forEach(term => { if (combined.includes(term)) scores.context += 3; });
+  unfinTerms.forEach(term => { if (combined.includes(term)) scores.unfinished += 3; });
+
+  let topCategory = 'project';
+  let highestScore = -1;
+  for (const [cat, score] of Object.entries(scores)) {
+    if (score > highestScore) {
+      highestScore = score;
+      topCategory = cat;
+    }
+  }
+  if (highestScore === 0) {
+    topCategory = combined.length > 40 ? 'project' : 'context';
+  }
+
+  const generatedTags = new Set<string>();
+  const allTermGroups = [
+    { list: legalTerms, tags: ['family-law', 'parenting-schedule', 'custody-protocol', 'statutory-guardrails', 'legal-risk', 'court-evidence'] },
+    { list: archTerms, tags: ['system-architecture', 'tech-stack', 'database-schema', 'api-design', 'local-first', 'resilient-backend'] },
+    { list: decisionTerms, tags: ['strategic-decision', 'trade-off-analysis', 'risk-mitigation', 'governance-framework', 'asset-defense'] },
+    { list: projectTerms, tags: ['project-mvp', 'core-feature', 'implementation', 'roadmap-milestone'] },
+    { list: prefTerms, tags: ['user-principle', 'mindset-heuristic', 'core-taste', 'operating-standard'] },
+    { list: contextTerms, tags: ['context-reference', 'creative-influence', 'historical-inspiration'] },
+    { list: unfinTerms, tags: ['unfinished-wip', 'action-item', 'open-loop', 'backlog'] },
+  ];
+
+  for (const group of allTermGroups) {
+    for (const term of group.list) {
+      if (combined.includes(term)) {
+        generatedTags.add(term.replace(/\s+/g, '-'));
+      }
+    }
+  }
+
+  if (topCategory === 'legal') {
+    generatedTags.add('family-law');
+    generatedTags.add('custody-protocol');
+    generatedTags.add('statutory-audit');
+  } else if (topCategory === 'architecture') {
+    generatedTags.add('system-design');
+    generatedTags.add('tech-spec');
+  } else if (topCategory === 'decision') {
+    generatedTags.add('strategic-pivot');
+    generatedTags.add('governance');
+  } else if (topCategory === 'preference') {
+    generatedTags.add('operating-principles');
+    generatedTags.add('heuristics');
+  }
+
+  const tags = Array.from(generatedTags).slice(0, 7);
+
+  const categoryReasoningMap: Record<string, string> = {
+    legal: 'Identified statutory obligations, parental rights, custody terms, or legal exposure factors.',
+    architecture: 'Detected technical infrastructure specifications, database models, or software engineering protocols.',
+    decision: 'Evaluated as a strategic trade-off, governance rule, or high-leverage architectural pivot.',
+    project: 'Corresponds to an active MVP build, application milestone, or functional product deliverable.',
+    preference: 'Reflects personal operational heuristics, user principles, or aesthetic/design standards.',
+    context: 'Preserves conceptual background, historical precedent, or interdisciplinary reference material.',
+    unfinished: 'Contains unresolved items, open investigation loops, or work-in-progress requirements.',
+  };
+
+  return {
+    category: topCategory,
+    reasoning: categoryReasoningMap[topCategory] || 'Categorized based on primary semantic focus.',
+    tags: tags.length > 0 ? tags : ['vault-entry', 'knowledge-node', topCategory],
+    confidence: highestScore > 3 ? 88 : 72,
+    alternativeCategories: [
+      {
+        category: topCategory === 'decision' ? 'architecture' : topCategory === 'legal' ? 'decision' : 'project',
+        confidence: 65,
+        reason: 'Secondary thematic correlation'
+      }
+    ]
+  };
+}
+
+// 10. Automated Tagging & Classification Engine (Gemini 3.8 Flash)
+app.post('/api/ed/vault/suggest-tags', async (req, res) => {
+  try {
+    const { title = '', description = '', currentCategory = '', existingTags = [] } = req.body;
+
+    if (!title && !description) {
+      return res.json({
+        category: 'project',
+        reasoning: 'Insufficient input provided to analyze.',
+        tags: ['vault-entry', 'knowledge-node'],
+        confidence: 50,
+        alternativeCategories: [],
+      });
+    }
+
+    const ai = getGenAI();
+    if (ai) {
+      try {
+        const response = await ai.models.generateContent({
+          model: 'gemini-3.8-flash',
+          contents: `Analyze this Memory Vault entry and determine the most precise category, reasoning, and semantic tags:
+Title: "${title || 'Untitled'}"
+Content/Description: "${description || 'None provided'}"
+${currentCategory ? `User's draft category: ${currentCategory}` : ''}
+${existingTags?.length ? `Draft tags: ${existingTags.join(', ')}` : ''}`,
+          config: {
+            systemInstruction: `YOU ARE THE HIGH-PRECISION AUTOMATED TAGGING & CLASSIFICATION ENGINE FOR THE ED KNOWLEDGE VAULT.
+
+Your task is to analyze new knowledge items and provide optimal categorization and rich, highly specific semantic tags.
+
+Valid categories (must select exactly ONE as primary):
+- "legal": Child custody, parenting plans, divorce dissolution, court evidence, asset tracing, contracts, IP licensing, statutory compliance, risk audits.
+- "decision": Strategic decisions, architectural trade-offs, governance pivots, long-term plans, risk/reward trade-offs.
+- "project": Active software applications, MVPs, products, roadmaps, technical builds.
+- "architecture": Technical stack specs, system architecture, database design, backend services, protocols, APIs.
+- "preference": User taste, operating principles, core heuristics, lifestyle/work standards, ethical/philosophical guidelines.
+- "context": Background knowledge, historical references, artistic/scientific influences, external research.
+- "unfinished": Unfinished work, pending execution, open questions, backlog investigations.
+
+Tags guidelines:
+- Generate 5 to 8 concise, specific lowercase tags in kebab-case (e.g. "child-custody", "parenting-schedule", "postgres-schema", "offline-first", "statutory-audit").
+- Do NOT generate vague tags like "notes", "misc", "general", "other".
+- Focus on key subject matter, operational constraints, and domain terminology.`,
+            responseMimeType: 'application/json',
+            responseSchema: {
+              type: Type.OBJECT,
+              properties: {
+                category: {
+                  type: Type.STRING,
+                  description: 'Primary category from: legal, decision, project, architecture, preference, context, unfinished',
+                },
+                reasoning: {
+                  type: Type.STRING,
+                  description: 'One crisp sentence explaining why this category is optimal.',
+                },
+                tags: {
+                  type: Type.ARRAY,
+                  items: { type: Type.STRING },
+                  description: '5-8 specific semantic tags in lowercase kebab-case.',
+                },
+                confidence: {
+                  type: Type.NUMBER,
+                  description: 'Confidence percentage between 1 and 100.',
+                },
+                alternativeCategories: {
+                  type: Type.ARRAY,
+                  items: {
+                    type: Type.OBJECT,
+                    properties: {
+                      category: { type: Type.STRING },
+                      confidence: { type: Type.NUMBER },
+                      reason: { type: Type.STRING },
+                    },
+                    required: ['category', 'confidence'],
+                  },
+                },
+                suggestedConnections: {
+                  type: Type.ARRAY,
+                  items: { type: Type.STRING },
+                },
+              },
+              required: ['category', 'reasoning', 'tags'],
+            },
+          },
+        });
+
+        const parsed = JSON.parse(response.text || '{}');
+        const validCategories = ['legal', 'decision', 'project', 'architecture', 'preference', 'context', 'unfinished'];
+        let matchedCategory = (parsed.category || '').toLowerCase();
+        if (!validCategories.includes(matchedCategory)) {
+          matchedCategory = 'project';
+        }
+
+        if (Array.isArray(parsed.tags) && parsed.tags.length > 0) {
+          const cleanedTags = parsed.tags
+            .map((t: string) => t.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^a-z0-9\-_]/g, ''))
+            .filter((t: string) => t.length >= 2);
+
+          return res.json({
+            category: matchedCategory,
+            reasoning: parsed.reasoning || `Classified as ${matchedCategory} based on contextual analysis.`,
+            tags: cleanedTags,
+            confidence: typeof parsed.confidence === 'number' ? Math.round(parsed.confidence) : 92,
+            alternativeCategories: (parsed.alternativeCategories || [])
+              .filter((alt: any) => validCategories.includes(alt.category?.toLowerCase()))
+              .map((alt: any) => ({
+                category: alt.category.toLowerCase(),
+                confidence: typeof alt.confidence === 'number' ? Math.round(alt.confidence) : 60,
+                reason: alt.reason,
+              })),
+            suggestedConnections: parsed.suggestedConnections || [],
+            engine: 'gemini-3.8-flash',
+          });
+        }
+      } catch (err: any) {
+        console.warn('Gemini Tagging error, falling back to heuristic engine:', err.message);
+      }
+    }
+
+    // Resilient Fallback
+    const fallback = suggestVaultTagsFallback(title, description, existingTags);
+    res.json({
+      ...fallback,
+      engine: 'heuristic-resilient-fallback',
+    });
+  } catch (error: any) {
+    console.error('ED Vault Tagging Endpoint Error:', error);
+    res.status(500).json({ error: error.message || 'Automated tagging failed.' });
   }
 });
 

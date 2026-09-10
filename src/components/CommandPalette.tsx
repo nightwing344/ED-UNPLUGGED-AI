@@ -11,6 +11,9 @@ import {
   Terminal, 
   BookOpen, 
   Zap, 
+  Share2,
+  Volume2,
+  Mic,
   X 
 } from 'lucide-react';
 import { EDModule, ThinkingMode } from '../types';
@@ -147,6 +150,20 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       title: 'Open Long-Term Memory Vault',
       category: 'Module Navigation',
       icon: <Database className="w-4 h-4 text-cyan-300" />,
+      action: () => { onSelectModule('memory'); onClose(); },
+    },
+    {
+      id: 'goto-memory-graph',
+      title: 'View Memory Vault Visual Synapse & Link Graph',
+      category: 'Memory Vault',
+      icon: <Share2 className="w-4 h-4 text-cyan-400" />,
+      action: () => { onSelectModule('memory'); onClose(); },
+    },
+    {
+      id: 'goto-memory-voice',
+      title: 'Launch Voice Sitrep & Knowledge Audio Briefing',
+      category: 'Voice Intelligence',
+      icon: <Volume2 className="w-4 h-4 text-amber-400" />,
       action: () => { onSelectModule('memory'); onClose(); },
     },
     {

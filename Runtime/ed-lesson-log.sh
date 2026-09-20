@@ -1,27 +1,21 @@
 #!/data/data/com.termux/files/usr/bin/bash
+set -euo pipefail
 
 LESSON_TEXT="${*:-}"
 
-DATE=$(date +"%Y%m%d-%H%M%S")
+if [ -z "$LESSON_TEXT" ]; then
+  echo "Lesson text required"
+  exit 1
+fi
 
-FILE="/storage/emulated/0/ED/Memory/Lessons/lesson-$DATE.md"
+RUNTIME="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+MEMORY="${ED_MEMORY_ROOT:-/storage/emulated/0/ED/Memory}"
 
-cat > "$FILE" <<EOF2
-# ED Lesson
+ED_MEMORY_ROOT="$MEMORY" \
+python "$RUNTIME/ed-memory-propose.py" \
+  --title "ED lesson proposal" \
+  --content "$LESSON_TEXT" \
+  --category "lesson" \
+  --tags "lesson,user-interaction,approval-required"
 
-Date:
-$DATE
-
-Lesson:
-
-$LESSON_TEXT
-
-Source:
-User interaction
-
-Status:
-Stored
-EOF2
-
-echo "Lesson Saved:"
-echo "$FILE"
+echo "✓ Lesson waiting for user approval"

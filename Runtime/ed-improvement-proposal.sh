@@ -1,28 +1,21 @@
 #!/data/data/com.termux/files/usr/bin/bash
+set -euo pipefail
 
 REQUEST="${*:-}"
 
-DATE=$(date +"%Y%m%d-%H%M%S")
+if [ -z "$REQUEST" ]; then
+  echo "Improvement proposal required"
+  exit 1
+fi
 
-FILE="/storage/emulated/0/ED/Memory/Decisions/improvement-proposal-$DATE.md"
+RUNTIME="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+MEMORY="${ED_MEMORY_ROOT:-/storage/emulated/0/ED/Memory}"
 
-cat > "$FILE" <<EOF2
-# ED Improvement Proposal
+ED_MEMORY_ROOT="$MEMORY" \
+python "$RUNTIME/ed-memory-propose.py" \
+  --title "ED improvement proposal" \
+  --content "$REQUEST" \
+  --category "decision" \
+  --tags "improvement,approval-required"
 
-Date:
-$DATE
-
-Proposal:
-
-$REQUEST
-
-Status:
-
-WAITING FOR USER APPROVAL
-
-Approval Required:
-YES
-EOF2
-
-echo "Proposal Created:"
-echo "$FILE"
+echo "✓ Improvement proposal waiting for user approval"

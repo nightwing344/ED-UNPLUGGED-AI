@@ -38,6 +38,16 @@ def main():
             if rel_norm.startswith("inbox/"):
                 continue
 
+            # Operational/runtime records are not approved long-term memory.
+            if rel_norm.startswith("context/active/"):
+                continue
+
+            if rel_norm.startswith("experience/"):
+                continue
+
+            if rel_norm.startswith("questions/"):
+                continue
+
             if rel_norm.startswith("proposals/pending/"):
                 continue
 

@@ -64,6 +64,25 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
   onImportJSON,
 }) => {
   const [viewMode, setViewMode] = useState<'graph' | 'cards'>('graph');
+  const [runtimeFileOpen, setRuntimeFileOpen] = useState<string | null>(null);
+  const [runtimeFileContent, setRuntimeFileContent] = useState('');
+  const [runtimeFileLoading, setRuntimeFileLoading] = useState(false);
+
+  const openRuntimeFile = async (file: string) => {
+    setRuntimeFileOpen(file);
+    setRuntimeFileLoading(true);
+    setRuntimeFileContent('');
+
+    try {
+      const r = await fetch(`/api/ed/memory/file?path=${encodeURIComponent(file)}`);
+      const d = await r.json();
+      setRuntimeFileContent(d?.content || d?.error || 'Unable to read file.');
+    } catch {
+      setRuntimeFileContent('Unable to read runtime memory file.');
+    } finally {
+      setRuntimeFileLoading(false);
+    }
+  };
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [isAdding, setIsAdding] = useState(false);
@@ -491,14 +510,45 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
           <span className="text-xs font-semibold text-cyan-300">ED Runtime Memory</span>
           <span className="font-mono text-xs text-cyan-400">{runtimeMemoryFiles.length} files</span>
         </div>
+
         <div className="mt-2 space-y-1 font-mono text-[10px] text-slate-400">
           {runtimeMemoryFiles.slice(0, 5).map((file) => (
-            <div key={file} className="truncate">• {file}</div>
+            <button
+              key={file}
+              onClick={() => openRuntimeFile(file)}
+              className="block w-full truncate text-left hover:text-cyan-300"
+            >
+              • {file}
+            </button>
           ))}
+
           {runtimeMemoryFiles.length > 5 && (
-            <div className="text-cyan-500">+ {runtimeMemoryFiles.length - 5} more runtime files</div>
+            <div className="text-cyan-500">
+              + {runtimeMemoryFiles.length - 5} more runtime files
+            </div>
           )}
         </div>
+
+        {runtimeFileOpen && (
+          <div className="mt-3 rounded-lg border border-slate-700 bg-slate-950 p-3">
+            <div className="mb-2 flex items-center justify-between gap-2">
+              <span className="truncate font-mono text-[10px] text-cyan-300">
+                {runtimeFileOpen}
+              </span>
+
+              <button
+                onClick={() => setRuntimeFileOpen(null)}
+                className="text-slate-400 hover:text-white"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <pre className="max-h-72 overflow-auto whitespace-pre-wrap text-[11px] text-slate-300">
+              {runtimeFileLoading ? 'Loading runtime memory...' : runtimeFileContent}
+            </pre>
+          </div>
+        )}
       </div>
       <div className="max-w-6xl w-full mx-auto space-y-5">
         

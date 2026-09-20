@@ -65,6 +65,12 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
 }) => {
   const [viewMode, setViewMode] = useState<'graph' | 'cards'>('graph');
   const [runtimeSearch, setRuntimeSearch] = useState('');
+  const [runtimeSearchResults, setRuntimeSearchResults] = useState<Array<{
+    path: string;
+    line: number;
+    preview: string;
+  }>>([]);
+  const [runtimeSearchBusy, setRuntimeSearchBusy] = useState(false);
   const [runtimeFileOpen, setRuntimeFileOpen] = useState<string | null>(null);
   const [runtimeFileContent, setRuntimeFileContent] = useState('');
   const [runtimeFileLoading, setRuntimeFileLoading] = useState(false);
@@ -150,6 +156,45 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
     if (!q) return runtimeMemoryFiles;
     return runtimeMemoryFiles.filter((file) => file.toLowerCase().includes(q));
   }, [runtimeMemoryFiles, runtimeSearch]);
+
+  useEffect(() => {
+    const q = runtimeSearch.trim();
+
+    if (!q) {
+      setRuntimeSearchResults([]);
+      return;
+    }
+
+    const controller = new AbortController();
+
+    const timer = setTimeout(async () => {
+      setRuntimeSearchBusy(true);
+
+      try {
+        const r = await fetch(
+          `/api/ed/memory/search?q=${encodeURIComponent(q)}`,
+          { signal: controller.signal }
+        );
+
+        const d = await r.json();
+
+        if (d?.ok && Array.isArray(d.results)) {
+          setRuntimeSearchResults(d.results);
+        } else {
+          setRuntimeSearchResults([]);
+        }
+      } catch {
+        if (!controller.signal.aborted) setRuntimeSearchResults([]);
+      } finally {
+        if (!controller.signal.aborted) setRuntimeSearchBusy(false);
+      }
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
+  }, [runtimeSearch]);
 
   // Map of memories
   const memoryMap = useMemo(() => {
@@ -546,6 +591,38 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
             </div>
           )}
         </div>
+
+        {runtimeSearch.trim() && (
+          <div className="mt-3 border-t border-slate-800 pt-3">
+            <div className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-cyan-400">
+              Content Matches
+              {runtimeSearchBusy ? ' — searching...' : ` — ${runtimeSearchResults.length}`}
+            </div>
+
+            <div className="max-h-48 space-y-2 overflow-auto">
+              {runtimeSearchResults.slice(0, 20).map((result, i) => (
+                <button
+                  key={`${result.path}-${result.line}-${i}`}
+                  onClick={() => openRuntimeFile(result.path)}
+                  className="block w-full rounded border border-slate-800 bg-slate-950/70 p-2 text-left hover:border-cyan-800"
+                >
+                  <div className="truncate font-mono text-[10px] text-cyan-300">
+                    {result.path}:{result.line}
+                  </div>
+                  <div className="mt-1 text-[10px] text-slate-400">
+                    {result.preview}
+                  </div>
+                </button>
+              ))}
+
+              {!runtimeSearchBusy && runtimeSearchResults.length === 0 && (
+                <div className="text-[10px] text-slate-500">
+                  No content matches found.
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         {runtimeFileOpen && (
           <div className="mt-3 rounded-lg border border-slate-700 bg-slate-950 p-3">

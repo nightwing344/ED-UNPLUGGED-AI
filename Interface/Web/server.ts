@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import dotenv from 'dotenv';
+import { execFile } from 'node:child_process';
 import { GoogleGenAI, Type } from '@google/genai';
 
 dotenv.config();
@@ -10,6 +11,20 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json({ limit: '20mb' }));
+
+app.get('/api/ed/runtime/status', (_req, res) => {
+  const root = path.resolve(process.cwd(), '../..');
+  execFile(
+    path.join(root, 'Runtime', 'ED'),
+    ['status'],
+    { cwd: root, env: { ...process.env, ED_CORE: root }, timeout: 10000 },
+    (error, stdout, stderr) => {
+      const ok = !error && stdout.includes('ED ONLINE');
+      res.status(ok ? 200 : 503).json({ ok, stdout, stderr });
+    }
+  );
+});
+
 
 // Lazy Google GenAI Client
 let genAIClient: GoogleGenAI | null = null;

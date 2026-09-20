@@ -156,6 +156,7 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
         questions: data.questions || [],
         truthAssessment: data.truthAssessment,
         memorySources: data.memorySources || [],
+        suggestedMemory: data.suggestedMemory,
         isResetNotice: isReset || data.isResetNotice,
       };
 

@@ -171,6 +171,101 @@ app.get('/api/ed/memory/search', (req, res) => {
 });
 
 
+app.post('/api/ed/memory/propose', (req, res) => {
+  const remote = req.socket.remoteAddress || '';
+  const local =
+    remote === '127.0.0.1' ||
+    remote === '::1' ||
+    remote.startsWith('::ffff:127.');
+
+  if (!local) {
+    return res.status(403).json({
+      ok: false,
+      error: 'Local access only',
+    });
+  }
+
+  const title = String(req.body?.title || '').trim();
+  const content = String(
+    req.body?.content ||
+    req.body?.description ||
+    ''
+  ).trim();
+
+  const category = String(
+    req.body?.category || 'context'
+  ).trim();
+
+  const tags = Array.isArray(req.body?.tags)
+    ? req.body.tags
+        .map((tag: unknown) => String(tag).trim())
+        .filter(Boolean)
+    : [];
+
+  if (!title || !content) {
+    return res.status(400).json({
+      ok: false,
+      error: 'Memory title and content are required',
+    });
+  }
+
+  if (title.length > 300 || content.length > 20000) {
+    return res.status(400).json({
+      ok: false,
+      error: 'Memory proposal exceeds size limits',
+    });
+  }
+
+  const root = path.resolve(
+    process.env.ED_MEMORY_ROOT ||
+    '/storage/emulated/0/ED/Memory'
+  );
+
+  const projectRoot = path.resolve(process.cwd(), '../..');
+  const engine = path.join(
+    projectRoot,
+    'Runtime',
+    'ed-memory-propose.py'
+  );
+
+  execFile(
+    'python',
+    [
+      engine,
+      '--title', title,
+      '--content', content,
+      '--category', category,
+      '--tags', tags.join(','),
+    ],
+    {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        ED_MEMORY_ROOT: root,
+      },
+      timeout: 15000,
+      maxBuffer: 1024 * 1024,
+    },
+    (error, stdout, stderr) => {
+      if (error) {
+        return res.status(400).json({
+          ok: false,
+          error: (stderr || error.message).trim(),
+        });
+      }
+
+      try {
+        res.json(JSON.parse(stdout));
+      } catch (parseError) {
+        res.status(500).json({
+          ok: false,
+          error: `Invalid proposal response: ${String(parseError)}`,
+        });
+      }
+    }
+  );
+});
+
 app.get('/api/ed/memory/pending', (req, res) => {
   const remote = req.socket.remoteAddress || '';
   const local =

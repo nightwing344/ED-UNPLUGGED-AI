@@ -41,6 +41,7 @@ import { requestVaultTagSuggestions, CATEGORY_LABELS } from '../utils/vaultAI';
 interface MemoryVaultProps {
   memories: ProjectMemoryItem[];
   links: MemoryLink[];
+  runtimeMemoryFiles?: string[];
   onAddMemory: (item: Omit<ProjectMemoryItem, 'id' | 'lastUpdated'>) => void;
   onUpdateMemory?: (id: string, updates: Partial<ProjectMemoryItem>) => void;
   onDeleteMemory: (id: string) => void;
@@ -53,6 +54,7 @@ interface MemoryVaultProps {
 export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
   memories,
   links,
+  runtimeMemoryFiles = [],
   onAddMemory,
   onUpdateMemory,
   onDeleteMemory,
@@ -484,6 +486,20 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
 
   return (
     <div className="flex-1 flex flex-col h-full bg-slate-950 overflow-y-auto pb-20 p-4 md:p-6" id="memory-vault-module">
+      <div className="mb-4 rounded-xl border border-cyan-900/60 bg-cyan-950/20 p-3">
+        <div className="flex items-center justify-between">
+          <span className="text-xs font-semibold text-cyan-300">ED Runtime Memory</span>
+          <span className="font-mono text-xs text-cyan-400">{runtimeMemoryFiles.length} files</span>
+        </div>
+        <div className="mt-2 space-y-1 font-mono text-[10px] text-slate-400">
+          {runtimeMemoryFiles.slice(0, 5).map((file) => (
+            <div key={file} className="truncate">• {file}</div>
+          ))}
+          {runtimeMemoryFiles.length > 5 && (
+            <div className="text-cyan-500">+ {runtimeMemoryFiles.length - 5} more runtime files</div>
+          )}
+        </div>
+      </div>
       <div className="max-w-6xl w-full mx-auto space-y-5">
         
         {/* Top Header & Core Tools */}

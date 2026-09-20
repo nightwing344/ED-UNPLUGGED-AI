@@ -29,6 +29,7 @@ export default function App() {
   // Memories & Persistence
   const [memories, setMemories] = useState<ProjectMemoryItem[]>(() => getStoredMemories());
   const [memoryLinks, setMemoryLinks] = useState<MemoryLink[]>(() => getStoredMemoryLinks());
+  const [runtimeMemoryFiles, setRuntimeMemoryFiles] = useState<string[]>([]);
 
   // Conversation history
   const [messages, setMessages] = useState<EDMessage[]>([
@@ -83,6 +84,15 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
   useEffect(() => {
     saveStoredMemoryLinks(memoryLinks);
   }, [memoryLinks]);
+
+  useEffect(() => {
+    fetch('/api/ed/memory/status')
+      .then((r) => r.ok ? r.json() : null)
+      .then((d) => {
+        if (d?.ok && Array.isArray(d.files)) setRuntimeMemoryFiles(d.files);
+      })
+      .catch(() => {});
+  }, []);
 
   // Audio speech synthesis helper
   const playAudioVoice = useCallback((text: string) => {
@@ -495,6 +505,7 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
           <MemoryVaultModule
             memories={memories}
             links={memoryLinks}
+            runtimeMemoryFiles={runtimeMemoryFiles}
             onAddMemory={handleAddMemory}
             onUpdateMemory={handleUpdateMemory}
             onDeleteMemory={handleDeleteMemory}

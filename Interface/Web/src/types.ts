@@ -36,6 +36,7 @@ export interface EDMessage {
     certaintyScore: number; // 0 to 100
   };
   sources?: { title: string; uri: string }[];
+  memorySources?: string[];
   codeSnippets?: {
     language: string;
     code: string;

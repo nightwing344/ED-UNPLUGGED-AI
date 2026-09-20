@@ -319,6 +319,26 @@ export const CoreModule: React.FC<CoreModuleProps> = ({
                   {/* Main content */}
                   {renderMessageContent(msg.text, msg.id)}
 
+                  {/* Runtime Memory Provenance */}
+                  {!isUser && msg.memorySources && msg.memorySources.length > 0 && (
+                    <div className="mt-3 rounded-xl border border-cyan-500/30 bg-cyan-950/20 p-3">
+                      <div className="flex items-center gap-2 text-xs font-semibold text-cyan-300">
+                        <Database className="w-3.5 h-3.5" />
+                        <span>Grounded by ED Memory</span>
+                      </div>
+                      <div className="mt-2 space-y-1">
+                        {msg.memorySources.map((source, index) => (
+                          <div
+                            key={`${source}-${index}`}
+                            className="text-[11px] font-mono text-slate-400 break-all"
+                          >
+                            • {source}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   {/* Suggested Memory Card */}
                   {!isUser && msg.suggestedMemory && onAddMemory && (
                     <div className="mt-3 p-3 rounded-xl bg-cyan-950/40 border border-cyan-500/40 flex items-start justify-between gap-3 text-xs">

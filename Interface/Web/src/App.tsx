@@ -155,6 +155,7 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
         thinkingMode,
         questions: data.questions || [],
         truthAssessment: data.truthAssessment,
+        memorySources: data.memorySources || [],
         isResetNotice: isReset || data.isResetNotice,
       };
 

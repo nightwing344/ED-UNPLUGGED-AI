@@ -89,6 +89,60 @@ app.get('/api/ed/memory/file', (req, res) => {
   }
 });
 
+
+app.get('/api/ed/memory/search', (req, res) => {
+  const remote = req.socket.remoteAddress || '';
+  const local = remote === '127.0.0.1' || remote === '::1' || remote.startsWith('::ffff:127.');
+  if (!local) return res.status(403).json({ ok: false, error: 'Local access only' });
+
+  const query = String(req.query.q || '').trim().slice(0, 120);
+  if (!query) return res.status(400).json({ ok: false, error: 'Missing query' });
+
+  const root = path.resolve(process.env.ED_MEMORY_ROOT || '/storage/emulated/0/ED/Memory');
+  const results: any[] = [];
+  const q = query.toLowerCase();
+
+  const walk = (dir: string) => {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (results.length >= 50) return;
+
+      const full = path.join(dir, e.name);
+
+      if (e.isDirectory()) {
+        walk(full);
+        continue;
+      }
+
+      if (!e.isFile()) continue;
+
+      try {
+        const stat = fs.statSync(full);
+        if (stat.size > 262144) continue;
+
+        const text = fs.readFileSync(full, 'utf8');
+        const lines = text.split(/\r?\n/);
+
+        for (let i = 0; i < lines.length && results.length < 50; i++) {
+          if (lines[i].toLowerCase().includes(q)) {
+            results.push({
+              path: path.relative(root, full),
+              line: i + 1,
+              preview: lines[i].trim().slice(0, 240),
+            });
+          }
+        }
+      } catch {}
+    }
+  };
+
+  try {
+    walk(root);
+    res.json({ ok: true, query, count: results.length, results });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: String(error) });
+  }
+});
+
 // Lazy Google GenAI Client
 let genAIClient: GoogleGenAI | null = null;
 function getGenAI(): GoogleGenAI | null {

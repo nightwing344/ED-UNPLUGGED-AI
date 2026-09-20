@@ -254,7 +254,7 @@ async function generateEDContent(prompt: string, systemInstruction: string, opti
 }
 
 
-async function runLocalED(prompt: string): Promise<string> {
+async function runLocalED(prompt: string): Promise<{ text: string; memorySources: string[] }> {
   const root = path.resolve(process.cwd(), '../..');
 
   return new Promise((resolve, reject) => {
@@ -271,11 +271,27 @@ async function runLocalED(prompt: string): Promise<string> {
         if (error) return reject(error);
 
         const clean = stdout.replace(/\x1B\[[0-?]*[ -/]*[@-~]/g, '');
-        const match = clean.match(/ED RESPONSE:\s*([\s\S]*?)\s*=+\s*RESPONSE COMPLETE/);
+
+        const sourceBlock = clean.match(
+          /MEMORY SOURCES:\s*([\s\S]*?)\s*ED RESPONSE:/
+        );
+
+        const memorySources = (sourceBlock?.[1] || '')
+          .split(/\r?\n/)
+          .map((line) => line.trim())
+          .filter((line) => line.startsWith('- '))
+          .map((line) => line.slice(2).trim())
+          .filter((line) => line && line !== 'none');
+
+        const match = clean.match(
+          /ED RESPONSE:\s*([\s\S]*?)\s*=+\s*RESPONSE COMPLETE/
+        );
+
         const text = (match?.[1] || clean).trim();
 
         if (!text) return reject(new Error('ED runtime returned empty response'));
-        resolve(text);
+
+        resolve({ text, memorySources });
       }
     );
   });
@@ -335,9 +351,12 @@ app.post('/api/ed/chat', async (req, res) => {
         ? `${userPrompt}\n\nACTIVE MEMORY:\n${memoryContext}`
         : userPrompt;
 
+      const localResult = await runLocalED(localPrompt);
+
       result = {
-        text: await runLocalED(localPrompt),
+        text: localResult.text,
         sources: [],
+        memorySources: localResult.memorySources,
       };
     } catch (err) {
       console.error('Local ED runtime failed; using Gemini fallback:', err);
@@ -400,6 +419,7 @@ app.post('/api/ed/chat', async (req, res) => {
         certaintyScore: certaintyScores[truthCategory] || 70,
       },
       sources: result.sources,
+      memorySources: 'memorySources' in result ? result.memorySources : [],
       isResetNotice: isResetCommand,
       suggestedMemory,
     });

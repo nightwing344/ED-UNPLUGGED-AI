@@ -1,20 +1,20 @@
 #!/data/data/com.termux/files/usr/bin/bash
+set -euo pipefail
 
-TYPE="$1"
-TEXT="$2"
-
-BASE=/storage/emulated/0/ED/Memory
+TYPE="${1:-}"
+TEXT="${2:-}"
 
 if [ -z "$TYPE" ] || [ -z "$TEXT" ]; then
-    echo "Usage:"
-    echo "ed-memory-write.sh <folder> <text>"
-    exit 1
+  echo "Usage:"
+  echo "ed-memory-write.sh <folder> <text>"
+  exit 1
 fi
 
-DATE=$(date +%Y-%m-%d-%H%M)
+ROOT="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
+MEMORY="${ED_MEMORY_ROOT:-/storage/emulated/0/ED/Memory}"
 
-echo "$DATE"
-echo "$TEXT" >> "$BASE/$TYPE/$DATE.txt"
-
-echo "Memory saved:"
-echo "$BASE/$TYPE/$DATE.txt"
+python "$ROOT/Runtime/ed-memory-propose.py" \
+  --title "Legacy $TYPE memory proposal" \
+  --content "$TEXT" \
+  --category "$TYPE" \
+  --tags "legacy-write,approval-required"

@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 set -euo pipefail
 
-MEMORY="/storage/emulated/0/ED/Memory"
+MEMORY="${ED_MEMORY_ROOT:-/storage/emulated/0/ED/Memory}"
 
 ACTION="${1:-status}"
 shift || true
@@ -57,9 +57,19 @@ learn)
 
 LESSON="$*"
 
-FILE="$MEMORY/Patterns/lesson-$(date +%Y%m%d-%H%M%S).txt"
+if [ -z "$LESSON" ]; then
+    echo "Lesson content required"
+    exit 1
+fi
 
-echo "$LESSON" > "$FILE"
+RUNTIME="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+
+ED_MEMORY_ROOT="$MEMORY" \
+python "$RUNTIME/ed-memory-propose.py" \
+  --title "ED lesson proposal" \
+  --content "$LESSON" \
+  --category "lesson" \
+  --tags "lesson,approval-required"
 
 echo "✓ Lesson proposal created"
 echo "Approval required"

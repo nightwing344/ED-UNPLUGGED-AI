@@ -2,70 +2,62 @@
 set -euo pipefail
 
 QUERY="${*:-}"
+[ -n "$QUERY" ] || read -r -p "Memory query: " QUERY
 
-if [ -z "$QUERY" ]; then
-    read -r -p "Memory query: " QUERY
-fi
+RUNTIME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MEMORY="${ED_MEMORY_ROOT:-/storage/emulated/0/ED/Memory}"
+ED_ROOT="${ED_ROOT:-/storage/emulated/0/ED}"
 
-MEMORY="/storage/emulated/0/ED/Memory"
-OUTPUT="/storage/emulated/0/ED/Memory/Context/Active/retrieved-memory.txt"
-LOG="/storage/emulated/0/ED/Logs/Memory/retrieval.log"
+ENGINE="$RUNTIME/ed-memory-retrieve.py"
+OUTPUT="$MEMORY/Context/Active/retrieved-memory.txt"
+LOG="$ED_ROOT/Logs/Memory/retrieval.log"
 
-mkdir -p "$(dirname "$LOG")"
+mkdir -p "$(dirname "$OUTPUT")" "$(dirname "$LOG")"
 
 echo "[$(date)] Retrieval: $QUERY" >> "$LOG"
 
-echo
+JSON="$(
+  ED_MEMORY_ROOT="$MEMORY" \
+  python "$ENGINE" "$QUERY" --limit 5
+)"
+
+RETRIEVAL_JSON="$JSON" QUERY="$QUERY" python - "$OUTPUT" <<'PY'
+import json, os, sys
+
+out=sys.argv[1]
+data=json.loads(os.environ["RETRIEVAL_JSON"])
+query=os.environ["QUERY"]
+
+with open(out,"w",encoding="utf-8") as f:
+    f.write("# ED Retrieved Memory Context\n\n")
+    f.write(f"Query:\n{query}\n\nMatches:\n\n")
+
+    for r in data.get("results",[]):
+        f.write("---\n")
+        f.write(f"Source: {r['path']}\n")
+        f.write(f"Score: {r['score']}\n")
+        f.write(f"Line: {r['line']}\n")
+        f.write(f"Preview: {r['preview']}\n\n")
+
+    if not data.get("results"):
+        f.write("No relevant memory match found.\n")
+PY
+
 echo "================================"
 echo " ED MEMORY RETRIEVAL"
 echo "================================"
-
 echo
-echo "Query:"
-echo "$QUERY"
-
+echo "Query: $QUERY"
 echo
-echo "Searching approved memory..."
-
-{
-echo "# ED Retrieved Memory Context"
+echo "Results:"
+echo "$JSON" | python -c '
+import json,sys
+d=json.load(sys.stdin)
+for r in d.get("results",[]):
+    print("- {}  score={}".format(r["path"], r["score"]))
+'
 echo
-echo "Query:"
-echo "$QUERY"
-echo
-echo "Matches:"
-echo
-
-FOUND=0
-
-while IFS= read -r FILE; do
-    if grep -qi "$QUERY" "$FILE" 2>/dev/null; then
-        echo "---"
-        echo "Source:"
-        echo "$FILE"
-        grep -i "$QUERY" "$FILE" 2>/dev/null | head -5
-        FOUND=1
-    fi
-done < <(find "$MEMORY/Approved" "$MEMORY/Projects" "$MEMORY/Decisions" "$MEMORY/Lessons" -type f 2>/dev/null)
-
-if [ "$FOUND" -eq 0 ]; then
-    echo "No approved memory match found."
-fi
-
-echo
-echo "Rules:"
-echo "- Retrieval only"
-echo "- No memory changes"
-echo "- User authority maintained"
-
-} > "$OUTPUT"
-
-echo
-echo "Retrieved context created:"
+echo "Retrieved context:"
 echo "$OUTPUT"
-
 echo
-echo "================================"
-echo " RETRIEVAL COMPLETE"
-echo "================================"
-
+echo "✓ Canonical retrieval engine used"

@@ -104,8 +104,10 @@ def main():
                 best_line = n
                 best_preview = line.strip()[:240]
 
-        start_line = max(1, best_line - 4)
-        end_line = min(len(lines), best_line + 8)
+        # Wide enough to preserve nearby roadmap/context relationships
+        # while still selecting the relevant region of larger files.
+        start_line = max(1, best_line - 8)
+        end_line = min(len(lines), best_line + 24)
 
         excerpt = "\n".join(
             lines[start_line - 1:end_line]

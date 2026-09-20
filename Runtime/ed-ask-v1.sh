@@ -98,7 +98,7 @@ if [ -d "$MEMORY" ] && [ -f "$RUNTIME/ed-memory-retrieve.py" ]; then
     RETRIEVAL_JSON="$(
         ED_MEMORY_ROOT="$MEMORY" \
         python "$RUNTIME/ed-memory-retrieve.py" \
-        "$REQUEST" --limit 2 2>/dev/null || true
+        "${ED_RETRIEVAL_QUERY:-$REQUEST}" --limit 2 2>/dev/null || true
     )"
 
     if [ -n "$RETRIEVAL_JSON" ]; then

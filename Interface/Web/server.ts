@@ -281,7 +281,10 @@ async function generateEDContent(prompt: string, systemInstruction: string, opti
 }
 
 
-async function runLocalED(prompt: string): Promise<{ text: string; memorySources: string[] }> {
+async function runLocalED(
+  prompt: string,
+  retrievalQuery?: string
+): Promise<{ text: string; memorySources: string[] }> {
   const root = path.resolve(process.cwd(), '../..');
 
   return new Promise((resolve, reject) => {
@@ -290,7 +293,10 @@ async function runLocalED(prompt: string): Promise<{ text: string; memorySources
       ['ask', prompt],
       {
         cwd: root,
-        env: { ...process.env, ED_CORE: root },
+        env: { ...process.env, ED_CORE: root,
+          ...(retrievalQuery
+            ? { ED_RETRIEVAL_QUERY: retrievalQuery }
+            : {}) },
         timeout: 180000,
         maxBuffer: 2 * 1024 * 1024,
       },
@@ -774,16 +780,39 @@ Execute your mission thoroughly:
 4. Final Deliverable / Action Plan for ED Core
 `;
 
-    const result = await generateEDContent(
-      prompt,
-      `${MASTER_SYSTEM_PROMPT}\nYou are functioning as a delegated sub-agent within the ED AGENT SYSTEM. Be precise, thorough, and output actionable results.`,
-      { temperature: 0.5 }
-    );
+    let agentText = '';
+    let memorySources: string[] = [];
+    let backend = 'local-ed';
+
+    try {
+      const localResult = await runLocalED(
+        prompt,
+        `${taskTitle}\n${objective}`
+      );
+      agentText = localResult.text;
+      memorySources = localResult.memorySources;
+    } catch (localError) {
+      console.warn(
+        'Local ED agent runtime failed; using Gemini fallback:',
+        localError
+      );
+
+      const fallback = await generateEDContent(
+        prompt,
+        `${MASTER_SYSTEM_PROMPT}\nYou are functioning as a delegated sub-agent within the ED AGENT SYSTEM. Be precise, thorough, and output actionable results.`,
+        { temperature: 0.5 }
+      );
+
+      agentText = fallback.text;
+      backend = 'gemini-fallback';
+    }
 
     res.json({
-      result: result.text,
+      result: agentText,
       agentType,
       taskTitle,
+      memorySources,
+      backend,
     });
   } catch (error: any) {
     console.error('ED Agent Error:', error);

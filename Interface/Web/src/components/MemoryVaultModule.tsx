@@ -64,6 +64,7 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
   onImportJSON,
 }) => {
   const [viewMode, setViewMode] = useState<'graph' | 'cards'>('graph');
+  const [runtimeSearch, setRuntimeSearch] = useState('');
   const [runtimeFileOpen, setRuntimeFileOpen] = useState<string | null>(null);
   const [runtimeFileContent, setRuntimeFileContent] = useState('');
   const [runtimeFileLoading, setRuntimeFileLoading] = useState(false);
@@ -143,6 +144,12 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
     { id: 'context', label: 'Context & Influences' },
     { id: 'unfinished', label: 'Unfinished Work' },
   ];
+
+  const filteredRuntimeFiles = useMemo(() => {
+    const q = runtimeSearch.trim().toLowerCase();
+    if (!q) return runtimeMemoryFiles;
+    return runtimeMemoryFiles.filter((file) => file.toLowerCase().includes(q));
+  }, [runtimeMemoryFiles, runtimeSearch]);
 
   // Map of memories
   const memoryMap = useMemo(() => {
@@ -511,8 +518,15 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
           <span className="font-mono text-xs text-cyan-400">{runtimeMemoryFiles.length} files</span>
         </div>
 
-        <div className="mt-2 space-y-1 font-mono text-[10px] text-slate-400">
-          {runtimeMemoryFiles.slice(0, 5).map((file) => (
+        <input
+          value={runtimeSearch}
+          onChange={(e) => setRuntimeSearch(e.target.value)}
+          placeholder="Search runtime memory..."
+          className="mt-3 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-slate-200 outline-none focus:border-cyan-600"
+        />
+
+        <div className="mt-2 max-h-52 space-y-1 overflow-auto font-mono text-[10px] text-slate-400">
+          {filteredRuntimeFiles.slice(0, 20).map((file) => (
             <button
               key={file}
               onClick={() => openRuntimeFile(file)}
@@ -522,9 +536,13 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
             </button>
           ))}
 
-          {runtimeMemoryFiles.length > 5 && (
+          {filteredRuntimeFiles.length === 0 && (
+            <div className="text-slate-500">No runtime memory files match.</div>
+          )}
+
+          {filteredRuntimeFiles.length > 20 && (
             <div className="text-cyan-500">
-              + {runtimeMemoryFiles.length - 5} more runtime files
+              + {filteredRuntimeFiles.length - 20} more matches
             </div>
           )}
         </div>

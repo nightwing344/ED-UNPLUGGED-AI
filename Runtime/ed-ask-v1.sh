@@ -91,6 +91,7 @@ fi
 # ------------------------------------------------
 
 MEMORY_CONTEXT="No relevant persistent memory was found."
+MATCHES=""
 
 if [ -d "$MEMORY" ]; then
 
@@ -215,6 +216,18 @@ ED RESPONSE:"
 echo "Backend: Ollama"
 echo "Model:   $MODEL"
 echo "Memory:  read-only"
+echo
+echo "MEMORY SOURCES:"
+
+if [ -n "$MATCHES" ]; then
+    while IFS= read -r FILE; do
+        [ -f "$FILE" ] || continue
+        echo "- ${FILE#"$MEMORY"/}"
+    done <<< "$MATCHES"
+else
+    echo "- none"
+fi
+
 echo
 echo "ED RESPONSE:"
 echo

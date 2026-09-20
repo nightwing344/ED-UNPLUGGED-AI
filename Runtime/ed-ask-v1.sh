@@ -3,7 +3,11 @@ set -euo pipefail
 
 ED_CORE="${ED_CORE:-$HOME/ED-Core}"
 RUNTIME="$ED_CORE/Runtime"
-MEMORY="$ED_CORE/Memory"
+if [ -d "/storage/emulated/0/ED/Memory" ]; then
+    MEMORY="${ED_MEMORY_ROOT:-/storage/emulated/0/ED/Memory}"
+else
+    MEMORY="${ED_MEMORY_ROOT:-$ED_CORE/Memory}"
+fi
 REPORTS="$ED_CORE/Reports"
 
 REQUEST="${*:-}"

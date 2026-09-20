@@ -136,6 +136,34 @@ async function generateEDContent(prompt: string, systemInstruction: string, opti
   }
 }
 
+
+async function runLocalED(prompt: string): Promise<string> {
+  const root = path.resolve(process.cwd(), '../..');
+
+  return new Promise((resolve, reject) => {
+    execFile(
+      path.join(root, 'Runtime', 'ED'),
+      ['ask', prompt],
+      {
+        cwd: root,
+        env: { ...process.env, ED_CORE: root },
+        timeout: 180000,
+        maxBuffer: 2 * 1024 * 1024,
+      },
+      (error, stdout) => {
+        if (error) return reject(error);
+
+        const clean = stdout.replace(/\x1B\[[0-?]*[ -/]*[@-~]/g, '');
+        const match = clean.match(/ED RESPONSE:\s*([\s\S]*?)\s*=+\s*RESPONSE COMPLETE/);
+        const text = (match?.[1] || clean).trim();
+
+        if (!text) return reject(new Error('ED runtime returned empty response'));
+        resolve(text);
+      }
+    );
+  });
+}
+
 // 1. Health check
 app.get('/api/health', (req, res) => {
   res.json({
@@ -183,9 +211,24 @@ app.post('/api/ed/chat', async (req, res) => {
       ? `Recent Conversation:\n${formattedHistory}\n\nUSER MESSAGE:\n${message}`
       : `USER MESSAGE:\n${message}`;
 
-    const result = await generateEDContent(userPrompt, dynamicSystemPrompt, {
-      temperature: mode === 'outside_box' ? 0.9 : 0.7,
-    });
+    let result;
+
+    try {
+      const localPrompt = memoryContext
+        ? `${userPrompt}\n\nACTIVE MEMORY:\n${memoryContext}`
+        : userPrompt;
+
+      result = {
+        text: await runLocalED(localPrompt),
+        sources: [],
+      };
+    } catch (err) {
+      console.error('Local ED runtime failed; using Gemini fallback:', err);
+
+      result = await generateEDContent(userPrompt, dynamicSystemPrompt, {
+        temperature: mode === 'outside_box' ? 0.9 : 0.7,
+      });
+    }
 
     const replyText = result.text;
 

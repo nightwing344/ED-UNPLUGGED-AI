@@ -163,7 +163,21 @@ echo "ED RESPONSE:"
 echo
 
 RESPONSE="$(
-    ollama run "$MODEL" "$PROMPT" 2>&1
+    MODEL="$MODEL" PROMPT="$PROMPT" python - <<'PYAPI'
+import json, os, urllib.request
+data=json.dumps({
+    "model": os.environ["MODEL"],
+    "prompt": os.environ["PROMPT"],
+    "stream": False
+}).encode()
+req=urllib.request.Request(
+    "http://127.0.0.1:11434/api/generate",
+    data=data,
+    headers={"Content-Type":"application/json"}
+)
+with urllib.request.urlopen(req, timeout=120) as r:
+    print(json.load(r).get("response",""))
+PYAPI
 )"
 RC=$?
 

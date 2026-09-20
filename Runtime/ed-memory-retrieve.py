@@ -32,6 +32,17 @@ def main():
 
             path = os.path.join(base, name)
             rel = os.path.relpath(path, args.root)
+            rel_norm = rel.replace(os.sep, "/").lower()
+
+            # Unapproved/pending memory must never enter active retrieval.
+            if rel_norm.startswith("inbox/"):
+                continue
+
+            if rel_norm.startswith("proposals/pending/"):
+                continue
+
+            if rel_norm.startswith("pending/"):
+                continue
 
             if rel == "Context/Active/retrieved-memory.txt":
                 continue
@@ -56,11 +67,14 @@ def main():
     for path, rel, text in docs:
         lower = text.lower()
         score = 0.0
+        matched = False
 
         for w in words:
             count = lower.count(w)
             if not count:
                 continue
+
+            matched = True
 
             idf = math.log((total + 1) / (df[w] + 1)) + 1
 
@@ -75,6 +89,11 @@ def main():
             head = "\n".join(text.splitlines()[:6]).lower()
             if w in head:
                 score += idf * 5
+
+        # Authority bonuses may rank relevant memories higher,
+        # but may never make an unrelated file a search result.
+        if not matched:
+            continue
 
         lp = "/" + rel.lower()
 

@@ -671,8 +671,19 @@ app.post('/api/ed/chat', async (req, res) => {
     // Auto-detect suggested memory
     let suggestedMemory: any = undefined;
     if (isMemoryIntent && message.length > 8) {
+      const suggestedTitle = message
+        .replace(
+          /^\s*(?:remember(?:\s+(?:that|this))?|store\s+this)\s*:?\s*/i,
+          ''
+        )
+        .replace(/^[:\-–—]\s*/, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 80)
+        .trim() || 'Memory proposal';
+
       suggestedMemory = {
-        title: message.slice(0, 45).replace(/^(remember (that|this)?|store this:?)\s*/i, ''),
+        title: suggestedTitle,
         category: /stack|database|code|api/i.test(message) ? 'architecture' : /prefer|rule|taste/i.test(message) ? 'preference' : 'project',
         description: message,
         tags: ['user-preference', 'context', 'auto-captured'],

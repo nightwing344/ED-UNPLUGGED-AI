@@ -13,6 +13,11 @@ HEALTH="$URL/api/health"
 
 mkdir -p "$STATE"
 
+# Keep the local ED runtime alive while the Android UI is foregrounded.
+if command -v termux-wake-lock >/dev/null 2>&1; then
+  termux-wake-lock >/dev/null 2>&1 || true
+fi
+
 health() {
   curl -fsS --max-time 3 "$HEALTH" 2>/dev/null
 }

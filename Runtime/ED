@@ -1,8 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 set -euo pipefail
 
-BASE="$HOME/ED-Core"
-RUNTIME="$BASE/Runtime"
+RUNTIME="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+BASE="$(dirname "$RUNTIME")"
 
 COMMAND="${1:-status}"
 
@@ -31,10 +31,10 @@ ask)
 
 shift || true
 
-if [ -f "$RUNTIME/ED-response-engine-v1.sh" ]; then
-    "$RUNTIME/ED-response-engine-v1.sh" "$@"
+if [ -x "$RUNTIME/ed-ask-v1.sh" ]; then
+    "$RUNTIME/ed-ask-v1.sh" "$@"
 else
-    echo "ED Response Engine unavailable"
+    echo "ED Ask Runtime unavailable"
 fi
 
 ;;

@@ -95,31 +95,84 @@ MEMORY_CONTEXT="No relevant persistent memory was found."
 if [ -d "$MEMORY" ]; then
 
     MATCHES="$(
-        grep -RilF \
-            --exclude='*.log' \
-            --exclude='memory-links.graph' \
-            "$REQUEST" \
-            "$MEMORY" \
-            2>/dev/null |
-        head -3 || true
+        python - "$MEMORY" "$REQUEST" <<'PYMEM'
+import os, re, sys
+
+root, request = sys.argv[1], sys.argv[2]
+
+stop = {
+    "the","and","for","are","but","not","you","your","with",
+    "this","that","what","when","where","which","who","why",
+    "how","from","have","has","had","would","could","should",
+    "can","will","about","into","tell","show","give","please"
+}
+
+words = [
+    w for w in re.findall(r"[a-z0-9._-]+", request.lower())
+    if (len(w) >= 3 or w == "ed") and w not in stop
+]
+
+words = list(dict.fromkeys(words))[:12]
+scored = []
+
+for base, dirs, files in os.walk(root):
+    for name in files:
+        if name.endswith(".log") or name == "memory-links.graph":
+            continue
+
+        path = os.path.join(base, name)
+
+        try:
+            with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                text = f.read(262144).lower()
+        except Exception:
+            continue
+
+        score = 0
+
+        for word in words:
+            if word in text:
+                score += 4
+                score += min(text.count(word), 3)
+
+            if word in path.lower():
+                score += 6
+
+        lowpath = path.lower()
+
+        if "/projects/" in lowpath:
+            score += 12
+
+        if "/context/active/" in lowpath:
+            score -= 6
+
+        if "genesis memory" in text:
+            score += 10
+
+        if "memory engine" in text:
+            score += 10
+
+        if score > 0:
+            scored.append((score, path))
+
+for score, path in sorted(scored, key=lambda x: (-x[0], x[1]))[:2]:
+    print(path)
+PYMEM
     )"
 
     if [ -n "$MATCHES" ]; then
-
         MEMORY_CONTEXT=""
 
         while IFS= read -r FILE; do
             [ -f "$FILE" ] || continue
 
-            CONTENT="$(
-                head -40 "$FILE" 2>/dev/null || true
-            )"
+            CONTENT="$(head -40 "$FILE" 2>/dev/null || true)"
+            REL="${FILE#"$MEMORY"/}"
 
             MEMORY_CONTEXT="${MEMORY_CONTEXT}
---- MEMORY SOURCE ---
+--- MEMORY SOURCE: $REL ---
 $CONTENT
 "
-
         done <<< "$MATCHES"
     fi
 fi

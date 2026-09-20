@@ -170,6 +170,147 @@ app.get('/api/ed/memory/search', (req, res) => {
   );
 });
 
+
+app.get('/api/ed/memory/pending', (req, res) => {
+  const remote = req.socket.remoteAddress || '';
+  const local =
+    remote === '127.0.0.1' ||
+    remote === '::1' ||
+    remote.startsWith('::ffff:127.');
+
+  if (!local) {
+    return res.status(403).json({
+      ok: false,
+      error: 'Local access only',
+    });
+  }
+
+  const root = path.resolve(
+    process.env.ED_MEMORY_ROOT ||
+    '/storage/emulated/0/ED/Memory'
+  );
+
+  const pendingDir = path.join(root, 'Inbox', 'Pending');
+
+  try {
+    if (!fs.existsSync(pendingDir)) {
+      return res.json({
+        ok: true,
+        count: 0,
+        proposals: [],
+      });
+    }
+
+    const proposals = fs.readdirSync(pendingDir)
+      .filter((name) => name.endsWith('.json'))
+      .map((name) => {
+        try {
+          return JSON.parse(
+            fs.readFileSync(path.join(pendingDir, name), 'utf8')
+          );
+        } catch {
+          return null;
+        }
+      })
+      .filter((item) =>
+        item &&
+        item.status === 'pending' &&
+        typeof item.id === 'string'
+      )
+      .sort((a, b) =>
+        String(b.createdAt || '').localeCompare(
+          String(a.createdAt || '')
+        )
+      );
+
+    res.json({
+      ok: true,
+      count: proposals.length,
+      proposals,
+    });
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      error: String(error),
+    });
+  }
+});
+
+app.post('/api/ed/memory/review', (req, res) => {
+  const remote = req.socket.remoteAddress || '';
+  const local =
+    remote === '127.0.0.1' ||
+    remote === '::1' ||
+    remote.startsWith('::ffff:127.');
+
+  if (!local) {
+    return res.status(403).json({
+      ok: false,
+      error: 'Local access only',
+    });
+  }
+
+  const action = String(req.body?.action || '');
+  const id = String(req.body?.id || '');
+
+  if (!['approve', 'reject'].includes(action)) {
+    return res.status(400).json({
+      ok: false,
+      error: 'Invalid review action',
+    });
+  }
+
+  if (!/^MEM-[A-Za-z0-9-]+$/.test(id)) {
+    return res.status(400).json({
+      ok: false,
+      error: 'Invalid memory proposal ID',
+    });
+  }
+
+  const root = path.resolve(
+    process.env.ED_MEMORY_ROOT ||
+    '/storage/emulated/0/ED/Memory'
+  );
+
+  const projectRoot = path.resolve(process.cwd(), '../..');
+  const engine = path.join(
+    projectRoot,
+    'Runtime',
+    'ed-memory-review.py'
+  );
+
+  execFile(
+    'python',
+    [engine, action, id],
+    {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        ED_MEMORY_ROOT: root,
+      },
+      timeout: 15000,
+      maxBuffer: 1024 * 1024,
+    },
+    (error, stdout, stderr) => {
+      if (error) {
+        return res.status(400).json({
+          ok: false,
+          error: (stderr || error.message).trim(),
+        });
+      }
+
+      try {
+        res.json(JSON.parse(stdout));
+      } catch (parseError) {
+        res.status(500).json({
+          ok: false,
+          error: `Invalid review response: ${String(parseError)}`,
+        });
+      }
+    }
+  );
+});
+
 // Lazy Google GenAI Client
 let genAIClient: GoogleGenAI | null = null;
 function getGenAI(): GoogleGenAI | null {

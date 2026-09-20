@@ -75,6 +75,80 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
   const [runtimeFileContent, setRuntimeFileContent] = useState('');
   const [runtimeFileLoading, setRuntimeFileLoading] = useState(false);
 
+  const [pendingMemoryProposals, setPendingMemoryProposals] = useState<Array<{
+    id: string;
+    title: string;
+    category?: string;
+    content: string;
+    tags?: string[];
+    createdAt?: string;
+  }>>([]);
+  const [pendingMemoryLoading, setPendingMemoryLoading] = useState(false);
+  const [reviewingMemoryId, setReviewingMemoryId] = useState<string | null>(null);
+  const [memoryReviewNotice, setMemoryReviewNotice] = useState<string | null>(null);
+
+  const loadPendingMemories = async () => {
+    setPendingMemoryLoading(true);
+
+    try {
+      const r = await fetch('/api/ed/memory/pending');
+      const d = await r.json();
+
+      if (d?.ok && Array.isArray(d.proposals)) {
+        setPendingMemoryProposals(d.proposals);
+      } else {
+        setPendingMemoryProposals([]);
+      }
+    } catch {
+      setPendingMemoryProposals([]);
+      setMemoryReviewNotice('Unable to load pending memory proposals.');
+    } finally {
+      setPendingMemoryLoading(false);
+    }
+  };
+
+  const reviewPendingMemory = async (
+    id: string,
+    action: 'approve' | 'reject'
+  ) => {
+    setReviewingMemoryId(id);
+    setMemoryReviewNotice(null);
+
+    try {
+      const r = await fetch('/api/ed/memory/review', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, action }),
+      });
+
+      const d = await r.json();
+
+      if (!r.ok || !d?.ok) {
+        throw new Error(d?.error || 'Memory review failed.');
+      }
+
+      setPendingMemoryProposals((prev) =>
+        prev.filter((item) => item.id !== id)
+      );
+
+      setMemoryReviewNotice(
+        action === 'approve'
+          ? 'Memory approved and activated.'
+          : 'Memory rejected and archived.'
+      );
+    } catch (error: any) {
+      setMemoryReviewNotice(
+        error?.message || 'Memory review failed.'
+      );
+    } finally {
+      setReviewingMemoryId(null);
+    }
+  };
+
+  useEffect(() => {
+    loadPendingMemories();
+  }, []);
+
   const openRuntimeFile = async (file: string) => {
     setRuntimeFileOpen(file);
     setRuntimeFileLoading(true);
@@ -557,6 +631,98 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
 
   return (
     <div className="flex-1 flex flex-col h-full bg-slate-950 overflow-y-auto pb-20 p-4 md:p-6" id="memory-vault-module">
+      <div className="mb-4 rounded-xl border border-amber-800/60 bg-amber-950/20 p-3">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <div className="text-xs font-semibold text-amber-300">
+              Pending Memory Review
+            </div>
+            <div className="mt-0.5 text-[10px] text-slate-500">
+              Nothing becomes active memory until you approve it.
+            </div>
+          </div>
+
+          <button
+            onClick={loadPendingMemories}
+            disabled={pendingMemoryLoading}
+            className="rounded-lg border border-slate-700 p-1.5 text-slate-400 hover:text-amber-300 disabled:opacity-50"
+            title="Refresh pending memory"
+          >
+            <RefreshCw className={`h-3.5 w-3.5 ${pendingMemoryLoading ? 'animate-spin' : ''}`} />
+          </button>
+        </div>
+
+        {memoryReviewNotice && (
+          <div className="mt-2 rounded-lg border border-slate-800 bg-slate-950/60 px-2.5 py-2 text-[10px] text-slate-300">
+            {memoryReviewNotice}
+          </div>
+        )}
+
+        <div className="mt-3 space-y-2">
+          {pendingMemoryProposals.map((proposal) => (
+            <div
+              key={proposal.id}
+              className="rounded-lg border border-amber-900/50 bg-slate-950/70 p-3"
+            >
+              <div className="flex flex-wrap items-start justify-between gap-2">
+                <div>
+                  <div className="text-xs font-semibold text-slate-200">
+                    {proposal.title || 'Untitled Memory'}
+                  </div>
+                  <div className="mt-1 font-mono text-[9px] text-slate-500">
+                    {proposal.id}
+                    {proposal.category ? ` • ${proposal.category}` : ''}
+                  </div>
+                </div>
+
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => reviewPendingMemory(proposal.id, 'approve')}
+                    disabled={reviewingMemoryId === proposal.id}
+                    className="flex items-center gap-1 rounded-lg border border-emerald-700/60 bg-emerald-950/40 px-2.5 py-1.5 text-[10px] font-semibold text-emerald-300 hover:bg-emerald-900/40 disabled:opacity-50"
+                  >
+                    <Check className="h-3 w-3" />
+                    Approve
+                  </button>
+
+                  <button
+                    onClick={() => reviewPendingMemory(proposal.id, 'reject')}
+                    disabled={reviewingMemoryId === proposal.id}
+                    className="flex items-center gap-1 rounded-lg border border-red-800/60 bg-red-950/30 px-2.5 py-1.5 text-[10px] font-semibold text-red-300 hover:bg-red-900/30 disabled:opacity-50"
+                  >
+                    <X className="h-3 w-3" />
+                    Reject
+                  </button>
+                </div>
+              </div>
+
+              <div className="mt-2 whitespace-pre-wrap text-[11px] leading-relaxed text-slate-300">
+                {proposal.content}
+              </div>
+
+              {proposal.tags && proposal.tags.length > 0 && (
+                <div className="mt-2 flex flex-wrap gap-1">
+                  {proposal.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded border border-slate-700 bg-slate-900 px-1.5 py-0.5 text-[9px] text-slate-400"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+
+          {!pendingMemoryLoading && pendingMemoryProposals.length === 0 && (
+            <div className="text-[10px] text-slate-500">
+              No memory proposals are waiting for review.
+            </div>
+          )}
+        </div>
+      </div>
+
       <div className="mb-4 rounded-xl border border-cyan-900/60 bg-cyan-950/20 p-3">
         <div className="flex items-center justify-between">
           <span className="text-xs font-semibold text-cyan-300">ED Runtime Memory</span>

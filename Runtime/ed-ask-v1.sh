@@ -127,8 +127,29 @@ PYMATCH
         while IFS= read -r FILE; do
             [ -f "$FILE" ] || continue
 
-            CONTENT="$(head -40 "$FILE" 2>/dev/null || true)"
             REL="${FILE#"$MEMORY"/}"
+
+            CONTENT="$(
+                RETRIEVAL_JSON="$RETRIEVAL_JSON" REL="$REL" python - <<'PYEXCERPT'
+import json, os
+
+try:
+    data=json.loads(os.environ["RETRIEVAL_JSON"])
+except Exception:
+    raise SystemExit(0)
+
+rel=os.environ["REL"]
+
+for item in data.get("results", []):
+    if item.get("path") == rel:
+        print(item.get("excerpt", ""))
+        break
+PYEXCERPT
+            )"
+
+            if [ -z "$CONTENT" ]; then
+                CONTENT="$(head -40 "$FILE" 2>/dev/null || true)"
+            fi
 
             MEMORY_CONTEXT="${MEMORY_CONTEXT}
 --- MEMORY SOURCE: $REL ---

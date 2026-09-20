@@ -92,22 +92,33 @@ def main():
         if score <= 0:
             continue
 
+        lines = text.splitlines()
         best_line = 1
         best_preview = ""
         best_hits = -1
 
-        for n, line in enumerate(text.splitlines(), 1):
+        for n, line in enumerate(lines, 1):
             hits = sum(line.lower().count(w) for w in words)
             if hits > best_hits:
                 best_hits = hits
                 best_line = n
                 best_preview = line.strip()[:240]
 
+        start_line = max(1, best_line - 4)
+        end_line = min(len(lines), best_line + 8)
+
+        excerpt = "\n".join(
+            lines[start_line - 1:end_line]
+        ).strip()
+
         results.append({
             "path": rel,
             "score": round(score, 2),
             "line": best_line,
-            "preview": best_preview
+            "preview": best_preview,
+            "startLine": start_line,
+            "endLine": end_line,
+            "excerpt": excerpt
         })
 
     results.sort(key=lambda x: (-x["score"], x["path"]))

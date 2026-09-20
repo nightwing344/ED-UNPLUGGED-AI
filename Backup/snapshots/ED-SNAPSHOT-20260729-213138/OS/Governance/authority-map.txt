@@ -1,0 +1,31 @@
+================================
+ ED AUTHORITY MAP v1.0
+================================
+
+IDENTITY
+   |
+   v
+SECURITY VALIDATION
+   |
+   v
+AUTHORITY ENGINE
+   |
+   v
+PERMISSION CHECK
+   |
+   +----------------+
+   |                |
+   v                v
+
+KERNEL CHANGE    PLUGIN CHANGE
+
+   |                |
+   v                v
+
+AUDIT REQUIRED   APPROVED
+
+
+MODE:
+
+CONTROLLED EVOLUTION
+

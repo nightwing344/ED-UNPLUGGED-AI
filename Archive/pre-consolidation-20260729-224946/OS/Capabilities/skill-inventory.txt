@@ -1,0 +1,33 @@
+================================
+ ED SKILL INVENTORY
+================================
+
+
+ACTIVE SKILLS:
+
+Problem Solving
+
+Research
+
+Planning
+
+Automation
+
+Analysis
+
+Learning
+
+Simulation
+
+System Management
+
+
+Skill Tracking:
+
+ENABLED
+
+
+STATUS:
+
+ACTIVE
+

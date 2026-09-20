@@ -1,0 +1,14 @@
+ED KERNEL RULES
+
+CORE:
+Protected
+
+EXTENSIONS:
+Upgradeable
+
+ALL CHANGES:
+Require audit
+
+ALL RELEASES:
+Require backup
+

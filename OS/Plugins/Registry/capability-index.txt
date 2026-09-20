@@ -1,0 +1,19 @@
+================================
+ ED CAPABILITY INDEX
+================================
+
+CAPABILITIES:
+
+Economic Analysis
+Simulation
+Research
+External Connections
+Digital Twin Processing
+Interface Extensions
+
+
+Discovery:
+
+ENABLED
+
+

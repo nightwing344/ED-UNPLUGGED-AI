@@ -1,0 +1,16 @@
+ED Evaluation & Quality Engine v1.0
+
+Installed:
+20260729-162459
+
+Connected:
+
+✓ Workflow Engine
+✓ Decision Engine
+✓ Knowledge Graph
+✓ Learning Engine
+✓ Governance
+
+Status:
+ACTIVE
+

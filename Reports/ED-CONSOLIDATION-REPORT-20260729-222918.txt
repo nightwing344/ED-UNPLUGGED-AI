@@ -1,0 +1,295 @@
+================================
+ ED CONSOLIDATION REPORT v1.0
+================================
+
+GENERATED:
+Wed Jul 29 22:29:18 CDT 2026
+
+================================
+ KERNEL
+================================
+KERNEL:
+ED KERNEL CONFIRMED
+
+ed-runtime.sh
+ed-executive-brain.sh
+ed-router.sh
+ed-agent-runtime.sh
+ed-memory.sh
+ed-knowledge-engine.sh
+ed-knowledge-graph.sh
+ed-learning-engine.sh
+ed-security-manager.sh
+ed-security-vault.sh
+ed-mission-engine.sh
+ed-mission-manager.sh
+ed-mission-orchestrator.sh
+
+PLUGINS:
+ED PLUGIN CONFIRMED
+
+ed-economic-engine.sh
+
+================================
+ PLUGINS
+================================
+PLUGINS:
+ED PLUGIN CONFIRMED
+
+ed-economic-engine.sh
+ed-economic-intelligence-v1.sh
+ed-digital-twin.sh
+ed-digital-twin-v2.sh
+ed-simulation-engine.sh
+ed-research-engine-v1.sh
+ed-interface-gateway.sh
+ed-interface-manager.sh
+ed-connector-manager.sh
+
+REMAINING REVIEW:
+ed-action-gateway.sh | PLUGIN REVIEW
+ed-adaptive-director.sh | PLUGIN REVIEW
+ed-adaptive-router.sh | PLUGIN REVIEW
+ed-agent-bus.sh | PLUGIN REVIEW
+ed-agent-runtime.sh | KERNEL REVIEW
+ed-agent-skill-binding.sh | PLUGIN REVIEW
+ed-agent-swarm-v2.sh | PLUGIN REVIEW
+
+================================
+ MODULE DECISIONS
+================================
+================================
+ ED MODULE DECISION ENGINE v1.0
+================================
+ed-action-gateway.sh | PLUGIN REVIEW
+ed-adaptive-director.sh | PLUGIN REVIEW
+ed-adaptive-router.sh | PLUGIN REVIEW
+ed-agent-activation-manager-v1.sh | UTILITY
+ed-agent-bus.sh | PLUGIN REVIEW
+ed-agent-manager.sh | UTILITY
+ed-agent-package-manager.sh | UTILITY
+ed-agent-runtime.sh | KERNEL REVIEW
+ed-agent-skill-binding.sh | PLUGIN REVIEW
+ed-agent-skill-manager.sh | UTILITY
+ed-agent-swarm-v2.sh | PLUGIN REVIEW
+ed-agent-swarm.sh | PLUGIN REVIEW
+ed-agent-template-factory.sh | PLUGIN REVIEW
+ed-agent-worker.sh | PLUGIN REVIEW
+ed-airdrop-engine-v1.sh | PLUGIN REVIEW
+ed-application-factory.sh | PLUGIN REVIEW
+ed-assistant-loop.sh | PLUGIN REVIEW
+ed-automation-engine.sh | PLUGIN REVIEW
+ed-autonomous-loop.sh | PLUGIN REVIEW
+ed-autonomous-operations.sh | PLUGIN REVIEW
+ed-autonomous-task-router.sh | PLUGIN REVIEW
+ed-backup-engine.sh | ARCHIVE REVIEW
+ed-boot-sequence-manager-v1.sh | UTILITY
+ed-build-audit.sh | PLUGIN REVIEW
+ed-capability-classifier-v2.sh | PLUGIN REVIEW
+ed-capability-registry.sh | PLUGIN REVIEW
+ed-central-command-v1.sh | PLUGIN REVIEW
+ed-collaboration-engine.sh | PLUGIN REVIEW
+ed-command-center-v2.sh | PLUGIN REVIEW
+ed-command-center-v3.sh | PLUGIN REVIEW
+ed-command-center.sh | PLUGIN REVIEW
+ed-companion-engine.sh | PLUGIN REVIEW
+ed-confidence-gate.sh | PLUGIN REVIEW
+ed-config.sh | PLUGIN REVIEW
+ed-connector-deployment-manager.sh | UTILITY
+ed-connector-manager.sh | UTILITY
+ed-console-v1.1.sh | PLUGIN REVIEW
+ed-consolidation-engine-v1.sh | PLUGIN REVIEW
+ed-conversation-engine.sh | PLUGIN REVIEW
+ed-curiosity-engine.sh | PLUGIN REVIEW
+ed-curiosity.sh | PLUGIN REVIEW
+ed-dashboard-engine.sh | PLUGIN REVIEW
+ed-dashboard-status.sh | UTILITY
+ed-dashboard.sh | PLUGIN REVIEW
+ed-decision-engine-v2.sh | PLUGIN REVIEW
+ed-decision-engine.sh | PLUGIN REVIEW
+ed-decision-intelligence-v2.sh | PLUGIN REVIEW
+ed-dependency-engine-v1.sh | PLUGIN REVIEW
+ed-dependency-intelligence-v1.sh | PLUGIN REVIEW
+ed-developer-manager.sh | UTILITY
+ed-digital-twin-v2.sh | PLUGIN REVIEW
+ed-digital-twin.sh | PLUGIN REVIEW
+ed-director-bridge.sh | UTILITY
+ed-director-skill-bridge.sh | UTILITY
+ed-economic-engine.sh | PLUGIN REVIEW
+ed-economic-intelligence-v1.sh | PLUGIN REVIEW
+ed-environment.sh | PLUGIN REVIEW
+ed-evaluation-engine.sh | PLUGIN REVIEW
+ed-execution-bridge.sh | UTILITY
+ed-executive-brain.sh | PLUGIN REVIEW
+ed-experience-memory.sh | PLUGIN REVIEW
+ed-goal-engine.sh | PLUGIN REVIEW
+ed-governance-check.sh | KERNEL REVIEW
+ed-governance-engine-v2.sh | KERNEL REVIEW
+ed-governance-engine.sh | KERNEL REVIEW
+ed-governance-gate.sh | KERNEL REVIEW
+ed-governance-runtime-status.sh | KERNEL REVIEW
+ed-governance-security-authority-v1.sh | KERNEL REVIEW
+ed-governance-status.sh | KERNEL REVIEW
+ed-governance.sh | KERNEL REVIEW
+ed-graph-bridge.sh | UTILITY
+ed-health-monitor-v1.sh | PLUGIN REVIEW
+ed-health-monitor.sh | PLUGIN REVIEW
+ed-identity.sh | PLUGIN REVIEW
+ed-improvement-proposal.sh | PLUGIN REVIEW
+ed-integration-hub.sh | PLUGIN REVIEW
+ed-integration-manager.sh | UTILITY
+ed-intelligence-routing-layer-v1.sh | PLUGIN REVIEW
+ed-intent-router.sh | PLUGIN REVIEW
+ed-interface-gateway-v1.sh | PLUGIN REVIEW
+ed-interface-gateway.sh | PLUGIN REVIEW
+ed-interface-manager.sh | UTILITY
+ed-kernel-authority-engine-v1.sh | KERNEL REVIEW
+ed-kernel-blueprint-v1.sh | KERNEL REVIEW
+ed-kernel-consolidation-engine-v1.sh | KERNEL REVIEW
+ed-kernel-governance-gate-v1.sh | KERNEL REVIEW
+ed-kernel-merge-planner-v1.sh | KERNEL REVIEW
+ed-kernel-registry-v1.sh | KERNEL REVIEW
+ed-kernel-runtime-bridge-v1.sh | KERNEL REVIEW
+ed-knowledge-engine.sh | PLUGIN REVIEW
+ed-knowledge-graph-v2.sh | PLUGIN REVIEW
+ed-knowledge-graph.sh | PLUGIN REVIEW
+ed-layer-verification-engine-v1.sh | PLUGIN REVIEW
+ed-learning-engine.sh | PLUGIN REVIEW
+ed-learning-feedback-loop.sh | PLUGIN REVIEW
+ed-learning-knowledge-bridge.sh | UTILITY
+ed-learning-loop.sh | PLUGIN REVIEW
+ed-learning-pipeline.sh | PLUGIN REVIEW
+ed-lesson-log.sh | PLUGIN REVIEW
+ed-listen.sh | PLUGIN REVIEW
+ed-live-command-bridge.sh | UTILITY
+ed-live-response-loop.sh | PLUGIN REVIEW
+ed-master-audit-v2.sh | PLUGIN REVIEW
+ed-memory-consolidation-engine-v1.sh | PLUGIN REVIEW
+ed-memory-intelligence-v2.sh | PLUGIN REVIEW
+ed-memory-intelligence-v3.sh | PLUGIN REVIEW
+ed-memory-intelligence.sh | PLUGIN REVIEW
+ed-memory-request.sh | PLUGIN REVIEW
+ed-memory-retrieval-status.sh | UTILITY
+ed-memory-retrieve.sh | PLUGIN REVIEW
+ed-memory-status.sh | UTILITY
+ed-memory.sh | PLUGIN REVIEW
+ed-migration-controller-v1.sh | PLUGIN REVIEW
+ed-mission-control-v2.sh | PLUGIN REVIEW
+ed-mission-engine.sh | PLUGIN REVIEW
+ed-mission-manager.sh | UTILITY
+ed-mission-memory.sh | PLUGIN REVIEW
+ed-mission-orchestrator.sh | PLUGIN REVIEW
+ed-mission-planner.sh | PLUGIN REVIEW
+ed-model-benchmark.sh | PLUGIN REVIEW
+ed-model-connector.sh | PLUGIN REVIEW
+ed-model-router-v2.sh | PLUGIN REVIEW
+ed-model-router.sh | PLUGIN REVIEW
+ed-module-classification-engine-v1.sh | PLUGIN REVIEW
+ed-module-decision-engine-v1.sh | PLUGIN REVIEW
+ed-module-registry-v1.sh | PLUGIN REVIEW
+ed-network-node.sh | PLUGIN REVIEW
+ed-node-manager.sh | UTILITY
+ed-node-network.sh | PLUGIN REVIEW
+ed-orchestrator.sh | PLUGIN REVIEW
+ed-os-agent-network-v1.sh | PLUGIN REVIEW
+ed-os-agent-orchestration-v1.sh | PLUGIN REVIEW
+ed-os-airdrop-engine-v1.sh | PLUGIN REVIEW
+ed-os-backup-authority-v1.sh | ARCHIVE REVIEW
+ed-os-backup-recovery-v1.sh | ARCHIVE REVIEW
+ed-os-boot-orchestrator-v1.sh | PLUGIN REVIEW
+ed-os-capability-evolution-v1.sh | PLUGIN REVIEW
+ed-os-constructor-v1.sh | PLUGIN REVIEW
+ed-os-digital-twin-v1.sh | PLUGIN REVIEW
+ed-os-economic-engine-v1.sh | PLUGIN REVIEW
+ed-os-governance-authority-v1.sh | KERNEL REVIEW
+ed-os-health-monitor-v1.sh | PLUGIN REVIEW
+ed-os-identity-reputation-v1.sh | PLUGIN REVIEW
+ed-os-intelligence-fusion-v1.sh | PLUGIN REVIEW
+ed-os-marketplace-engine-v1.sh | PLUGIN REVIEW
+ed-os-memory-fabric-v1.sh | PLUGIN REVIEW
+ed-os-migration-controller-v1.sh | PLUGIN REVIEW
+ed-os-mission-control-v1.sh | PLUGIN REVIEW
+ed-os-network-fabric-v1.sh | PLUGIN REVIEW
+ed-os-plugin-runtime-v1.sh | KERNEL REVIEW
+ed-os-unified-registry-v1.sh | PLUGIN REVIEW
+ed-personal-os.sh | PLUGIN REVIEW
+ed-planning-engine.sh | PLUGIN REVIEW
+ed-plugin-extension-manager-v1.sh | UTILITY
+ed-plugin-migration-engine-v1.sh | PLUGIN REVIEW
+ed-product-intelligence.sh | PLUGIN REVIEW
+ed-profile-gate.sh | PLUGIN REVIEW
+ed-profile-reset.sh | PLUGIN REVIEW
+ed-profile-status.sh | UTILITY
+ed-profile-switch.sh | PLUGIN REVIEW
+ed-question.sh | PLUGIN REVIEW
+ed-registry-status.sh | UTILITY
+ed-reputation-engine-v1.sh | PLUGIN REVIEW
+ed-reputation-engine.sh | PLUGIN REVIEW
+ed-research-engine-v1.sh | PLUGIN REVIEW
+ed-response-display.sh | PLUGIN REVIEW
+ed-response-engine.sh | PLUGIN REVIEW
+ed-response-status.sh | UTILITY
+ed-router.sh | PLUGIN REVIEW
+ed-runtime-secure.sh | KERNEL REVIEW
+ed-runtime-status.sh | KERNEL REVIEW
+ed-runtime.sh | KERNEL REVIEW
+ed-security-manager.sh | KERNEL REVIEW
+ed-security-vault.sh | KERNEL REVIEW
+ed-self-check.sh | PLUGIN REVIEW
+ed-self-governance.sh | KERNEL REVIEW
+ed-self-healing.sh | PLUGIN REVIEW
+ed-self-improvement-engine.sh | PLUGIN REVIEW
+ed-self-improvement-loop.sh | PLUGIN REVIEW
+ed-self-improvement.sh | PLUGIN REVIEW
+ed-self-training-loop.sh | PLUGIN REVIEW
+ed-service-connector.sh | PLUGIN REVIEW
+ed-service-manager.sh | UTILITY
+ed-simulation-engine.sh | PLUGIN REVIEW
+ed-skill-bridge-status.sh | UTILITY
+ed-skill-evolution.sh | PLUGIN REVIEW
+ed-skill-manager.sh | UTILITY
+ed-skill-scan.sh | PLUGIN REVIEW
+ed-skills-status.sh | UTILITY
+ed-skills.sh | PLUGIN REVIEW
+ed-snapshot-manager-v1.sh | UTILITY
+ed-snapshot-migration-readiness-v1.sh | PLUGIN REVIEW
+ed-snapshot-recovery-v2.sh | PLUGIN REVIEW
+ed-speak.sh | PLUGIN REVIEW
+ed-specialist-consult.sh | PLUGIN REVIEW
+ed-status.sh | UTILITY
+ed-swarm-coordinator.sh | PLUGIN REVIEW
+ed-swarm-intelligence.sh | PLUGIN REVIEW
+ed-swarm-mission-execution.sh | PLUGIN REVIEW
+ed-system-architecture-composer-v1.sh | PLUGIN REVIEW
+ed-task-queue.sh | PLUGIN REVIEW
+ed-tool-connectors.sh | PLUGIN REVIEW
+ed-tool-status.sh | UTILITY
+ed-voice-engine.sh | PLUGIN REVIEW
+ed-voice-runtime.sh | KERNEL REVIEW
+ed-wakeword.sh | PLUGIN REVIEW
+ed-web-interface-status.sh | UTILITY
+ed-workflow-engine.sh | PLUGIN REVIEW
+ed-workflow-orchestrator.sh | PLUGIN REVIEW
+ed.sh | PLUGIN REVIEW
+
+================================
+ CAPABILITY LAYERS
+================================
+================================
+================================
+=== AGENT LAYER ===
+=== INTELLIGENCE LAYER ===
+=== GOVERNANCE LAYER ===
+=== MEMORY LAYER ===
+=== UTILITY LAYER ===
+
+================================
+ RECOMMENDATION
+================================
+Architecture verified.
+Proceed with controlled consolidation.
+No deletion authorized.
+Archive before merge.
+
+STATUS:
+READY FOR REVIEW

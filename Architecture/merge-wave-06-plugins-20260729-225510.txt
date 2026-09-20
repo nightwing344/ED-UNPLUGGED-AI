@@ -1,0 +1,11 @@
+================================
+ MERGE WAVE 06 - PLUGINS
+================================
+
+Priority:
+MEDIUM
+
+Actions:
+- Validate connectors
+- Validate economic layer
+- Validate extensions

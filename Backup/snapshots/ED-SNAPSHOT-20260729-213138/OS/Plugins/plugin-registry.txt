@@ -1,0 +1,44 @@
+================================
+ ED PLUGIN REGISTRY v1.0
+================================
+
+ECONOMIC:
+
+ed-economic-engine.sh
+ed-economic-intelligence-v1.sh
+
+
+DIGITAL TWIN:
+
+ed-digital-twin.sh
+ed-digital-twin-v2.sh
+
+
+SIMULATION:
+
+ed-simulation-engine.sh
+
+
+RESEARCH:
+
+ed-research-engine-v1.sh
+
+
+CONNECTORS:
+
+ed-connector-manager.sh
+ed-interface-manager.sh
+ed-interface-gateway.sh
+
+
+EXTENSION RULE:
+
+Plugins may extend ED.
+
+Plugins may NOT modify Kernel directly.
+
+
+STATUS:
+
+REGISTERED
+

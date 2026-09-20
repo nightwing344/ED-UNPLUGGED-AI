@@ -1,0 +1,27 @@
+================================
+ ED EXTENSION MAP v1.0
+================================
+
+KERNEL
+ |
+ | protected boundary
+ |
+ v
+
+PLUGIN MANAGER
+ |
+ +-- Economic Extensions
+ |
+ +-- Digital Twin Extensions
+ |
+ +-- Simulation Extensions
+ |
+ +-- Research Extensions
+ |
+ +-- Connector Extensions
+
+
+MODE:
+
+SAFE EXTENSION SYSTEM
+

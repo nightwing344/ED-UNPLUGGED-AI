@@ -1,0 +1,23 @@
+================================
+ ED BACKUP STATUS
+================================
+
+Backup Layer:
+ONLINE
+
+Snapshot Engine:
+READY
+
+Manifest System:
+READY
+
+Recovery System:
+READY
+
+Deletion Protection:
+ENABLED
+
+Status:
+
+OPERATIONAL
+

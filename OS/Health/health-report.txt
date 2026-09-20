@@ -1,0 +1,22 @@
+================================
+ ED SYSTEM HEALTH REPORT
+================================
+
+Scan:
+
+Completed
+
+Issues:
+
+0 Critical
+
+Warnings:
+
+0
+
+
+Recommendation:
+
+Continue normal operation.
+
+

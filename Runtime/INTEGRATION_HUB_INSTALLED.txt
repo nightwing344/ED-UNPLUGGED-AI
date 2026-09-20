@@ -1,0 +1,20 @@
+ED Integration Hub v1.0
+
+Installed:
+20260729-163531
+
+Connected:
+
+✓ Agent Runtime
+✓ Security Vault
+✓ Governance
+✓ Command Center
+✓ Backup System
+
+Purpose:
+
+Controlled external connectivity.
+
+Status:
+ACTIVE
+

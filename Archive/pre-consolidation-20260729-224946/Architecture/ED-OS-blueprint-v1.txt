@@ -1,0 +1,25 @@
+================================
+ ED OS BLUEPRINT v1.0
+================================
+
+KERNEL
+- Core intelligence and execution
+
+AGENTS
+- Autonomous workers
+
+INTELLIGENCE
+- Reasoning and learning
+
+MEMORY
+- Experience storage
+
+GOVERNANCE
+- Trust and control
+
+PLUGINS
+- Expandable capabilities
+
+STATUS:
+ARCHITECTURE READY
+

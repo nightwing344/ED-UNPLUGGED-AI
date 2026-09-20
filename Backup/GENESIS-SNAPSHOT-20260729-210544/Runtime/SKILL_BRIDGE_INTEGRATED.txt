@@ -1,0 +1,18 @@
+ED Skill Registry Integration
+
+Installed:
+20260729-160714
+
+Flow:
+
+Governance
+Identity
+Director
+Skill Registry
+Specialists
+Curiosity
+Memory
+Response
+
+Status:
+ACTIVE

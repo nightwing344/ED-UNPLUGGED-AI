@@ -1,0 +1,26 @@
+================================
+ ED GOVERNANCE REGISTRY v1.0
+================================
+
+CORE AUTHORITIES:
+
+Kernel Protection
+Migration Approval
+Plugin Approval
+Security Review
+Self Improvement Review
+
+
+CONNECTED SYSTEMS:
+
+Kernel
+Runtime
+Security
+Audit Engine
+Self Improvement Engine
+
+
+STATUS:
+
+REGISTERED
+

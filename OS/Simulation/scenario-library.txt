@@ -1,0 +1,21 @@
+================================
+ ED SCENARIO LIBRARY
+================================
+
+AVAILABLE SCENARIOS:
+
+1. Plugin Installation
+
+2. Kernel Change Test
+
+3. Mission Execution
+
+4. Agent Swarm Test
+
+5. Recovery Test
+
+
+STATUS:
+
+AVAILABLE
+

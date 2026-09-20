@@ -1,0 +1,39 @@
+================================
+ MERGE RECOMMENDATIONS
+================================
+
+Version families detected:
+
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-console-v1.1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-backup-engine.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-memory-intelligence-v3.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-agent-swarm-v2.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-decision-intelligence-v2.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-mission-control-v2.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-interface-gateway-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-governance-engine-v2.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-reputation-engine-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-airdrop-engine-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-kernel-blueprint-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-kernel-merge-planner-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-kernel-registry-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-command-center-v2.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-knowledge-graph-v2.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-decision-engine-v2.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-command-center-v3.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-model-router-v2.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-economic-intelligence-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-digital-twin-v2.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-research-engine-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-memory-intelligence-v2.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-module-registry-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-dependency-engine-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-health-monitor-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-snapshot-manager-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-consolidation-engine-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-module-classification-engine-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-dependency-intelligence-v1.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-snapshot-recovery-v2.sh
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-kernel-consolidation-engine-v1.sh
+
+Review required before merging.

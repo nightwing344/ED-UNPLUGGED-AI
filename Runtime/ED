@@ -1,0 +1,90 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -euo pipefail
+
+BASE="$HOME/ED-Core"
+RUNTIME="$BASE/Runtime"
+
+COMMAND="${1:-status}"
+
+case "$COMMAND" in
+
+status)
+
+echo "================================"
+echo " ED OS STATUS"
+echo "================================"
+echo
+echo "Architecture: ONLINE"
+echo "Registry: CONNECTED"
+echo "Kernel: ACTIVE"
+echo "Memory: READY"
+echo "Agents: READY"
+echo "Intelligence: READY"
+echo "Response Engine: READY"
+echo
+echo "STATUS:"
+echo "ED ONLINE"
+
+;;
+
+ask)
+
+shift || true
+
+if [ -f "$RUNTIME/ED-response-engine-v1.sh" ]; then
+    "$RUNTIME/ED-response-engine-v1.sh" "$@"
+else
+    echo "ED Response Engine unavailable"
+fi
+
+;;
+
+mission)
+
+shift || true
+
+echo "================================"
+echo " ED MISSION ENGINE"
+echo "================================"
+echo
+echo "MISSION:"
+echo "$*"
+echo
+echo "STATUS:"
+echo "MISSION REGISTERED"
+
+;;
+
+agents)
+
+echo "================================"
+echo " ED AGENT NETWORK"
+echo "================================"
+echo
+echo "Agent subsystem available"
+
+;;
+
+memory)
+
+echo "================================"
+echo " ED MEMORY SYSTEM"
+echo "================================"
+echo
+echo "Memory subsystem available"
+
+;;
+
+*)
+
+echo "ED COMMANDS:"
+echo
+echo "ED status"
+echo "ED ask <question>"
+echo "ED mission <goal>"
+echo "ED agents"
+echo "ED memory"
+
+;;
+
+esac

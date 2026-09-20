@@ -1,0 +1,40 @@
+================================
+ ED INTELLIGENCE MAP v1.0
+================================
+
+INPUT
+ |
+ v
+
+KNOWLEDGE RETRIEVAL
+ |
+ v
+
+REASONING ENGINE
+ |
+ +----------------+
+ |                |
+ v                v
+
+DECISION       PLANNING
+
+ |
+ v
+
+EXECUTION RECOMMENDATION
+
+ |
+ v
+
+LEARNING FEEDBACK
+
+ |
+ v
+
+IMPROVEMENT LOOP
+
+
+MODE:
+
+ADAPTIVE INTELLIGENCE
+

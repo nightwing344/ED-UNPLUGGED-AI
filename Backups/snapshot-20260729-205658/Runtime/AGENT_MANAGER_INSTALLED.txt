@@ -1,0 +1,15 @@
+ED Autonomous Agent Manager v1.0
+
+Installed:
+20260729-172118
+
+Connected:
+
+✓ Director Layer
+✓ Conversation Engine
+✓ Model Router
+✓ Memory System
+
+Status:
+ACTIVE
+

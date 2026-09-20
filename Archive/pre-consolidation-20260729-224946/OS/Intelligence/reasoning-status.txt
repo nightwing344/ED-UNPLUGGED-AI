@@ -1,0 +1,31 @@
+================================
+ ED REASONING STATUS
+================================
+
+Layer:
+ONLINE
+
+Executive Brain:
+READY
+
+Decision Engine:
+READY
+
+Planning:
+READY
+
+Knowledge:
+READY
+
+Learning:
+READY
+
+Curiosity:
+READY
+
+Improvement:
+READY
+
+Status:
+ACTIVE
+

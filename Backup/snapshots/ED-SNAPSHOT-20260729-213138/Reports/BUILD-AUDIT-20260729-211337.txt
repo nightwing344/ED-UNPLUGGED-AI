@@ -1,0 +1,14 @@
+ED BUILD AUDIT v1.0
+
+Component:
+ED Kernel Runtime Bridge v1.0
+
+File:
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-kernel-runtime-bridge-v1.sh
+
+Checked:
+Wed Jul 29 21:13:37 CDT 2026
+
+RESULT:
+PASS
+

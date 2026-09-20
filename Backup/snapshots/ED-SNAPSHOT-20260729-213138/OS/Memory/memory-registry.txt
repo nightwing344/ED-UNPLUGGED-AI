@@ -1,0 +1,43 @@
+================================
+ ED MEMORY REGISTRY v1.0
+================================
+
+CORE MEMORY:
+
+ed-memory.sh
+ed-memory-intelligence.sh
+ed-memory-intelligence-v2.sh
+ed-memory-intelligence-v3.sh
+
+
+RETRIEVAL:
+
+ed-memory-retrieve.sh
+ed-memory-request.sh
+ed-memory-retrieval-status.sh
+
+
+STATUS:
+
+ed-memory-status.sh
+
+
+EXPERIENCE:
+
+ed-experience-memory.sh
+
+
+MISSION MEMORY:
+
+ed-mission-memory.sh
+
+
+LESSON STORAGE:
+
+ed-lesson-log.sh
+
+
+MEMORY MODE:
+
+LONG TERM ADAPTIVE MEMORY
+

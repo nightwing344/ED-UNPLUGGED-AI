@@ -1,0 +1,41 @@
+================================
+ ED AUTHORITY RULES
+================================
+
+
+RULE 1:
+
+Kernel modules cannot be modified
+without audit approval.
+
+
+RULE 2:
+
+No destructive migration.
+
+
+RULE 3:
+
+All changes require logging.
+
+
+RULE 4:
+
+Plugins cannot bypass kernel.
+
+
+RULE 5:
+
+Self improvement requires review.
+
+
+RULE 6:
+
+Recovery point required before
+major changes.
+
+
+STATUS:
+
+ACTIVE
+

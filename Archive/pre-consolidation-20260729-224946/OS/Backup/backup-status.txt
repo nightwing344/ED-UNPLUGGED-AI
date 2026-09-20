@@ -1,0 +1,24 @@
+================================
+ ED BACKUP STATUS
+================================
+
+Backup Authority:
+ONLINE
+
+Snapshot Engine:
+READY
+
+Recovery Engine:
+READY
+
+Rollback System:
+READY
+
+Version History:
+ACTIVE
+
+
+STATUS:
+
+OPERATIONAL
+

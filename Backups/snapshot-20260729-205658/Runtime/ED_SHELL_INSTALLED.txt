@@ -1,0 +1,29 @@
+ED Personal AI OS Shell v1.0
+
+Installed:
+Wed Jul 29 16:32:50 CDT 2026
+
+Command:
+
+ed <request>
+
+
+Flow:
+
+User
+ |
+Governance
+ |
+Runtime
+ |
+Agents
+ |
+Memory
+ |
+Response
+
+
+Status:
+
+ACTIVE
+

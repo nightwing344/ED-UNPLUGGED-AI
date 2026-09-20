@@ -1,0 +1,23 @@
+================================
+ ED BACKUP MANIFEST
+================================
+
+Snapshot:
+ED-SNAPSHOT-20260729-213138
+
+Created:
+Wed Jul 29 21:31:38 CDT 2026
+
+Contents:
+
+OS Architecture
+Kernel Structure
+Architecture Reports
+System Registry
+Migration State
+
+
+Status:
+
+VALID
+

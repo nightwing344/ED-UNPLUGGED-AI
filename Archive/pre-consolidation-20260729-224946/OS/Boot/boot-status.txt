@@ -1,0 +1,19 @@
+================================
+ ED OS BOOT STATUS
+================================
+
+Boot Controller:
+ONLINE
+
+Startup Sequence:
+REGISTERED
+
+Dependency Check:
+ENABLED
+
+Safe Mode:
+ACTIVE
+
+System State:
+READY
+

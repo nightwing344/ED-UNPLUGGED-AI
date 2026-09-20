@@ -1,0 +1,36 @@
+================================
+ ED REASONING PIPELINE
+================================
+
+
+1. RECEIVE INPUT
+
+
+2. UNDERSTAND CONTEXT
+
+
+3. QUERY KNOWLEDGE
+
+
+4. ANALYZE OPTIONS
+
+
+5. CREATE PLAN
+
+
+6. EXECUTE THROUGH AGENTS
+
+
+7. REVIEW RESULTS
+
+
+8. UPDATE MEMORY
+
+
+9. IMPROVE FUTURE ACTIONS
+
+
+STATUS:
+
+ACTIVE
+

@@ -1,0 +1,22 @@
+================================
+ ED VALIDATION RULES
+================================
+
+
+REQUIREMENTS:
+
+Function Test
+
+Security Review
+
+Capability Match
+
+Reputation Check
+
+Governance Approval
+
+
+STATUS:
+
+ENABLED
+

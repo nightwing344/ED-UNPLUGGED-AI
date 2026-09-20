@@ -1,0 +1,20 @@
+================================
+ ED RECOVERY POINTS
+================================
+
+RECOVERY POINT 001
+
+Purpose:
+
+Initial ED OS Architecture
+
+
+State:
+
+VALID
+
+
+Recovery:
+
+AVAILABLE
+

@@ -1,0 +1,14 @@
+ED BUILD AUDIT v1.0
+
+Component:
+ED Model Router v2.0
+
+File:
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-model-router-v2.sh
+
+Checked:
+Wed Jul 29 20:15:53 CDT 2026
+
+RESULT:
+PASS
+

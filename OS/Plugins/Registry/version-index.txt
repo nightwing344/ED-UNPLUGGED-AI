@@ -1,0 +1,19 @@
+================================
+ ED VERSION INDEX
+================================
+
+Plugin Runtime:
+
+v1.0
+
+
+Registry:
+
+v1.0
+
+
+Compatibility:
+
+ED OS v1.x
+
+

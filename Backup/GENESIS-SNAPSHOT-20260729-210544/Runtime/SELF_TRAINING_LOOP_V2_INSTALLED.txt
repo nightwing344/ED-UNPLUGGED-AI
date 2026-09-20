@@ -1,0 +1,16 @@
+ED Self-Training Loop v2.0
+
+Installed:
+Wed Jul 29 18:32:19 CDT 2026
+
+Connected:
+
+✓ Knowledge Graph
+✓ Decision Engine
+✓ Planning Engine
+✓ Mission System
+✓ Memory System
+
+Status:
+ACTIVE
+

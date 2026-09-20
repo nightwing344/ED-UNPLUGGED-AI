@@ -1,0 +1,16 @@
+ED Digital Twin Engine v1.0
+
+Installed:
+20260729-163141
+
+Connected:
+
+✓ Decision Engine
+✓ Product Intelligence
+✓ Workflow Engine
+✓ Evaluation Engine
+✓ Knowledge Graph
+
+Status:
+ACTIVE
+

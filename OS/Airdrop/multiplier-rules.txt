@@ -1,0 +1,29 @@
+================================
+ ED ALLOCATION MULTIPLIERS
+================================
+
+
+MULTIPLIERS:
+
+Contribution Quality
+
+Time Participation
+
+Reputation Score
+
+Mission Impact
+
+Security Behavior
+
+
+ANTI-GAMING:
+
+Duplicate activity removed
+
+Artificial inflation rejected
+
+
+STATUS:
+
+ACTIVE
+

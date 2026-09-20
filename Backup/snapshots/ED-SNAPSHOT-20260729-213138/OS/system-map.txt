@@ -1,0 +1,64 @@
+================================
+ ED OS SYSTEM MAP v1.0
+================================
+
+KERNEL
+------
+Runtime
+Executive Brain
+Router
+Agent Runtime
+Memory
+Knowledge
+Learning
+Security
+Mission
+Governance
+
+AGENTS
+------
+Workers
+Swarm
+Specialists
+Agent Tools
+
+INTELLIGENCE
+------------
+Decision
+Planning
+Curiosity
+Reasoning
+Learning
+
+MEMORY
+------
+Experience
+Retrieval
+Mission Memory
+
+GOVERNANCE
+----------
+Identity
+Security
+Confidence
+Permissions
+
+PLUGINS
+-------
+Economic
+Digital Twin
+Simulation
+Research
+Interfaces
+Connectors
+
+EXTENSIONS
+-----------
+Experimental Modules
+
+ARCHIVE
+-------
+Deprecated Versions
+
+STATUS:
+OS STRUCTURE CREATED

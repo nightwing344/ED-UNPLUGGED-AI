@@ -1,0 +1,35 @@
+================================
+ ED MISSION MAP v1.0
+================================
+
+MISSION INPUT
+ |
+ v
+MISSION ANALYSIS
+ |
+ v
+PLANNING ENGINE
+ |
+ v
+TASK GENERATION
+ |
+ v
+AGENT ASSIGNMENT
+ |
+ v
+EXECUTION
+ |
+ v
+RESULT VALIDATION
+ |
+ v
+MEMORY STORAGE
+ |
+ v
+LEARNING UPDATE
+
+
+MODE:
+
+OBJECTIVE DRIVEN EXECUTION
+

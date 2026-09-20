@@ -1,0 +1,38 @@
+================================
+ ED PERMISSION POLICY
+================================
+
+KERNEL:
+
+Protected.
+
+Changes require audit approval.
+
+
+PLUGINS:
+
+Expandable.
+
+Must pass validation.
+
+
+AGENTS:
+
+Limited execution authority.
+
+
+MEMORY:
+
+Protected storage.
+
+
+SELF IMPROVEMENT:
+
+Requires governance review.
+
+
+DELETION:
+
+DISABLED DURING MIGRATION.
+
+

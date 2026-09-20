@@ -1,0 +1,16 @@
+ED Security & Identity Vault v1.0
+
+Installed:
+20260729-163355
+
+Connected:
+
+✓ Governance
+✓ Agent Runtime
+✓ Memory System
+✓ Learning Loop
+✓ Command Center
+
+Status:
+ACTIVE
+

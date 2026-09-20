@@ -1,0 +1,32 @@
+================================
+ ED MODULE INDEX
+================================
+
+Total Runtime Modules:
+
+159
+
+Classification:
+
+Kernel:
+ACTIVE
+
+Agents:
+ACTIVE
+
+Intelligence:
+ACTIVE
+
+Memory:
+ACTIVE
+
+Governance:
+ACTIVE
+
+Plugins:
+ACTIVE
+
+Utilities:
+REGISTERED
+
+

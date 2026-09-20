@@ -1,0 +1,28 @@
+================================
+ ED REASONING ROUTE v1.0
+================================
+
+INPUT
+ |
+ v
+EXECUTIVE BRAIN
+ |
+ v
+DECISION ENGINE
+ |
+ v
+PLANNING ENGINE
+ |
+ v
+KNOWLEDGE SYSTEM
+ |
+ v
+LEARNING LOOP
+ |
+ v
+IMPROVEMENT CYCLE
+
+
+MODE:
+CONTROLLED INTELLIGENCE
+

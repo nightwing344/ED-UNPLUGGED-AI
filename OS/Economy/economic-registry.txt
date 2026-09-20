@@ -1,0 +1,31 @@
+================================
+ ED ECONOMIC REGISTRY v1.0
+================================
+
+SYSTEM:
+
+ED Contribution Economy
+
+
+PURPOSE:
+
+Measure verified value creation.
+
+
+CONNECTED:
+
+Identity
+
+Reputation
+
+Governance
+
+Network
+
+Capability Registry
+
+
+STATUS:
+
+REGISTERED
+

@@ -1,0 +1,30 @@
+================================
+ ED PLUGIN REGISTRY v1.0
+================================
+
+ACTIVE PLUGINS:
+
+Economic Intelligence
+Digital Twin
+Simulation
+Research
+Connectors
+Interfaces
+
+
+PLUGIN POLICY:
+
+Core Protection:
+ENABLED
+
+Sandbox:
+ENABLED
+
+Version Tracking:
+ENABLED
+
+
+STATUS:
+
+REGISTERED
+

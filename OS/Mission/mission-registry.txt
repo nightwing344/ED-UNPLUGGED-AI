@@ -1,0 +1,34 @@
+================================
+ ED MISSION REGISTRY v1.0
+================================
+
+MISSION SYSTEM:
+
+ed-mission-engine.sh
+ed-mission-manager.sh
+ed-mission-orchestrator.sh
+ed-mission-planner.sh
+ed-mission-memory.sh
+
+
+TASK SYSTEM:
+
+Task Queue
+Execution Tracking
+Agent Assignment
+Result Collection
+
+
+CAPABILITIES:
+
+Goal Management
+Planning
+Scheduling
+Execution
+Review
+
+
+STATUS:
+
+REGISTERED
+

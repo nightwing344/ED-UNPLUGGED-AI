@@ -1,0 +1,8 @@
+================================
+ ED MIGRATION MANIFEST v1.0
+================================
+
+RULE:
+COPY ONLY
+NO DELETE
+

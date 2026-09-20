@@ -1,0 +1,15 @@
+================================
+ ED MIGRATION QUEUE v1.0
+================================
+
+ed-connector-deployment-manager.sh
+ed-connector-manager.sh
+ed-digital-twin-v2.sh
+ed-digital-twin.sh
+ed-economic-engine.sh
+ed-economic-intelligence-v1.sh
+ed-interface-gateway-v1.sh
+ed-interface-gateway.sh
+ed-interface-manager.sh
+ed-research-engine-v1.sh
+ed-simulation-engine.sh

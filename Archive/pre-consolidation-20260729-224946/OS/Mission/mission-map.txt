@@ -1,0 +1,43 @@
+================================
+ ED MISSION MAP v1.0
+================================
+
+MISSION OBJECTIVE
+
+        |
+        v
+
+MISSION PLANNER
+
+        |
+        v
+
+TASK BREAKDOWN
+
+        |
+        +----------------+
+        |                |
+        v                v
+
+AGENT ASSIGNMENT    RESOURCE CHECK
+
+        |
+        v
+
+EXECUTION
+
+        |
+        v
+
+RESULT REVIEW
+
+        |
+        v
+
+MEMORY + LEARNING
+
+
+MODE:
+
+AUTONOMOUS OPERATIONS
+

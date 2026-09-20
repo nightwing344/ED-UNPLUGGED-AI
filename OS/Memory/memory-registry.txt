@@ -1,0 +1,26 @@
+================================
+ ED MEMORY REGISTRY v1.0
+================================
+
+CORE MEMORY SYSTEMS:
+
+ed-memory.sh
+
+ed-memory-retrieve.sh
+
+ed-memory-intelligence.sh
+
+ed-experience-memory.sh
+
+ed-mission-memory.sh
+
+
+MEMORY FABRIC:
+
+ACTIVE
+
+
+STATUS:
+
+REGISTERED
+

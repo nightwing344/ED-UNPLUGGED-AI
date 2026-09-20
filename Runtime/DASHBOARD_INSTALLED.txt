@@ -1,0 +1,13 @@
+ED Project Dashboard v1.0
+
+Installed:
+20260729-162013
+
+Features:
+- Mission tracking
+- Agent visibility
+- Task overview
+- Runtime monitoring
+
+Status:
+ACTIVE

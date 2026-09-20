@@ -1,0 +1,22 @@
+================================
+ ED KERNEL LOCK v1.0
+================================
+
+STATUS:
+KERNEL CANDIDATE FROZEN
+
+PROTECTED MODULES:
+
+ed-runtime
+ed-executive-brain
+ed-router
+ed-agent-runtime
+ed-memory
+ed-knowledge
+ed-learning
+ed-security
+ed-mission
+
+RULE:
+Kernel changes require audit approval.
+

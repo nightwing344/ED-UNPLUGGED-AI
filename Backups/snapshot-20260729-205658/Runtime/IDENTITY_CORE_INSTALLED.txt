@@ -1,0 +1,14 @@
+ED Identity Core v2.0
+
+Installed:
+20260729-162208
+
+Status:
+ACTIVE
+
+Connected:
+Governance
+Runtime
+Memory
+Learning
+

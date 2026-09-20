@@ -1,0 +1,8 @@
+================================
+ ED BACKUP REPORT
+================================
+
+Snapshot: snapshot-20260729-205356
+
+1.2M	/data/data/com.termux/files/home/ED-Core/Backups/snapshot-20260729-205356
+Files: 286

@@ -1,0 +1,12 @@
+ed-digital-twin-v2.sh
+ed-digital-twin.sh
+ed-economic-engine.sh
+ed-economic-intelligence-v1.sh
+ed-mission-control-v2.sh
+ed-mission-engine.sh
+ed-mission-manager.sh
+ed-mission-memory.sh
+ed-mission-orchestrator.sh
+ed-mission-planner.sh
+ed-research-engine-v1.sh
+ed-simulation-engine.sh

@@ -1,0 +1,19 @@
+ED Tool Connector Layer v1.0
+
+Installed:
+20260729-164615
+
+Connected:
+
+✓ Execution Bridge
+✓ Agent Swarm
+✓ Governance
+✓ Command Center
+
+Purpose:
+
+Controlled external capability access.
+
+Status:
+ACTIVE
+

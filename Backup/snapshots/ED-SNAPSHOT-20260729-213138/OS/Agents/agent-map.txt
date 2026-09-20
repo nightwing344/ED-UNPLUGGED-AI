@@ -1,0 +1,38 @@
+================================
+ ED AGENT MAP v1.0
+================================
+
+MISSION
+ |
+ v
+ORCHESTRATOR
+ |
+ v
+AGENT MANAGER
+ |
+ +----------------+
+ |                |
+ v                v
+
+WORKERS       SPECIALISTS
+
+ |
+ v
+
+SWARM COORDINATION
+
+ |
+ v
+
+RESULT RETURN
+
+ |
+ v
+
+MEMORY STORAGE
+
+
+MODE:
+
+AUTONOMOUS TASK EXECUTION
+

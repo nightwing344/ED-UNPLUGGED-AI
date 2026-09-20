@@ -1,0 +1,16 @@
+ED Service Layer v1.0
+
+Installed:
+20260729-162318
+
+Connected:
+
+✓ Governance
+✓ Identity
+✓ Runtime
+✓ Voice
+✓ Agents
+
+Status:
+ACTIVE
+

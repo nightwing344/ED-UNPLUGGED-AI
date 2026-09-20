@@ -1,0 +1,30 @@
+================================
+ ED REPUTATION SCORES
+================================
+
+SCORING MODEL:
+
+Accuracy
+
+Reliability
+
+Contribution
+
+Security
+
+Efficiency
+
+
+Future Use:
+
+Governance Weight
+
+Capability Ranking
+
+Contribution Rewards
+
+
+STATUS:
+
+INITIALIZED
+

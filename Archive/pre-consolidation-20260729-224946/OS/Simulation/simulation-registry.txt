@@ -1,0 +1,21 @@
+================================
+ ED SIMULATION REGISTRY
+================================
+
+SIMULATION TYPES:
+
+Plugin Testing
+
+Migration Testing
+
+Mission Testing
+
+Agent Testing
+
+Architecture Testing
+
+
+STATUS:
+
+READY
+

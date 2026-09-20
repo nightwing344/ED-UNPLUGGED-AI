@@ -1,0 +1,45 @@
+================================
+ ED CAPABILITY REGISTRY v1.0
+================================
+
+CORE CAPABILITIES:
+
+Reasoning
+
+Planning
+
+Learning
+
+Memory
+
+Security
+
+Governance
+
+Mission Execution
+
+
+AGENT CAPABILITIES:
+
+Worker Execution
+
+Specialist Processing
+
+Swarm Coordination
+
+
+PLUGIN CAPABILITIES:
+
+Economic Analysis
+
+Simulation
+
+Research
+
+External Connectivity
+
+
+STATUS:
+
+REGISTERED
+

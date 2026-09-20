@@ -1,0 +1,36 @@
+================================
+ ED SKILL REGISTRY
+================================
+
+SKILL CATEGORIES:
+
+Reasoning
+
+Research
+
+Automation
+
+Analysis
+
+Simulation
+
+Communication
+
+Development
+
+
+Skill Lifecycle:
+
+Created
+
+Validated
+
+Published
+
+Improved
+
+
+STATUS:
+
+ACTIVE
+

@@ -1,0 +1,44 @@
+================================
+ ED MIGRATION REGISTRY v1.0
+================================
+
+KERNEL:
+
+ed-runtime.sh
+ed-executive-brain.sh
+ed-router.sh
+ed-agent-runtime.sh
+ed-memory.sh
+ed-knowledge-engine.sh
+ed-learning-engine.sh
+ed-security-manager.sh
+ed-mission-engine.sh
+
+
+AGENTS:
+
+ed-agent-worker.sh
+ed-agent-swarm.sh
+ed-specialist-consult.sh
+
+
+INTELLIGENCE:
+
+ed-decision-engine.sh
+ed-planning-engine.sh
+ed-curiosity-engine.sh
+
+
+PLUGINS:
+
+ed-economic-engine.sh
+ed-digital-twin.sh
+ed-research-engine-v1.sh
+ed-connector-manager.sh
+
+
+MIGRATION MODE:
+
+SAFE COPY ONLY
+
+

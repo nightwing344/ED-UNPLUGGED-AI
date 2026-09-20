@@ -1,0 +1,12 @@
+ID=TASK-20260729-192929
+TASK=Design MiniVerse token model
+AGENT=simulation
+STATUS=COMPLETE
+CREATED=Wed Jul 29 19:29:29 CDT 2026
+RESULT=Commands:
+status
+create <scenario>
+run <id>
+result <id> <result>
+compare <A> <B>
+list

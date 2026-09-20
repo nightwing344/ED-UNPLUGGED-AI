@@ -1,0 +1,24 @@
+================================
+ ED ECONOMIC STATUS
+================================
+
+Economic Engine:
+ONLINE
+
+Contribution Ledger:
+ACTIVE
+
+Value Model:
+ACTIVE
+
+Allocation Engine:
+READY
+
+Genesis Framework:
+READY
+
+
+STATUS:
+
+OPERATIONAL
+

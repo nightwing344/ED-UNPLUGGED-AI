@@ -1,0 +1,6 @@
+ed-economic-engine
+ed-digital-twin
+ed-simulation-engine
+ed-research-engine
+ed-interface-system
+ed-connectors

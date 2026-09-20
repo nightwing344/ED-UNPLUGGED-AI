@@ -1,0 +1,14 @@
+ED BUILD AUDIT v1.0
+
+Component:
+ED OS Network Fabric v1.0
+
+File:
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-os-network-fabric-v1.sh
+
+Checked:
+Wed Jul 29 21:46:17 CDT 2026
+
+RESULT:
+PASS
+

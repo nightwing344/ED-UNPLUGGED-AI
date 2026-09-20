@@ -1,0 +1,29 @@
+================================
+ ED NODE REGISTRY v1.0
+================================
+
+REGISTERED NODES:
+
+Primary ED Node
+
+
+NODE TYPES:
+
+Core Node
+
+Worker Node
+
+Specialist Node
+
+Community Node
+
+
+Node Discovery:
+
+ENABLED
+
+
+STATUS:
+
+REGISTERED
+

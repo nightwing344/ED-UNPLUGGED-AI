@@ -1,0 +1,34 @@
+================================
+ ED BACKUP POLICY
+================================
+
+
+RULE 1:
+
+Create snapshot before major changes.
+
+
+RULE 2:
+
+Never overwrite last known good state.
+
+
+RULE 3:
+
+Failed migrations trigger rollback.
+
+
+RULE 4:
+
+Recovery events are logged.
+
+
+RULE 5:
+
+Kernel recovery has priority.
+
+
+STATUS:
+
+ACTIVE
+

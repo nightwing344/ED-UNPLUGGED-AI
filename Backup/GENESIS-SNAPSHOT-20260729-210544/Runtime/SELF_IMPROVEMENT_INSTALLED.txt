@@ -1,0 +1,20 @@
+ED Self-Improvement Loop v1.0
+
+Installed:
+20260729-162139
+
+Connected:
+
+✓ Knowledge Graph
+✓ Learning Engine
+✓ Decision Engine
+✓ Governance
+
+Protection:
+
+No automatic self-modification
+
+User approval required
+
+Status:
+ACTIVE

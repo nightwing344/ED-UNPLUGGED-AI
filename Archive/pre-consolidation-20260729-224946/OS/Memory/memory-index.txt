@@ -1,0 +1,12 @@
+================================
+ ED MEMORY INDEX
+================================
+
+Entries:
+0
+
+State:
+INITIALIZED
+
+Awaiting memory events.
+

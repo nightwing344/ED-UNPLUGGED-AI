@@ -1,0 +1,27 @@
+================================
+ ED CANONICAL ARCHITECTURE PROPOSAL v1.0
+================================
+
+TARGET ARCHITECTURE:
+
+ED OS
+ |
+ +-- Kernel
+ |
+ +-- Governance
+ |
+ +-- Intelligence
+ |
+ +-- Memory
+ |
+ +-- Agents
+ |
+ +-- Plugins
+
+RULES:
+
+1. Registry controls authority
+2. OS contains canonical modules
+3. Runtime becomes compatibility layer
+4. Archive contains retired versions
+5. No destructive migration

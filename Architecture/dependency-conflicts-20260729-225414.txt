@@ -1,0 +1,12 @@
+================================
+ ED DEPENDENCY CONFLICT REVIEW
+================================
+
+Potential duplicate responsibilities:
+ed-agent-runtime.sh
+ed-knowledge-engine.sh
+ed-knowledge-graph.sh
+ed-learning-engine.sh
+ed-memory.sh
+ed-security-manager.sh
+ed-security-vault.sh

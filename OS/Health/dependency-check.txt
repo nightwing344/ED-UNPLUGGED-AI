@@ -1,0 +1,32 @@
+================================
+ ED DEPENDENCY CHECK
+================================
+
+Core Dependencies:
+
+Runtime:
+AVAILABLE
+
+Registry:
+AVAILABLE
+
+Migration:
+AVAILABLE
+
+Mission:
+AVAILABLE
+
+Agents:
+AVAILABLE
+
+Memory:
+AVAILABLE
+
+Learning:
+AVAILABLE
+
+
+Dependency Status:
+
+PASS
+

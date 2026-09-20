@@ -1,0 +1,15 @@
+ED Skill Marketplace Core v1.0
+
+Installed:
+20260729-162350
+
+Connected:
+
+✓ Skill Registry
+✓ Agent Manager
+✓ Governance
+✓ Service Layer
+
+Status:
+ACTIVE
+

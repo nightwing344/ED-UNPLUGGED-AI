@@ -1,0 +1,11 @@
+CORE PRESERVATION
+=================
+ed-runtime
+ed-executive-brain
+ed-router
+ed-agent-runtime
+ed-memory
+ed-knowledge
+ed-learning
+ed-security
+ed-mission

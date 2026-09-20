@@ -1,0 +1,43 @@
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt:MEMORY AUTHORITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-================================
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-experience-memory.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-memory-consolidation-engine-v1.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-memory-intelligence-v2.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-memory-intelligence-v3.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-memory-intelligence.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-memory-request.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-memory-retrieval-status.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-memory-retrieve.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-memory-status.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-memory.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-mission-memory.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-os-memory-fabric-v1.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-================================
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-INTELLIGENCE AUTHORITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-================================
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt- ED MODULE DECISION ENGINE v1.0
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-curiosity-engine.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-curiosity.sh | PLUGIN REVIEW
+--
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt:MEMORY AUTHORITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-================================
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-experience-memory.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-memory-consolidation-engine-v1.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-memory-intelligence-v2.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-memory-intelligence-v3.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-memory-intelligence.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-memory-request.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-memory-retrieval-status.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-memory-retrieve.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-memory-status.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-memory.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-mission-memory.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-os-memory-fabric-v1.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-================================
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-INTELLIGENCE AUTHORITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-================================
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt- ED MODULE DECISION ENGINE v1.0
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-curiosity-engine.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-curiosity.sh | PLUGIN REVIEW

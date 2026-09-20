@@ -1,0 +1,20 @@
+ED Governance Wiring Complete
+
+Installed:
+20260729-155616
+
+Entry Point:
+ed.sh
+
+Flow:
+
+Governance
+Identity
+Director
+Specialists
+Curiosity
+Memory
+Response
+
+User Authority:
+ACTIVE

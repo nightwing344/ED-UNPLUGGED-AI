@@ -1,0 +1,48 @@
+================================
+ ED MIGRATION PLAN v1.0
+================================
+
+KERNEL:
+- Runtime
+- Executive Brain
+- Router
+- Agent Runtime
+- Memory
+- Knowledge
+- Learning
+- Security
+- Mission
+- Governance
+
+
+AGENTS:
+- Workers
+- Swarm
+- Specialists
+- Agent Tools
+
+
+INTELLIGENCE:
+- Decision
+- Planning
+- Curiosity
+- Learning
+
+
+MEMORY:
+- Experience
+- Retrieval
+- Mission Memory
+
+
+PLUGINS:
+- Economic
+- Digital Twin
+- Simulation
+- Research
+- Connectors
+
+
+RULE:
+No deletion during migration.
+

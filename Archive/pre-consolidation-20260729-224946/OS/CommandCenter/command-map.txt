@@ -1,0 +1,17 @@
+================================
+ ED COMMAND MAP v1.0
+================================
+
+COMMANDS:
+
+status
+boot
+layers
+migration
+kernel
+plugins
+
+CONTROL MODE:
+
+SAFE OPERATION
+

@@ -1,0 +1,29 @@
+MERGE CANDIDATES
+================
+ ED MODULE CLASSIFICATION v1.0
+ed-agent-swarm-v2.sh | CORE SERVICE
+ed-airdrop-engine-v1.sh | REVIEW
+ed-backup-engine.sh | REVIEW
+ed-command-center-v2.sh | REVIEW
+ed-command-center-v3.sh | REVIEW
+ed-console-v1.1.sh | REVIEW
+ed-consolidation-engine-v1.sh | REVIEW
+ed-decision-engine-v2.sh | REVIEW
+ed-decision-intelligence-v2.sh | REVIEW
+ed-dependency-engine-v1.sh | REVIEW
+ed-digital-twin-v2.sh | EXTENSION
+ed-economic-intelligence-v1.sh | EXTENSION
+ed-governance-engine-v2.sh | REVIEW
+ed-health-monitor-v1.sh | REVIEW
+ed-interface-gateway-v1.sh | REVIEW
+ed-kernel-blueprint-v1.sh | REVIEW
+ed-knowledge-graph-v2.sh | CORE SERVICE
+ed-memory-intelligence-v2.sh | CORE SERVICE
+ed-memory-intelligence-v3.sh | CORE SERVICE
+ed-mission-control-v2.sh | EXTENSION
+ed-model-router-v2.sh | REVIEW
+ed-module-classification-engine-v1.sh | REVIEW
+ed-module-registry-v1.sh | REVIEW
+ed-reputation-engine-v1.sh | REVIEW
+ed-research-engine-v1.sh | EXTENSION
+ed-snapshot-manager-v1.sh | REVIEW

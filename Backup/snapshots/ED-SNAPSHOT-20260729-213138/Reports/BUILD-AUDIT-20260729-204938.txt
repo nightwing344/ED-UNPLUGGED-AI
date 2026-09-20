@@ -1,0 +1,14 @@
+ED BUILD AUDIT v1.0
+
+Component:
+ED Dependency Intelligence v1.0
+
+File:
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-dependency-intelligence-v1.sh
+
+Checked:
+Wed Jul 29 20:49:38 CDT 2026
+
+RESULT:
+PASS
+

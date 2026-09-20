@@ -1,0 +1,14 @@
+ED Mission Manager v1.0
+
+Installed:
+20260729-161736
+
+Connected:
+✓ Agent Manager
+✓ Agent Bus
+✓ Memory
+✓ Knowledge
+✓ Learning
+
+Status:
+ACTIVE

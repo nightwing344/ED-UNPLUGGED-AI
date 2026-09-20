@@ -1,0 +1,36 @@
+================================
+ ED AGENT CAPABILITIES
+================================
+
+WORKERS:
+
+- Task execution
+- Automation
+- Processing
+
+
+SPECIALISTS:
+
+- Domain reasoning
+- Consultation
+- Analysis
+
+
+SWARMS:
+
+- Parallel operations
+- Complex missions
+- Distributed solving
+
+
+AGENT SYSTEM:
+
+- Communication
+- Assignment
+- Lifecycle control
+
+
+STATUS:
+
+AVAILABLE
+

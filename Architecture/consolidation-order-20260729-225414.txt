@@ -1,0 +1,31 @@
+================================
+ ED CONSOLIDATION ORDER PROPOSAL
+================================
+
+PHASE 1:
+Kernel dependencies
+
+PHASE 2:
+Governance dependencies
+
+PHASE 3:
+Memory dependencies
+
+PHASE 4:
+Intelligence dependencies
+
+PHASE 5:
+Agent dependencies
+
+PHASE 6:
+Plugin dependencies
+
+PHASE 7:
+Registry update
+
+PHASE 8:
+Health verification
+
+RULE:
+Archive before change.
+Rollback required.

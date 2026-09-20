@@ -1,0 +1,41 @@
+================================
+ ED MISSION REGISTRY v1.0
+================================
+
+MISSION CORE:
+
+ed-mission-engine.sh
+ed-mission-manager.sh
+ed-mission-orchestrator.sh
+ed-mission-planner.sh
+ed-mission-control-v2.sh
+
+
+TASK EXECUTION:
+
+ed-task-queue.sh
+ed-workflow-engine.sh
+ed-workflow-orchestrator.sh
+
+
+PLANNING:
+
+ed-planning-engine.sh
+
+
+AGENT CONNECTION:
+
+ed-agent-runtime.sh
+ed-agent-worker.sh
+ed-agent-swarm.sh
+
+
+MEMORY CONNECTION:
+
+ed-mission-memory.sh
+
+
+STATUS:
+
+REGISTERED
+

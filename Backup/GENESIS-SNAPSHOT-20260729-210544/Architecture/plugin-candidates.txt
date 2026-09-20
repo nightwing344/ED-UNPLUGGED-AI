@@ -1,0 +1,19 @@
+================================
+ PLUGIN CANDIDATES
+================================
+
+ed-connector-deployment-manager.sh | REVIEW
+ed-connector-manager.sh | REVIEW
+ed-digital-twin-v2.sh | EXTENSION
+ed-digital-twin.sh | EXTENSION
+ed-economic-engine.sh | EXTENSION
+ed-economic-intelligence-v1.sh | EXTENSION
+ed-interface-gateway-v1.sh | REVIEW
+ed-interface-gateway.sh | REVIEW
+ed-interface-manager.sh | REVIEW
+ed-model-connector.sh | REVIEW
+ed-research-engine-v1.sh | EXTENSION
+ed-service-connector.sh | REVIEW
+ed-simulation-engine.sh | EXTENSION
+ed-tool-connectors.sh | REVIEW
+ed-web-interface-status.sh | REVIEW

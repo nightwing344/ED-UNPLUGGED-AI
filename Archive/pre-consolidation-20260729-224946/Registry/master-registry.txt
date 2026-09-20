@@ -1,0 +1,52 @@
+================================
+ ED MASTER SYSTEM REGISTRY v1.0
+================================
+
+Generated:
+Wed Jul 29 22:34:55 CDT 2026
+
+SOURCE:
+Canonical System Map
+
+AUTHORITY:
+ED Kernel Authority Engine
+
+STATUS:
+ACTIVE
+
+
+LAYERS:
+
+KERNEL
+------
+See kernel-registry.txt
+
+
+AGENTS
+------
+See agent-registry.txt
+
+
+INTELLIGENCE
+------------
+See intelligence-registry.txt
+
+
+MEMORY
+------
+See memory-registry.txt
+
+
+PLUGINS
+-------
+See plugin-registry.txt
+
+
+ARCHIVE
+-------
+See archive-registry.txt
+
+
+RULE:
+No deletion without archive approval.
+

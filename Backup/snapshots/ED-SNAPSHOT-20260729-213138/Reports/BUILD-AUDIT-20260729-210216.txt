@@ -1,0 +1,14 @@
+ED BUILD AUDIT v1.0
+
+Component:
+ED Capability Classifier v2.0
+
+File:
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-capability-classifier-v2.sh
+
+Checked:
+Wed Jul 29 21:02:16 CDT 2026
+
+RESULT:
+PASS
+

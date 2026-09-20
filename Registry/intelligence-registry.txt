@@ -1,0 +1,43 @@
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt:INTELLIGENCE AUTHORITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-================================
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt- ED MODULE DECISION ENGINE v1.0
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-curiosity-engine.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-curiosity.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-decision-engine-v2.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-decision-engine.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-decision-intelligence-v2.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-knowledge-engine.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-knowledge-graph-v2.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-knowledge-graph.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-learning-engine.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-learning-feedback-loop.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-learning-knowledge-bridge.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-learning-loop.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-learning-pipeline.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-module-decision-engine-v1.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-planning-engine.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-================================
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-AGENT AUTHORITY
+--
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt:INTELLIGENCE AUTHORITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-================================
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt- ED MODULE DECISION ENGINE v1.0
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-curiosity-engine.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-curiosity.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-decision-engine-v2.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-decision-engine.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-decision-intelligence-v2.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-knowledge-engine.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-knowledge-graph-v2.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-knowledge-graph.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-learning-engine.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-learning-feedback-loop.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-learning-knowledge-bridge.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-learning-loop.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-learning-pipeline.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-module-decision-engine-v1.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-planning-engine.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-================================
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-AGENT AUTHORITY

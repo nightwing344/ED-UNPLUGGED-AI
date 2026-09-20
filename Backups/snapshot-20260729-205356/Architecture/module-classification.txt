@@ -1,0 +1,170 @@
+================================
+ ED MODULE CLASSIFICATION v1.0
+================================
+
+ed-action-gateway.sh | REVIEW
+ed-adaptive-director.sh | REVIEW
+ed-adaptive-router.sh | KERNEL
+ed-agent-bus.sh | CORE SERVICE
+ed-agent-manager.sh | CORE SERVICE
+ed-agent-package-manager.sh | CORE SERVICE
+ed-agent-runtime.sh | CORE SERVICE
+ed-agent-skill-binding.sh | CORE SERVICE
+ed-agent-skill-manager.sh | CORE SERVICE
+ed-agent-swarm-v2.sh | CORE SERVICE
+ed-agent-swarm.sh | CORE SERVICE
+ed-agent-template-factory.sh | CORE SERVICE
+ed-agent-worker.sh | CORE SERVICE
+ed-airdrop-engine-v1.sh | REVIEW
+ed-application-factory.sh | REVIEW
+ed-assistant-loop.sh | REVIEW
+ed-automation-engine.sh | REVIEW
+ed-autonomous-loop.sh | REVIEW
+ed-autonomous-operations.sh | REVIEW
+ed-autonomous-task-router.sh | REVIEW
+ed-backup-engine.sh | REVIEW
+ed-build-audit.sh | REVIEW
+ed-capability-registry.sh | REVIEW
+ed-collaboration-engine.sh | REVIEW
+ed-command-center-v2.sh | REVIEW
+ed-command-center-v3.sh | REVIEW
+ed-command-center.sh | REVIEW
+ed-companion-engine.sh | REVIEW
+ed-confidence-gate.sh | REVIEW
+ed-config.sh | REVIEW
+ed-connector-deployment-manager.sh | REVIEW
+ed-connector-manager.sh | REVIEW
+ed-console-v1.1.sh | REVIEW
+ed-consolidation-engine-v1.sh | REVIEW
+ed-conversation-engine.sh | REVIEW
+ed-curiosity-engine.sh | REVIEW
+ed-curiosity.sh | REVIEW
+ed-dashboard-engine.sh | REVIEW
+ed-dashboard-status.sh | REVIEW
+ed-dashboard.sh | REVIEW
+ed-decision-engine-v2.sh | REVIEW
+ed-decision-engine.sh | REVIEW
+ed-decision-intelligence-v2.sh | REVIEW
+ed-dependency-engine-v1.sh | REVIEW
+ed-developer-manager.sh | REVIEW
+ed-digital-twin-v2.sh | EXTENSION
+ed-digital-twin.sh | EXTENSION
+ed-director-bridge.sh | REVIEW
+ed-director-skill-bridge.sh | REVIEW
+ed-economic-engine.sh | EXTENSION
+ed-economic-intelligence-v1.sh | EXTENSION
+ed-environment.sh | REVIEW
+ed-evaluation-engine.sh | REVIEW
+ed-execution-bridge.sh | REVIEW
+ed-executive-brain.sh | KERNEL
+ed-experience-memory.sh | REVIEW
+ed-goal-engine.sh | REVIEW
+ed-governance-check.sh | REVIEW
+ed-governance-engine-v2.sh | REVIEW
+ed-governance-engine.sh | REVIEW
+ed-governance-gate.sh | REVIEW
+ed-governance-runtime-status.sh | REVIEW
+ed-governance-status.sh | REVIEW
+ed-governance.sh | REVIEW
+ed-graph-bridge.sh | REVIEW
+ed-health-monitor-v1.sh | REVIEW
+ed-health-monitor.sh | REVIEW
+ed-identity.sh | REVIEW
+ed-improvement-proposal.sh | REVIEW
+ed-integration-hub.sh | REVIEW
+ed-integration-manager.sh | REVIEW
+ed-intent-router.sh | REVIEW
+ed-interface-gateway-v1.sh | REVIEW
+ed-interface-gateway.sh | REVIEW
+ed-interface-manager.sh | REVIEW
+ed-kernel-blueprint-v1.sh | REVIEW
+ed-knowledge-engine.sh | CORE SERVICE
+ed-knowledge-graph-v2.sh | CORE SERVICE
+ed-knowledge-graph.sh | CORE SERVICE
+ed-learning-engine.sh | CORE SERVICE
+ed-learning-feedback-loop.sh | CORE SERVICE
+ed-learning-knowledge-bridge.sh | CORE SERVICE
+ed-learning-loop.sh | CORE SERVICE
+ed-learning-pipeline.sh | CORE SERVICE
+ed-lesson-log.sh | REVIEW
+ed-listen.sh | REVIEW
+ed-live-command-bridge.sh | REVIEW
+ed-live-response-loop.sh | REVIEW
+ed-memory-intelligence-v2.sh | CORE SERVICE
+ed-memory-intelligence-v3.sh | CORE SERVICE
+ed-memory-intelligence.sh | CORE SERVICE
+ed-memory-request.sh | CORE SERVICE
+ed-memory-retrieval-status.sh | CORE SERVICE
+ed-memory-retrieve.sh | CORE SERVICE
+ed-memory-status.sh | CORE SERVICE
+ed-memory.sh | CORE SERVICE
+ed-mission-control-v2.sh | EXTENSION
+ed-mission-engine.sh | EXTENSION
+ed-mission-manager.sh | EXTENSION
+ed-mission-memory.sh | EXTENSION
+ed-mission-orchestrator.sh | EXTENSION
+ed-mission-planner.sh | EXTENSION
+ed-model-benchmark.sh | REVIEW
+ed-model-connector.sh | REVIEW
+ed-model-router-v2.sh | REVIEW
+ed-model-router.sh | REVIEW
+ed-module-classification-engine-v1.sh | REVIEW
+ed-module-registry-v1.sh | REVIEW
+ed-network-node.sh | REVIEW
+ed-node-manager.sh | REVIEW
+ed-node-network.sh | REVIEW
+ed-orchestrator.sh | REVIEW
+ed-personal-os.sh | REVIEW
+ed-planning-engine.sh | REVIEW
+ed-product-intelligence.sh | REVIEW
+ed-profile-gate.sh | REVIEW
+ed-profile-reset.sh | REVIEW
+ed-profile-status.sh | REVIEW
+ed-profile-switch.sh | REVIEW
+ed-question.sh | REVIEW
+ed-registry-status.sh | REVIEW
+ed-reputation-engine-v1.sh | REVIEW
+ed-reputation-engine.sh | REVIEW
+ed-research-engine-v1.sh | EXTENSION
+ed-response-display.sh | REVIEW
+ed-response-engine.sh | REVIEW
+ed-response-status.sh | REVIEW
+ed-router.sh | KERNEL
+ed-runtime-secure.sh | KERNEL
+ed-runtime-status.sh | KERNEL
+ed-runtime.sh | KERNEL
+ed-security-manager.sh | CORE SERVICE
+ed-security-vault.sh | CORE SERVICE
+ed-self-check.sh | REVIEW
+ed-self-governance.sh | REVIEW
+ed-self-healing.sh | REVIEW
+ed-self-improvement-engine.sh | REVIEW
+ed-self-improvement-loop.sh | REVIEW
+ed-self-improvement.sh | REVIEW
+ed-self-training-loop.sh | REVIEW
+ed-service-connector.sh | REVIEW
+ed-service-manager.sh | REVIEW
+ed-simulation-engine.sh | EXTENSION
+ed-skill-bridge-status.sh | REVIEW
+ed-skill-evolution.sh | REVIEW
+ed-skill-manager.sh | REVIEW
+ed-skill-scan.sh | REVIEW
+ed-skills-status.sh | REVIEW
+ed-skills.sh | REVIEW
+ed-snapshot-manager-v1.sh | REVIEW
+ed-speak.sh | REVIEW
+ed-specialist-consult.sh | REVIEW
+ed-status.sh | REVIEW
+ed-swarm-coordinator.sh | REVIEW
+ed-swarm-intelligence.sh | REVIEW
+ed-swarm-mission-execution.sh | REVIEW
+ed-task-queue.sh | REVIEW
+ed-tool-connectors.sh | REVIEW
+ed-tool-status.sh | REVIEW
+ed-voice-engine.sh | REVIEW
+ed-voice-runtime.sh | REVIEW
+ed-wakeword.sh | REVIEW
+ed-web-interface-status.sh | REVIEW
+ed-workflow-engine.sh | REVIEW
+ed-workflow-orchestrator.sh | REVIEW
+ed.sh | REVIEW

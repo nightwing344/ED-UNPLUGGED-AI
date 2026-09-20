@@ -1,0 +1,63 @@
+================================
+ ED REVIEW DECISION COMMIT ENGINE v1.0
+================================
+
+DATE:
+Wed Jul 29 23:00:53 CDT 2026
+
+AUTHORITY:
+ED MASTER REGISTRY
+
+MODE:
+DECISION COMMIT ONLY
+
+================================
+ MEMORY DECISION
+================================
+
+ISSUE:
+ed-memory-consolidation-engine.sh missing
+
+DECISION:
+PROMOTE ed-memory-consolidation-engine-v1.sh
+
+ACTION:
+Create compatibility reference
+
+STATUS:
+RESOLVED
+
+================================
+ MARKETPLACE DECISION
+================================
+
+ISSUE:
+ed-marketplace-engine-v1.sh missing
+
+DECISION:
+MARK AS FUTURE CAPABILITY
+
+ACTION:
+Move to deferred roadmap
+
+STATUS:
+RESOLVED
+
+================================
+ CONSOLIDATION STATUS
+================================
+
+Memory:
+APPROVED
+
+Marketplace:
+DEFERRED
+
+Merge Authority:
+PREPARATION ENABLED
+
+REAL MERGE:
+NOT EXECUTED
+
+AUDIT:
+DECISION RECORDED

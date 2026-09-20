@@ -1,0 +1,29 @@
+================================
+ ED ALLOCATION ENGINE
+================================
+
+
+ALLOCATION INPUTS:
+
+Contribution Score
+
+Reputation
+
+Time Participation
+
+Verified Impact
+
+
+OUTPUTS:
+
+Reward Eligibility
+
+Recognition Level
+
+Governance Influence
+
+
+STATUS:
+
+INITIALIZED
+

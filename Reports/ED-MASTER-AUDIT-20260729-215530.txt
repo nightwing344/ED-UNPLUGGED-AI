@@ -1,0 +1,145 @@
+================================
+ ED MASTER AUDIT v1.0
+================================
+
+--------------------------------
+BUILD AUDIT
+--------------------------------
+================================
+ ED BUILD AUDIT v1.0
+================================
+
+Component: ED Component
+
+Usage:
+ed-build-audit <file> <name>
+FAILED: BUILD AUDIT
+
+--------------------------------
+GOVERNANCE CHECK
+--------------------------------
+================================
+ ED GOVERNANCE CHECK
+================================
+
+✓ User Authority: ACTIVE
+✓ Auto Updates: DISABLED
+✓ Approval Required: ACTIVE
+✓ Decision Logging: ACTIVE
+
+Governance Status: ONLINE
+
+--------------------------------
+KERNEL AUTHORITY
+--------------------------------
+ED Kernel Authority Engine
+
+--------------------------------
+REGISTRY STATUS
+--------------------------------
+================================
+ ED REGISTRY STATUS
+================================
+
+✓ Master Registry Online
+
+========================================
+ED MASTER SYSTEM REGISTRY
+========================================
+
+Generated:
+Wed Jul 29 16:56:07 CDT 2026
+
+
+CORE SYSTEMS
+------------
+
+Runtime:
+/data/data/com.termux/files/home/ED-Core/Runtime
+
+Governance:
+CHECKED
+
+Memory:
+CHECKED
+
+Skills:
+CHECKED
+
+Agents:
+CHECKED
+
+Companion:
+CHECKED
+
+
+INTELLIGENCE
+------------
+
+Director:
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-director-bridge.sh
+
+Adaptive Director:
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-adaptive-director.sh
+
+Response Engine:
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-response-engine.sh
+
+Knowledge Graph:
+CHECKED
+
+
+OPERATIONS
+----------
+
+Execution:
+CHECKED
+
+Tools:
+CHECKED
+
+Backups:
+CHECKED
+
+Command Center:
+CHECKED
+
+
+REGISTRY STATUS
+
+ACTIVE
+
+
+--------------------------------
+HEALTH MONITOR
+--------------------------------
+================================
+ ED HEALTH MONITOR STATUS
+================================
+
+✓ Runtime Check
+✓ Module Check
+✓ Storage Check
+✓ Backup Check
+✓ Security Check
+✓ Recovery Check
+
+Status: ACTIVE
+
+--------------------------------
+MODULE DECISIONS
+--------------------------------
+================================
+ ED MODULE DECISION ENGINE
+================================
+
+--------------------------------
+CAPABILITY CLASSIFIER
+--------------------------------
+ED Capability Classifier v2.0
+
+================================
+ MASTER AUDIT COMPLETE
+REPORT:
+/data/data/com.termux/files/home/ED-Core/Reports/ED-MASTER-AUDIT-20260729-215530.txt
+================================

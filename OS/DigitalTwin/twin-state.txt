@@ -1,0 +1,28 @@
+================================
+ ED DIGITAL TWIN STATE
+================================
+
+Base Snapshot:
+
+ED OS v1.0
+
+
+Synchronization:
+
+READY
+
+
+Environment:
+
+ISOLATED
+
+
+Risk:
+
+CONTAINED
+
+
+STATUS:
+
+ACTIVE
+

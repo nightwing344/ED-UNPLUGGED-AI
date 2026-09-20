@@ -1,0 +1,28 @@
+================================
+ ED MEMORY STATUS
+================================
+
+Layer:
+ONLINE
+
+Storage:
+READY
+
+Retrieval:
+READY
+
+Experience Memory:
+READY
+
+Mission Memory:
+READY
+
+Lesson System:
+READY
+
+Learning Connection:
+ACTIVE
+
+Status:
+OPERATIONAL
+

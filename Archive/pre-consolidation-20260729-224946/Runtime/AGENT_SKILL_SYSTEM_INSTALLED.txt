@@ -1,0 +1,15 @@
+ED Agent Skill System v1.0
+
+Installed:
+20260729-172148
+
+Connected:
+
+✓ Agent Manager
+✓ Director Layer
+✓ Model Router
+✓ Memory System
+
+Status:
+ACTIVE
+

@@ -1,0 +1,21 @@
+ED Command Center v1.0
+
+Installed:
+20260729-164356
+
+Connected:
+
+✓ Companion Engine
+✓ Governance
+✓ Memory
+✓ Agents
+✓ Workflows
+✓ Voice
+
+Purpose:
+
+Central ED control interface.
+
+Status:
+ACTIVE
+

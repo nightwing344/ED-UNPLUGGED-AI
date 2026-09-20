@@ -1,0 +1,12 @@
+ED Master System Registry v1.0
+
+Installed:
+20260729-165607
+
+Purpose:
+
+Maintain authoritative ED architecture map.
+
+Status:
+ACTIVE
+

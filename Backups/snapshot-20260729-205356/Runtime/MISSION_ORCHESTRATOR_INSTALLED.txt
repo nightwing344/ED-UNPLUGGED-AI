@@ -1,0 +1,18 @@
+ED Mission Orchestrator v1.0
+
+Installed:
+20260729-161943
+
+Connected:
+✓ Mission Manager
+✓ Adaptive Director
+✓ Agent Manager
+✓ Agent Bus
+✓ Knowledge
+✓ Learning
+
+Status:
+ACTIVE
+
+Governance:
+USER APPROVAL REQUIRED

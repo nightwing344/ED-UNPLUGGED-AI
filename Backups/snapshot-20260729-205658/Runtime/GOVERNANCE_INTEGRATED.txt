@@ -1,0 +1,16 @@
+ED Governance Runtime Integration
+
+Installed:
+20260729-155536
+
+Status:
+ACTIVE
+
+Protected:
+✓ Updates
+✓ Memory writes
+✓ Reset actions
+✓ Runtime changes
+
+Authority:
+USER FINAL APPROVAL REQUIRED

@@ -1,0 +1,15 @@
+ED Learning Engine v1.0
+
+Installed:
+20260729-161350
+
+Status:
+ACTIVE
+
+Connected:
+Knowledge Graph
+Memory
+Director
+
+Protection:
+User approval required

@@ -1,0 +1,25 @@
+================================
+ ED MIGRATION STATUS
+================================
+
+Controller:
+ONLINE
+
+Mode:
+SAFE MIGRATION
+
+Source:
+ED-Core/Runtime
+
+Destination:
+ED-Core/OS
+
+Deletion:
+DISABLED
+
+Rollback:
+AVAILABLE
+
+Status:
+READY
+

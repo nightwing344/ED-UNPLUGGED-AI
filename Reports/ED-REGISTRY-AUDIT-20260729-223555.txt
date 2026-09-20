@@ -1,0 +1,57 @@
+================================
+ ED REGISTRY AUDIT v1.0
+================================
+
+Wed Jul 29 22:35:55 CDT 2026
+
+--------------------------------
+agent-registry.txt
+--------------------------------
+STATUS: VALID
+LINES:
+43 /data/data/com.termux/files/home/ED-Core/Registry/agent-registry.txt
+
+--------------------------------
+intelligence-registry.txt
+--------------------------------
+STATUS: VALID
+LINES:
+43 /data/data/com.termux/files/home/ED-Core/Registry/intelligence-registry.txt
+
+--------------------------------
+kernel-registry.txt
+--------------------------------
+STATUS: VALID
+LINES:
+33 /data/data/com.termux/files/home/ED-Core/Registry/kernel-registry.txt
+
+--------------------------------
+master-registry.txt
+--------------------------------
+STATUS: VALID
+LINES:
+52 /data/data/com.termux/files/home/ED-Core/Registry/master-registry.txt
+
+--------------------------------
+memory-registry.txt
+--------------------------------
+STATUS: VALID
+LINES:
+43 /data/data/com.termux/files/home/ED-Core/Registry/memory-registry.txt
+
+--------------------------------
+plugin-registry.txt
+--------------------------------
+STATUS: VALID
+LINES:
+317 /data/data/com.termux/files/home/ED-Core/Registry/plugin-registry.txt
+
+================================
+ REGISTRY HEALTH
+================================
+Registry files:
+6
+STATUS: OPERATIONAL
+
+RULE:
+No migration without registry approval.

@@ -1,0 +1,42 @@
+================================
+ ED CAPABILITY MAP
+================================
+
+
+INTELLIGENCE
+
+ |
+ +-- Reasoning
+ +-- Decision
+ +-- Planning
+ +-- Curiosity
+ +-- Learning
+
+
+EXECUTION
+
+ |
+ +-- Agents
+ +-- Tools
+ +-- Workflows
+
+
+MEMORY
+
+ |
+ +-- Experience
+ +-- Retrieval
+ +-- Mission History
+
+
+ECOSYSTEM
+
+ |
+ +-- Plugins
+ +-- Extensions
+
+
+STATUS:
+
+CONNECTED
+

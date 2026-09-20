@@ -1,0 +1,16 @@
+================================
+ ED ROLLBACK PLAN v1.0
+================================
+
+Before every merge:
+
+1. Snapshot
+2. Registry backup
+3. Archive change
+4. Execute one wave
+5. Run health check
+
+Rollback:
+Restore previous snapshot
+Restore registry
+Restore module state

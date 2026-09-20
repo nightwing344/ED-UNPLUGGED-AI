@@ -1,0 +1,18 @@
+================================
+ ED PLUGIN MARKETPLACE
+================================
+
+AVAILABLE EXTENSIONS:
+
+Economic Systems
+Digital Twin Modules
+Research Modules
+Simulation Modules
+Connector Modules
+Future Community Modules
+
+
+STATUS:
+
+READY
+

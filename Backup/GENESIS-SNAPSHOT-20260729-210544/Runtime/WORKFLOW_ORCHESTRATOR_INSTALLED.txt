@@ -1,0 +1,16 @@
+ED Workflow Orchestrator v1.0
+
+Installed:
+20260729-172214
+
+Connected:
+
+✓ Director
+✓ Agent Manager
+✓ Skill System
+✓ Model Router
+✓ Conversation Engine
+
+Status:
+ACTIVE
+

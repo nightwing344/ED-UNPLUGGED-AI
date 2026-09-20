@@ -1,0 +1,19 @@
+================================
+ ED SYSTEM STATUS
+================================
+
+STATE:
+ONLINE
+
+MODE:
+SAFE MIGRATION
+
+KERNEL:
+READY
+
+RUNTIME:
+CONNECTED
+
+ARCHITECTURE:
+ACTIVE
+

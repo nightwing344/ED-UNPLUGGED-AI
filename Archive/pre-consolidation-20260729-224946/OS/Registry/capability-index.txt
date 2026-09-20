@@ -1,0 +1,25 @@
+================================
+ ED CAPABILITY INDEX
+================================
+
+CAPABILITIES:
+
+Reasoning
+Planning
+Learning
+Memory
+Task Execution
+Agent Coordination
+Research
+Simulation
+Economic Intelligence
+Digital Twin
+Governance
+Security
+
+
+STATUS:
+
+AVAILABLE
+
+

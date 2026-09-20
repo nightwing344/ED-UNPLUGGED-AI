@@ -1,0 +1,9 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+ENGINE="$HOME/ED-Core/Engines/ed-memory.sh"
+
+if [ -f "$ENGINE" ]; then
+    bash "$ENGINE" "$@"
+else
+    echo "ED Memory Engine not found."
+fi

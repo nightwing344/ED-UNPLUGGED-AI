@@ -1,0 +1,17 @@
+================================
+ ED KERNEL MERGE PLAN v1.0
+================================
+
+CONSOLIDATION PHASES
+
+Phase 1:
+Freeze kernel candidates
+
+Phase 2:
+Merge duplicate services
+
+Phase 3:
+Move optional systems to extensions
+
+Phase 4:
+Create ED Kernel v1.0

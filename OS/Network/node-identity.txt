@@ -1,0 +1,24 @@
+================================
+ ED NODE IDENTITY
+================================
+
+
+Node ID:
+
+ED-ROOT-001
+
+
+Identity:
+
+Trusted Core Node
+
+
+Verification:
+
+Governance Controlled
+
+
+STATUS:
+
+ACTIVE
+

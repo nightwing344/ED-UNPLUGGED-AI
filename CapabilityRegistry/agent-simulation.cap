@@ -1,0 +1,4 @@
+TYPE=agent
+NAME=simulation
+DESCRIPTION=Runs economic simulations
+CREATED=Wed Jul 29 19:52:26 CDT 2026

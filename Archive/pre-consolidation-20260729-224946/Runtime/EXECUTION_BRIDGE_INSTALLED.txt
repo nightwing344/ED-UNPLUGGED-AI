@@ -1,0 +1,20 @@
+ED Execution Bridge v1.0
+
+Installed:
+20260729-164559
+
+Connected:
+
+✓ Workflow Engine
+✓ Agent Swarm
+✓ Decision Engine
+✓ Command Center
+✓ Governance
+
+Purpose:
+
+Controlled action execution.
+
+Status:
+ACTIVE
+

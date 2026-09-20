@@ -1,0 +1,21 @@
+================================
+ ED AGENT REGISTRY
+================================
+
+REGISTERED AGENT TYPES:
+
+Worker Agents
+
+Specialist Agents
+
+Research Agents
+
+Automation Agents
+
+Swarm Agents
+
+
+STATUS:
+
+READY
+

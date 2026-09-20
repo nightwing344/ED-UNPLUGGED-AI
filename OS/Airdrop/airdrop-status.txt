@@ -1,0 +1,24 @@
+================================
+ ED AIRDROP STATUS
+================================
+
+Allocation Engine:
+ONLINE
+
+Contributor Scoring:
+ACTIVE
+
+Genesis Tracking:
+ACTIVE
+
+Snapshot System:
+READY
+
+Anti-Gaming:
+ENABLED
+
+
+STATUS:
+
+OPERATIONAL
+

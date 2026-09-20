@@ -1,0 +1,16 @@
+================================
+ ED KERNEL BRIDGE MAP v1.0
+================================
+
+KERNEL
+ |
+ +-- Runtime Bridge
+ |
+ +-- Legacy Runtime Compatibility
+ |
+ +-- Module Communication Layer
+
+
+STATUS:
+CONNECTED
+

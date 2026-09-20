@@ -1,0 +1,22 @@
+ED Knowledge Graph Bridge
+
+Installed:
+20260729-161255
+
+Status:
+ACTIVE
+
+Flow:
+
+ED Runtime
+ |
+Director
+ |
+Specialists
+ |
+Graph Bridge
+ |
+Knowledge Graph
+
+Approval:
+REQUIRED

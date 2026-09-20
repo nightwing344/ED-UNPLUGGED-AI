@@ -1,0 +1,23 @@
+================================
+ ED IDENTITY REGISTRY v1.0
+================================
+
+SYSTEM:
+
+ED OS
+
+
+IDENTITY TYPE:
+
+Autonomous Intelligence Platform
+
+
+AUTHORITY:
+
+Governance Controlled
+
+
+STATUS:
+
+REGISTERED
+

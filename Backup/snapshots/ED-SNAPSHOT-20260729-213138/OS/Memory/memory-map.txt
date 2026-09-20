@@ -1,0 +1,44 @@
+================================
+ ED MEMORY FABRIC MAP v1.0
+================================
+
+INPUT EVENTS
+ |
+ v
+
+EXPERIENCE MEMORY
+ |
+ v
+
+MEMORY INDEXING
+ |
+ v
+
+RETRIEVAL ENGINE
+ |
+ +----------------+
+ |                |
+ v                v
+
+KNOWLEDGE      LEARNING
+
+ |
+ v
+
+DECISION IMPROVEMENT
+
+
+MEMORY TYPES:
+
+- Experiences
+- Missions
+- Lessons
+- User Context
+- System Events
+- Performance Data
+
+
+MODE:
+
+PERSISTENT MEMORY FABRIC
+

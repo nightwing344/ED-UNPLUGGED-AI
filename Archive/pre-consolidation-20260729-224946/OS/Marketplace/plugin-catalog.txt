@@ -1,0 +1,29 @@
+================================
+ ED PLUGIN CATALOG
+================================
+
+
+PLUGIN TYPES:
+
+Economic
+
+Simulation
+
+Research
+
+Connectors
+
+Interfaces
+
+Extensions
+
+
+Plugin Verification:
+
+Required
+
+
+STATUS:
+
+REGISTERED
+

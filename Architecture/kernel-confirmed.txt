@@ -1,0 +1,15 @@
+ED KERNEL CONFIRMED
+
+ed-runtime.sh
+ed-executive-brain.sh
+ed-router.sh
+ed-agent-runtime.sh
+ed-memory.sh
+ed-knowledge-engine.sh
+ed-knowledge-graph.sh
+ed-learning-engine.sh
+ed-security-manager.sh
+ed-security-vault.sh
+ed-mission-engine.sh
+ed-mission-manager.sh
+ed-mission-orchestrator.sh

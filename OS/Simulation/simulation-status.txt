@@ -1,0 +1,21 @@
+================================
+ ED SIMULATION STATUS
+================================
+
+Simulation Engine:
+ONLINE
+
+Digital Twin:
+ONLINE
+
+Scenario Engine:
+READY
+
+Result Analysis:
+READY
+
+
+STATUS:
+
+OPERATIONAL
+

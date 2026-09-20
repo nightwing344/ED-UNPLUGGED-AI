@@ -1,0 +1,50 @@
+================================
+ ED MEMORY FABRIC MAP
+================================
+
+
+INPUT
+
+ |
+
+ v
+
+MEMORY ROUTER
+
+ |
+
+ +----------------+
+ |                |
+ v                v
+
+SHORT TERM     LONG TERM
+
+ |
+
+ v
+
+EXPERIENCE MEMORY
+
+ |
+
+ v
+
+MISSION MEMORY
+
+ |
+
+ v
+
+LEARNING FEEDBACK
+
+ |
+
+ v
+
+KNOWLEDGE UPDATE
+
+
+STATUS:
+
+CONNECTED
+

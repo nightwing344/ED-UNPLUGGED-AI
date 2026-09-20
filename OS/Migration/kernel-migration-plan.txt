@@ -1,0 +1,33 @@
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt:KERNEL:
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ED KERNEL CONFIRMED
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-runtime.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-executive-brain.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-router.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-agent-runtime.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-memory.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-knowledge-engine.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-knowledge-graph.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-learning-engine.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-security-manager.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-security-vault.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-mission-engine.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-mission-manager.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-mission-orchestrator.sh
+--
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt:KERNEL:
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ED KERNEL CONFIRMED
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-runtime.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-executive-brain.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-router.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-agent-runtime.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-memory.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-knowledge-engine.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-knowledge-graph.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-learning-engine.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-security-manager.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-security-vault.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-mission-engine.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-mission-manager.sh
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-mission-orchestrator.sh

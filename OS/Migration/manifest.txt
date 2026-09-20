@@ -1,0 +1,31 @@
+================================
+ ED MIGRATION MANIFEST v1.0
+================================
+
+SOURCE:
+Runtime Layer
+
+DESTINATION:
+ED OS Architecture
+
+AUTHORITY:
+ED Master Registry
+
+MODE:
+SAFE MIGRATION
+
+RULE:
+NO DELETE
+NO OVERWRITE
+ARCHIVE FIRST
+
+LAYERS:
+
+KERNEL
+Agents
+Intelligence
+Memory
+Plugins
+
+STATUS:
+APPROVED FOR REVIEW

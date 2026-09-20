@@ -1,0 +1,37 @@
+ED Dependency Runner
+Date: Wed Jul 29 20:51:28 CDT 2026
+
+[1] Engine found
+
+[2] Running dependency analysis...
+
+⚠ Analysis returned error
+
+[3] Checking generated reports
+
+✓ dependency-intelligence.txt (4.0K)
+✓ impact-analysis.txt (0)
+✓ isolated-modules.txt (0)
+
+[4] Module count
+Runtime Modules: 167
+
+[5] Architecture inventory
+module-map-20260729-202956.txt
+duplicate-report-20260729-202956.txt
+dependency-graph.db
+core-map.txt
+consolidation-plan.txt
+duplicate-analysis.txt
+ED-KERNEL-BLUEPRINT-v1.txt
+module-classification.txt
+kernel-modules.txt
+extension-modules.txt
+review-modules.txt
+dependency-intelligence.txt
+impact-analysis.txt
+isolated-modules.txt
+
+================================
+ DEPENDENCY AUDIT COMPLETE
+================================

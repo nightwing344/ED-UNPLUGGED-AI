@@ -1,0 +1,44 @@
+================================
+ ED AGENT NETWORK MAP
+================================
+
+
+MISSION CONTROL
+
+        |
+
+        v
+
+AGENT MANAGER
+
+        |
+
+        +----------------+
+        |                |
+        v                v
+
+WORKER POOL       SPECIALIST POOL
+
+        |
+
+        v
+
+SWARM COORDINATION
+
+        |
+
+        v
+
+AGENT BUS
+
+        |
+
+        v
+
+MEMORY + LEARNING
+
+
+MODE:
+
+AUTONOMOUS AGENT NETWORK
+

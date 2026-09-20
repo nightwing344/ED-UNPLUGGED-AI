@@ -1,0 +1,46 @@
+================================
+ ED AGENT REGISTRY v1.0
+================================
+
+CORE AGENT SYSTEM:
+
+ed-agent-runtime.sh
+ed-agent-manager.sh
+ed-agent-bus.sh
+
+
+WORKER AGENTS:
+
+ed-agent-worker.sh
+
+
+SPECIALIST AGENTS:
+
+ed-specialist-consult.sh
+
+
+SWARM SYSTEM:
+
+ed-agent-swarm.sh
+ed-agent-swarm-v2.sh
+ed-swarm-coordinator.sh
+ed-swarm-intelligence.sh
+ed-swarm-mission-execution.sh
+
+
+SKILL SYSTEM:
+
+ed-agent-skill-manager.sh
+ed-agent-skill-binding.sh
+ed-agent-package-manager.sh
+
+
+TEMPLATE SYSTEM:
+
+ed-agent-template-factory.sh
+
+
+STATUS:
+
+REGISTERED
+

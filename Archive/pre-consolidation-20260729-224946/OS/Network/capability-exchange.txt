@@ -1,0 +1,27 @@
+================================
+ ED CAPABILITY EXCHANGE
+================================
+
+
+SHARED CAPABILITIES:
+
+Knowledge
+
+Skills
+
+Plugins
+
+Models
+
+Tools
+
+
+Exchange Rules:
+
+Verified Nodes Only
+
+
+STATUS:
+
+READY
+

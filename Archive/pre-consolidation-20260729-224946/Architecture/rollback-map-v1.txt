@@ -1,0 +1,13 @@
+================================
+ ED ROLLBACK MAP v1.0
+================================
+
+Snapshot:
+/data/data/com.termux/files/home/ED-Core/Backup/GENESIS-SNAPSHOT-20260729-210544
+
+Restore method:
+Copy snapshot directories back to ED-Core.
+
+Protection:
+Original Runtime preserved.
+

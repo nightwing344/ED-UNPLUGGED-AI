@@ -1,0 +1,16 @@
+ED Agent Communication Bus v1.0
+
+Installed:
+20260729-161617
+
+Purpose:
+Enable controlled agent communication.
+
+Rules:
+- Agents recommend only
+- Governance controls actions
+- Director coordinates
+- User approval required
+
+Status:
+ACTIVE

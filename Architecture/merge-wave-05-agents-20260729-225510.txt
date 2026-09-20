@@ -1,0 +1,11 @@
+================================
+ MERGE WAVE 05 - AGENTS
+================================
+
+Priority:
+MEDIUM
+
+Actions:
+- Validate swarm structure
+- Validate skills
+- Validate orchestration

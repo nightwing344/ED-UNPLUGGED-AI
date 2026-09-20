@@ -1,0 +1,16 @@
+ED Workflow Automation Engine v1.0
+
+Installed:
+20260729-163602
+
+Connected:
+
+✓ Agent Runtime
+✓ Mission Command Center
+✓ Governance
+✓ Memory
+✓ Integration Hub
+
+Status:
+ACTIVE
+

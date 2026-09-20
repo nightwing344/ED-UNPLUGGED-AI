@@ -1,0 +1,14 @@
+================================
+ MERGE WAVE 02 - GOVERNANCE
+================================
+
+Priority:
+CRITICAL
+
+Actions:
+- Verify authority chain
+- Verify security gates
+- Verify change controls
+
+Gate:
+Governance approval required

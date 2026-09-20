@@ -1,0 +1,63 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -euo pipefail
+
+REQUEST="$*"
+
+if [ -z "$REQUEST" ]; then
+    echo "No mission provided."
+    exit 1
+fi
+
+echo "================================"
+echo " ED MISSION PLANNER v1.0"
+echo "================================"
+echo
+
+echo "Creating execution plan..."
+echo
+
+PROMPT="
+You are ED Mission Planner.
+
+Create a multi-agent execution plan.
+
+Available agents:
+mission
+knowledge
+planning
+simulation
+automation
+security
+memory
+agents
+
+Return ONLY lines in this format:
+
+agent|task
+
+Request:
+$REQUEST
+"
+
+PLAN=$(ollama run llama3.2:3b "$PROMPT" 2>/dev/null || true)
+
+echo "$PLAN"
+
+echo
+echo "Sending tasks to queue..."
+echo
+
+while IFS='|' read -r AGENT TASK
+do
+
+if [ -n "$AGENT" ] && [ -n "$TASK" ]; then
+
+"$RUNTIME/ed-task-queue.sh" create "$TASK" "$AGENT"
+
+fi
+
+done <<< "$PLAN"
+
+echo
+echo "Mission Plan Complete."
+

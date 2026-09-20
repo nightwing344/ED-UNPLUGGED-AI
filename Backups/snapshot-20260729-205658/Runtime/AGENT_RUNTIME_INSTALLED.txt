@@ -1,0 +1,16 @@
+ED Autonomous Agent Runtime v1.0
+
+Installed:
+20260729-163056
+
+Connected:
+
+✓ Agent Bus
+✓ Workflow Engine
+✓ Skill Marketplace
+✓ Governance
+✓ Reputation Engine
+
+Status:
+ACTIVE
+

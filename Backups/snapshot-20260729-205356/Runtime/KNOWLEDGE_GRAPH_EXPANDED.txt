@@ -1,0 +1,19 @@
+ED Knowledge Graph Expansion v1.0
+
+Installed:
+20260729-162112
+
+Added:
+- Node system
+- Relationship system
+- Search system
+- Strategy mapping
+
+Connected:
+Mission Manager
+Decision Engine
+Learning Engine
+Agent Bus
+
+Status:
+ACTIVE

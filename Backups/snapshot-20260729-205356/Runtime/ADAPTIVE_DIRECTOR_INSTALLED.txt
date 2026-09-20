@@ -1,0 +1,15 @@
+ED Adaptive Director v1.0
+
+Installed:
+20260729-161459
+
+Status:
+ACTIVE
+
+Connected:
+Knowledge Graph
+Learning Engine
+Specialists
+
+Protection:
+User approval required

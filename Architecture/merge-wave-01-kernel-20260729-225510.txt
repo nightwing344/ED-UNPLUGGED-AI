@@ -1,0 +1,15 @@
+================================
+ MERGE WAVE 01 - KERNEL
+================================
+
+Priority:
+CRITICAL
+
+Actions:
+- Verify runtime core
+- Verify routing
+- Verify security
+- Verify mission control
+
+Gate:
+Kernel health check required

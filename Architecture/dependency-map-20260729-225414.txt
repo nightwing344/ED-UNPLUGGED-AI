@@ -1,0 +1,479 @@
+================================
+ ED DEPENDENCY MAP v1.0
+================================
+
+Wed Jul 29 22:54:14 CDT 2026
+
+--------------------------------
+
+MODULE: ed-config.sh
+
+MODULE: ed-command-center.sh
+
+MODULE: ed-status.sh
+
+MODULE: ed-director-bridge.sh
+
+MODULE: ed-specialist-consult.sh
+
+MODULE: ed-orchestrator.sh
+bash "$HOME/ED-Core/Runtime/ed-director-bridge.sh" "$REQUEST"
+bash "$HOME/ED-Core/Runtime/ed-director-skill-bridge.sh" "$REQUEST"
+bash "$HOME/ED-Core/Runtime/ed-specialist-consult.sh" "$REQUEST"
+bash "$HOME/ED-Core/Runtime/ed-curiosity.sh" "$REQUEST"
+
+MODULE: ed-console-v1.1.sh
+bash "$ORCHESTRATOR" "$ARGS"
+
+MODULE: ed-profile-status.sh
+
+MODULE: ed-profile-reset.sh
+
+MODULE: ed-profile-switch.sh
+
+MODULE: ed-profile-gate.sh
+
+MODULE: ed-curiosity-engine.sh
+
+MODULE: ed-governance-check.sh
+
+MODULE: ed-voice-runtime.sh
+
+MODULE: ed-self-check.sh
+
+MODULE: ed-improvement-proposal.sh
+
+MODULE: ed-lesson-log.sh
+
+MODULE: ed-curiosity.sh
+
+MODULE: ed-question.sh
+
+MODULE: ed-speak.sh
+
+MODULE: ed-listen.sh
+
+MODULE: ed-wakeword.sh
+
+MODULE: ed-memory-request.sh
+
+MODULE: ed-memory-status.sh
+bash "$HOME/ED-Core/Runtime/ed-memory.sh" status
+
+MODULE: ed-runtime.sh
+bash "$HOME/ED-Core/Runtime/ed-director-bridge.sh" "$REQUEST"
+bash "$HOME/ED-Core/Runtime/ed-specialist-consult.sh" "$REQUEST"
+bash "$HOME/ED-Core/Runtime/ed-curiosity.sh" "$REQUEST"
+bash "$HOME/ED-Core/Runtime/ed-response-engine.sh" "$REQUEST"
+
+MODULE: ed-response-engine.sh
+
+MODULE: ed-response-status.sh
+
+MODULE: ed-runtime-status.sh
+
+MODULE: ed-governance.sh
+
+MODULE: ed-governance-status.sh
+bash "$HOME/ED-Core/Runtime/ed-governance.sh" status
+
+MODULE: ed-governance-gate.sh
+
+MODULE: ed-governance-runtime-status.sh
+
+MODULE: ed-runtime-secure.sh
+bash "$HOME/ED-Core/Runtime/ed-governance-gate.sh" "$REQUEST"
+bash "$HOME/ED-Core/Runtime/ed-runtime.sh" "$REQUEST"
+
+MODULE: ed.sh
+bash "$HOME/ED-Core/Runtime/ed-runtime-secure.sh" "$@"
+
+MODULE: ed-memory.sh
+
+MODULE: ed-memory-retrieve.sh
+
+MODULE: ed-memory-retrieval-status.sh
+
+MODULE: ed-skills.sh
+
+MODULE: ed-skills-status.sh
+bash "$HOME/ED-Core/Runtime/ed-skills.sh" status
+
+MODULE: ed-skill-scan.sh
+
+MODULE: ed-director-skill-bridge.sh
+
+MODULE: ed-skill-bridge-status.sh
+
+MODULE: ed-knowledge-graph.sh
+
+MODULE: ed-graph-bridge.sh
+bash "$GRAPH" project "$REQUEST"
+bash "$GRAPH" decision "$REQUEST"
+
+MODULE: ed-learning-engine.sh
+
+MODULE: ed-adaptive-director.sh
+
+MODULE: ed-agent-manager.sh
+
+MODULE: ed-agent-bus.sh
+
+MODULE: ed-mission-manager.sh
+
+MODULE: ed-mission-orchestrator.sh
+
+MODULE: ed-dashboard.sh
+
+MODULE: ed-identity.sh
+
+MODULE: ed-decision-engine.sh
+
+MODULE: ed-self-improvement.sh
+
+MODULE: ed-governance-engine.sh
+
+MODULE: ed-service-manager.sh
+
+MODULE: ed-skill-manager.sh
+
+MODULE: ed-workflow-engine.sh
+
+MODULE: ed-evaluation-engine.sh
+
+MODULE: ed-interface-manager.sh
+
+MODULE: ed-security-manager.sh
+
+MODULE: ed-developer-manager.sh
+
+MODULE: ed-application-factory.sh
+
+MODULE: ed-product-intelligence.sh
+
+MODULE: ed-economic-engine.sh
+
+MODULE: ed-reputation-engine.sh
+
+MODULE: ed-memory-intelligence.sh
+
+MODULE: ed-agent-runtime.sh
+
+MODULE: ed-digital-twin.sh
+
+MODULE: ed-learning-loop.sh
+
+MODULE: ed-security-vault.sh
+
+MODULE: ed-health-monitor.sh
+
+MODULE: ed-backup-engine.sh
+
+MODULE: ed-integration-hub.sh
+
+MODULE: ed-agent-swarm.sh
+
+MODULE: ed-companion-engine.sh
+
+MODULE: ed-voice-engine.sh
+
+MODULE: ed-registry-status.sh
+
+MODULE: ed-model-connector.sh
+
+MODULE: ed-model-router.sh
+
+MODULE: ed-dashboard-status.sh
+
+MODULE: ed-web-interface-status.sh
+
+MODULE: ed-environment.sh
+
+MODULE: ed-tool-status.sh
+for CMD in bash ollama node python; do
+
+MODULE: ed-conversation-engine.sh
+
+MODULE: ed-agent-skill-manager.sh
+
+MODULE: ed-knowledge-engine.sh
+
+MODULE: ed-automation-engine.sh
+
+MODULE: ed-self-improvement-engine.sh
+
+MODULE: ed-dashboard-engine.sh
+
+MODULE: ed-service-connector.sh
+
+MODULE: ed-agent-template-factory.sh
+
+MODULE: ed-connector-deployment-manager.sh
+
+MODULE: ed-node-manager.sh
+
+MODULE: ed-swarm-coordinator.sh
+
+MODULE: ed-simulation-engine.sh
+
+MODULE: ed-action-gateway.sh
+
+MODULE: ed-intent-router.sh
+
+MODULE: ed-experience-memory.sh
+
+MODULE: ed-confidence-gate.sh
+
+MODULE: ed-task-queue.sh
+
+MODULE: ed-mission-memory.sh
+
+MODULE: ed-learning-pipeline.sh
+
+MODULE: ed-skill-evolution.sh
+
+MODULE: ed-agent-skill-binding.sh
+
+MODULE: ed-autonomous-task-router.sh
+
+MODULE: ed-swarm-mission-execution.sh
+
+MODULE: ed-learning-feedback-loop.sh
+
+MODULE: ed-build-audit.sh
+if bash -n "$TARGET"; then
+    echo "✓ Bash syntax valid"
+
+MODULE: ed-adaptive-router.sh
+
+MODULE: ed-autonomous-operations.sh
+
+MODULE: ed-autonomous-loop.sh
+
+MODULE: ed-self-governance.sh
+
+MODULE: ed-memory-intelligence-v3.sh
+
+MODULE: ed-network-node.sh
+
+MODULE: ed-agent-swarm-v2.sh
+
+MODULE: ed-decision-intelligence-v2.sh
+
+MODULE: ed-mission-control-v2.sh
+
+MODULE: ed-interface-gateway-v1.sh
+
+MODULE: ed-governance-engine-v2.sh
+
+MODULE: ed-reputation-engine-v1.sh
+
+MODULE: ed-airdrop-engine-v1.sh
+
+MODULE: ed-kernel-blueprint-v1.sh
+
+MODULE: ed-kernel-merge-planner-v1.sh
+
+MODULE: ed-kernel-registry-v1.sh
+
+MODULE: ed-kernel-governance-gate-v1.sh
+
+MODULE: ed-plugin-migration-engine-v1.sh
+
+MODULE: ed-capability-classifier-v2.sh
+
+MODULE: ed-system-architecture-composer-v1.sh
+
+MODULE: ed-os-constructor-v1.sh
+
+MODULE: ed-layer-verification-engine-v1.sh
+
+MODULE: ed-boot-sequence-manager-v1.sh
+
+MODULE: ed-central-command-v1.sh
+
+MODULE: ed-agent-activation-manager-v1.sh
+
+MODULE: ed-memory-consolidation-engine-v1.sh
+
+MODULE: ed-plugin-extension-manager-v1.sh
+
+MODULE: ed-os-migration-controller-v1.sh
+echo "✓ Runtime source available"
+
+MODULE: ed-os-boot-orchestrator-v1.sh
+
+MODULE: ed-os-mission-control-v1.sh
+
+MODULE: ed-os-agent-orchestration-v1.sh
+
+MODULE: ed-os-governance-authority-v1.sh
+
+MODULE: ed-os-health-monitor-v1.sh
+
+MODULE: ed-os-agent-network-v1.sh
+
+MODULE: ed-os-plugin-runtime-v1.sh
+
+MODULE: ed-os-capability-evolution-v1.sh
+
+MODULE: ed-os-economic-engine-v1.sh
+
+MODULE: ed-os-airdrop-engine-v1.sh
+
+MODULE: ed-consolidation-report-v1.sh
+
+MODULE: ed-execution-bridge.sh
+
+MODULE: ed-tool-connectors.sh
+
+MODULE: ed-model-benchmark.sh
+
+MODULE: ed-interface-gateway.sh
+
+MODULE: ed-live-command-bridge.sh
+
+MODULE: ed-response-display.sh
+
+MODULE: ed-live-response-loop.sh
+
+MODULE: ed-workflow-orchestrator.sh
+
+MODULE: ed-goal-engine.sh
+
+MODULE: ed-integration-manager.sh
+
+MODULE: ed-agent-package-manager.sh
+
+MODULE: ed-collaboration-engine.sh
+
+MODULE: ed-command-center-v2.sh
+
+MODULE: ed-mission-engine.sh
+
+MODULE: ed-planning-engine.sh
+echo "✓ Resource Checker"
+
+MODULE: ed-self-training-loop.sh
+
+MODULE: ed-personal-os.sh
+
+MODULE: ed-assistant-loop.sh
+
+MODULE: ed-connector-manager.sh
+
+MODULE: ed-node-network.sh
+
+MODULE: ed-router.sh
+
+MODULE: ed-executive-brain.sh
+
+MODULE: ed-mission-planner.sh
+
+MODULE: ed-agent-worker.sh
+
+MODULE: ed-self-improvement-loop.sh
+
+MODULE: ed-knowledge-graph-v2.sh
+
+MODULE: ed-learning-knowledge-bridge.sh
+
+MODULE: ed-capability-registry.sh
+
+MODULE: ed-swarm-intelligence.sh
+
+MODULE: ed-decision-engine-v2.sh
+
+MODULE: ed-command-center-v3.sh
+
+MODULE: ed-model-router-v2.sh
+
+MODULE: ed-self-healing.sh
+        bash -n "$FILE" 2>/dev/null
+    if bash -n "$FILE"; then
+
+MODULE: ed-economic-intelligence-v1.sh
+
+MODULE: ed-digital-twin-v2.sh
+
+MODULE: ed-research-engine-v1.sh
+
+MODULE: ed-memory-intelligence-v2.sh
+
+MODULE: ed-module-registry-v1.sh
+if bash -n "$MODULE" 2>/dev/null
+
+MODULE: ed-dependency-engine-v1.sh
+
+MODULE: ed-health-monitor-v1.sh
+if bash -n "$FILE" 2>/dev/null; then
+
+MODULE: ed-snapshot-manager-v1.sh
+
+MODULE: ed-consolidation-engine-v1.sh
+
+MODULE: ed-module-classification-engine-v1.sh
+
+MODULE: ed-dependency-intelligence-v1.sh
+
+MODULE: ed-snapshot-recovery-v2.sh
+du -sh "$TARGET"
+
+MODULE: ed-kernel-consolidation-engine-v1.sh
+
+MODULE: ed-module-decision-engine-v1.sh
+
+MODULE: ed-kernel-authority-engine-v1.sh
+
+MODULE: ed-snapshot-migration-readiness-v1.sh
+
+MODULE: ed-migration-controller-v1.sh
+
+MODULE: ed-kernel-runtime-bridge-v1.sh
+
+MODULE: ed-intelligence-routing-layer-v1.sh
+
+MODULE: ed-governance-security-authority-v1.sh
+
+MODULE: ed-os-intelligence-fusion-v1.sh
+
+MODULE: ed-os-memory-fabric-v1.sh
+
+MODULE: ed-os-unified-registry-v1.sh
+
+MODULE: ed-os-backup-recovery-v1.sh
+
+MODULE: ed-os-digital-twin-v1.sh
+
+MODULE: ed-os-identity-reputation-v1.sh
+
+MODULE: ed-os-backup-authority-v1.sh
+
+MODULE: ed-os-network-fabric-v1.sh
+
+MODULE: ed-os-marketplace-engine-v1.sh
+
+MODULE: ed-master-audit-v2.sh
+
+MODULE: ed-canonical-selector-v1.sh
+
+MODULE: ed-unified-registry-v1.sh
+
+MODULE: ed-kernel-migration-executor-v1.sh
+
+MODULE: ed-agent-migration-executor-v1.sh
+
+MODULE: ed-os-consolidation-engine-v1.sh
+
+MODULE: ed-dependency-analysis-engine-v1.sh
+grep -E "source |bash |sh |\\./" "$FILE" \
+
+MODULE: ed-memory-migration-executor-v1.sh
+
+MODULE: ed-intelligence-migration-executor-v1.sh
+
+MODULE: ed-governance-migration-executor-v1.sh
+
+MODULE: ed-plugin-migration-executor-v1.sh
+
+MODULE: ed-consolidation-review-engine-v1.sh

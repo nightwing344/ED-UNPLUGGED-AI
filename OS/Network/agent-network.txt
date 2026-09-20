@@ -1,0 +1,25 @@
+================================
+ ED AGENT NETWORK
+================================
+
+
+CONNECTED AGENT TYPES:
+
+Workers
+
+Specialists
+
+Swarm Agents
+
+Tool Agents
+
+
+Communication:
+
+ENABLED
+
+
+STATUS:
+
+READY
+

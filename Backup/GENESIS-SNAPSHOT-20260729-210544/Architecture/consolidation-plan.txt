@@ -1,0 +1,27 @@
+================================
+ ED CONSOLIDATION PLAN
+================================
+
+Phase 1:
+Preserve core systems
+
+Phase 2:
+Merge duplicate versions
+
+Phase 3:
+Retire obsolete modules
+
+Phase 4:
+Create ED Kernel
+
+Recommended Core Layers:
+
+1. Executive Brain
+2. Runtime
+3. Router
+4. Agents
+5. Memory
+6. Knowledge
+7. Learning
+8. Security
+9. Mission

@@ -1,0 +1,43 @@
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt:AGENT AUTHORITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-================================
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-agent-activation-manager-v1.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-agent-bus.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-agent-manager.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-agent-package-manager.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-agent-runtime.sh | KERNEL REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-agent-skill-binding.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-agent-skill-manager.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-agent-swarm-v2.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-agent-swarm.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-agent-template-factory.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-agent-worker.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-os-agent-network-v1.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-os-agent-orchestration-v1.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-specialist-consult.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-swarm-coordinator.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-swarm-intelligence.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-ed-swarm-mission-execution.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223254.txt-================================
+--
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt:AGENT AUTHORITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-================================
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-agent-activation-manager-v1.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-agent-bus.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-agent-manager.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-agent-package-manager.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-agent-runtime.sh | KERNEL REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-agent-skill-binding.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-agent-skill-manager.sh | UTILITY
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-agent-swarm-v2.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-agent-swarm.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-agent-template-factory.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-agent-worker.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-os-agent-network-v1.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-os-agent-orchestration-v1.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-specialist-consult.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-swarm-coordinator.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-swarm-intelligence.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-ed-swarm-mission-execution.sh | PLUGIN REVIEW
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-
+/data/data/com.termux/files/home/ED-Core/Architecture/canonical-system-map-20260729-223329.txt-================================

@@ -1,0 +1,22 @@
+================================
+ ED PLUGIN STATUS
+================================
+
+Layer:
+ONLINE
+
+Registry:
+ACTIVE
+
+Plugin Boundary:
+ENABLED
+
+Kernel Protection:
+ENABLED
+
+Extensions:
+READY
+
+Marketplace:
+PREPARED
+

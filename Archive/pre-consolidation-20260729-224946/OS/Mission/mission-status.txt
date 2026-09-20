@@ -1,0 +1,27 @@
+================================
+ ED MISSION STATUS
+================================
+
+Mission Layer:
+ONLINE
+
+Planner:
+READY
+
+Task Queue:
+READY
+
+Agent Assignment:
+READY
+
+Execution:
+READY
+
+Memory Feedback:
+CONNECTED
+
+
+Status:
+
+OPERATIONAL
+

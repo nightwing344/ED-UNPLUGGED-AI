@@ -1,0 +1,43 @@
+================================
+ ED GOVERNANCE REGISTRY v1.0
+================================
+
+IDENTITY:
+
+ed-identity.sh
+
+
+SECURITY:
+
+ed-security-manager.sh
+ed-security-vault.sh
+
+
+AUTHORITY:
+
+ed-governance.sh
+ed-governance-engine.sh
+ed-governance-engine-v2.sh
+
+
+CONTROL:
+
+ed-governance-check.sh
+ed-governance-gate.sh
+ed-confidence-gate.sh
+
+
+SELF GOVERNANCE:
+
+ed-self-governance.sh
+
+
+KERNEL CONTROL:
+
+ed-kernel-governance-gate-v1.sh
+
+
+STATUS:
+
+REGISTERED
+

@@ -1,0 +1,56 @@
+================================
+ ED INTELLIGENCE FUSION MAP
+================================
+
+
+INPUT
+
+ |
+
+ v
+
+EXECUTIVE BRAIN
+
+ |
+
+ +----------------+
+ |                |
+ v                v
+
+KNOWLEDGE       REASONING
+
+ |
+
+ v
+
+DECISION ENGINE
+
+ |
+
+ v
+
+PLANNING ENGINE
+
+ |
+
+ v
+
+EXECUTION
+
+ |
+
+ v
+
+LEARNING FEEDBACK
+
+ |
+
+ v
+
+MEMORY IMPROVEMENT
+
+
+MODE:
+
+CONTINUOUS INTELLIGENCE
+

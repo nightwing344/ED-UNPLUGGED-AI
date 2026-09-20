@@ -1,0 +1,30 @@
+================================
+ ED CAPABILITY TRUST
+================================
+
+CAPABILITY SOURCES:
+
+Core Modules
+
+Plugins
+
+Agents
+
+External Tools
+
+
+Trust Factors:
+
+Reliability
+
+Audit History
+
+Performance
+
+Verification
+
+
+STATUS:
+
+TRACKING
+

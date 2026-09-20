@@ -1,0 +1,11 @@
+ED PLUGIN CONFIRMED
+
+ed-economic-engine.sh
+ed-economic-intelligence-v1.sh
+ed-digital-twin.sh
+ed-digital-twin-v2.sh
+ed-simulation-engine.sh
+ed-research-engine-v1.sh
+ed-interface-gateway.sh
+ed-interface-manager.sh
+ed-connector-manager.sh

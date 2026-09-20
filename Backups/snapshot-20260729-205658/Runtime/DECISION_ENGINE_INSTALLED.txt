@@ -1,0 +1,16 @@
+ED Decision Engine v1.0
+
+Installed:
+Wed Jul 29 18:29:53 CDT 2026
+
+Connected:
+
+✓ Autonomous Planner
+✓ Mission System
+✓ Workflow Engine
+✓ Learning System
+✓ Knowledge Engine
+
+Status:
+ACTIVE
+

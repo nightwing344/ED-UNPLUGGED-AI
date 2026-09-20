@@ -1,0 +1,14 @@
+ED BUILD AUDIT v1.0
+
+Component:
+ED Module Decision Engine v1.0
+
+File:
+/data/data/com.termux/files/home/ED-Core/Runtime/ed-module-decision-engine-v1.sh
+
+Checked:
+Wed Jul 29 20:59:15 CDT 2026
+
+RESULT:
+PASS
+

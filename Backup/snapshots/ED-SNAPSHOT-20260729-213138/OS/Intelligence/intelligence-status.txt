@@ -1,0 +1,25 @@
+================================
+ ED INTELLIGENCE STATUS
+================================
+
+Layer:
+ONLINE
+
+Executive Brain:
+READY
+
+Decision:
+READY
+
+Planning:
+READY
+
+Knowledge:
+READY
+
+Learning:
+READY
+
+Routing:
+ACTIVE
+

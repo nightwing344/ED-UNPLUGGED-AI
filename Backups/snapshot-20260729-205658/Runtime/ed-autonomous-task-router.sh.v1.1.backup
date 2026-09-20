@@ -1,0 +1,87 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -euo pipefail
+
+RUNTIME="$HOME/ED-Core/Runtime"
+
+REQUEST="$*"
+
+if [ -z "$REQUEST" ]; then
+    echo "ED Router waiting for task."
+    exit 0
+fi
+
+echo "================================"
+echo " ED AUTONOMOUS TASK ROUTER v1.1"
+echo "================================"
+echo
+echo "Analyzing task..."
+echo
+
+RESULT=$(ollama run llama3.2:3b "
+You are ED Task Router.
+
+Choose exactly one agent:
+
+planning
+simulation
+security
+automation
+memory
+knowledge
+agents
+personal
+
+Return JSON only:
+
+{
+\"agent\":\"name\",
+\"reason\":\"why\"
+}
+
+Task:
+$REQUEST
+" 2>/dev/null || true)
+
+echo "$RESULT"
+
+AGENT=$(echo "$RESULT" | sed -n 's/.*"agent"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p')
+
+echo
+echo "Selected Agent: $AGENT"
+
+case "$AGENT" in
+
+simulation)
+exec "$RUNTIME/ed-simulation-engine.sh" "$REQUEST"
+;;
+
+security)
+exec "$RUNTIME/ed-security-manager.sh" "$REQUEST"
+;;
+
+planning)
+exec "$RUNTIME/ed-workflow-engine.sh" "$REQUEST"
+;;
+
+memory)
+exec "$RUNTIME/ed-memory-intelligence.sh" "$REQUEST"
+;;
+
+knowledge)
+exec "$RUNTIME/ed-knowledge-engine.sh" "$REQUEST"
+;;
+
+automation)
+exec "$RUNTIME/ed-automation-engine.sh" "$REQUEST"
+;;
+
+personal)
+exec "$RUNTIME/ed-personal-os.sh" "$REQUEST"
+;;
+
+*)
+echo "No matching agent."
+;;
+
+esac
+

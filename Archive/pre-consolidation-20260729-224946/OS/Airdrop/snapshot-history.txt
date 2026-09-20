@@ -1,0 +1,24 @@
+================================
+ ED SNAPSHOT HISTORY
+================================
+
+
+SNAPSHOT SYSTEM:
+
+READY
+
+
+PURPOSE:
+
+Record allocation states
+
+
+SNAPSHOT 001:
+
+Initial Architecture
+
+
+STATUS:
+
+ACTIVE
+

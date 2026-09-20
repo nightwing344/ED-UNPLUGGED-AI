@@ -3,6 +3,7 @@ import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import dotenv from 'dotenv';
 import { execFile } from 'node:child_process';
+import fs from 'node:fs';
 import { GoogleGenAI, Type } from '@google/genai';
 
 dotenv.config();
@@ -25,6 +26,38 @@ app.get('/api/ed/runtime/status', (_req, res) => {
   );
 });
 
+
+
+app.get('/api/ed/memory/status', (req, res) => {
+  const remote = req.socket.remoteAddress || '';
+  const local = remote === '127.0.0.1' || remote === '::1' || remote.startsWith('::ffff:127.');
+
+  if (!local) return res.status(403).json({ ok: false, error: 'Local access only' });
+
+  const root = process.env.ED_MEMORY_ROOT || '/storage/emulated/0/ED/Memory';
+
+  try {
+    const files: string[] = [];
+
+    const walk = (dir: string) => {
+      for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, e.name);
+        if (e.isDirectory()) walk(full);
+        else if (e.isFile()) files.push(path.relative(root, full));
+      }
+    };
+
+    walk(root);
+
+    res.json({
+      ok: true,
+      fileCount: files.length,
+      files: files.sort(),
+    });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: String(error) });
+  }
+});
 
 // Lazy Google GenAI Client
 let genAIClient: GoogleGenAI | null = null;

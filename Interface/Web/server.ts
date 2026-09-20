@@ -59,6 +59,36 @@ app.get('/api/ed/memory/status', (req, res) => {
   }
 });
 
+
+app.get('/api/ed/memory/file', (req, res) => {
+  const remote = req.socket.remoteAddress || '';
+  const local = remote === '127.0.0.1' || remote === '::1' || remote.startsWith('::ffff:127.');
+  if (!local) return res.status(403).json({ ok: false, error: 'Local access only' });
+
+  const root = path.resolve(process.env.ED_MEMORY_ROOT || '/storage/emulated/0/ED/Memory');
+  const rel = String(req.query.path || '');
+  if (!rel) return res.status(400).json({ ok: false, error: 'Missing path' });
+
+  const target = path.resolve(root, rel);
+  if (!target.startsWith(root + path.sep))
+    return res.status(403).json({ ok: false, error: 'Invalid path' });
+
+  try {
+    const stat = fs.statSync(target);
+    if (!stat.isFile()) return res.status(400).json({ ok: false, error: 'Not a file' });
+    if (stat.size > 262144) return res.status(413).json({ ok: false, error: 'File too large' });
+
+    res.json({
+      ok: true,
+      path: rel,
+      size: stat.size,
+      content: fs.readFileSync(target, 'utf8'),
+    });
+  } catch (error) {
+    res.status(404).json({ ok: false, error: String(error) });
+  }
+});
+
 // Lazy Google GenAI Client
 let genAIClient: GoogleGenAI | null = null;
 function getGenAI(): GoogleGenAI | null {

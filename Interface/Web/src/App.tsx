@@ -4,7 +4,7 @@ import { getStoredMemories, saveStoredMemories, getStoredMemoryLinks, saveStored
 import { Header } from './components/Header';
 import { OSDock } from './components/OSDock';
 import { CommandPalette } from './components/CommandPalette';
-import { CoreModule } from './components/CoreModule';
+import { CoreHomeModule } from './components/CoreHomeModule';
 import { BuilderModule } from './components/BuilderModule';
 import { ResearchModule } from './components/ResearchModule';
 import { StrategyModule } from './components/StrategyModule';
@@ -380,7 +380,7 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
       {/* Main OS Viewport Area */}
       <main className="flex-1 flex overflow-hidden relative">
         {currentModule === 'core' && (
-          <CoreModule
+          <CoreHomeModule
             messages={messages}
             onSendMessage={handleSendMessage}
             isLoading={isLoading}

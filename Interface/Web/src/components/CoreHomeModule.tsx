@@ -31,18 +31,33 @@ export const CoreHomeModule:React.FC<Props>=(props)=>{
     ['Settings',Settings,()=>document.getElementById('ed-theme-toggle')?.click(),'50%','93%'],
   ] as const;
 
+  const [voiceState,setVoiceState]=useState<'idle'|'listening'|'processing'>('idle');
+
   const voice=(e:React.MouseEvent)=>{
     e.stopPropagation();
     const W:any=window;
     const SR=W.SpeechRecognition||W.webkitSpeechRecognition;
     if(!SR){setChat(true);return;}
+
     const r=new SR();
     r.lang='en-US';
+
+    r.onstart=()=>setVoiceState('listening');
+    r.onerror=()=>setVoiceState('idle');
+
     r.onresult=(x:any)=>{
-      const t=x.results[0][0].transcript;
+      const t=x.results[0][0].transcript?.trim();
+      if(!t){setVoiceState('idle');return;}
+
+      setVoiceState('processing');
       setChat(true);
-      setTimeout(()=>props.onSendMessage?.(t),100);
+
+      setTimeout(()=>{
+        props.onSendMessage?.(t);
+        setVoiceState('idle');
+      },100);
     };
+
     r.start();
   };
 
@@ -119,13 +134,17 @@ export const CoreHomeModule:React.FC<Props>=(props)=>{
 
             <button
               onClick={voice}
-              className="mx-auto mt-4 flex h-[72px] w-[72px] items-center justify-center rounded-full border"
+              className={`ed-voice-button mx-auto mt-4 flex h-[72px] w-[72px] items-center justify-center rounded-full border ${voiceState==='listening'?'ed-listening':''}`}
               style={{borderColor:'var(--ed-primary)',color:'var(--ed-primary)'}}
             >
               <Mic size={32}/>
             </button>
 
-            <div className="mt-3 text-xs font-bold tracking-[.18em]">TAP TO TALK</div>
+            <div className="mt-3 text-xs font-bold tracking-[.18em]">
+              {voiceState==='listening' ? 'LISTENING...' :
+               voiceState==='processing' ? 'PROCESSING...' :
+               'TAP TO TALK'}
+            </div>
             <div className="mt-1 text-[9px]" style={{color:'var(--ed-secondary)'}}>
               TAP SPHERE FOR PAGES
             </div>

@@ -369,3 +369,38 @@ html.ed-orb-home body {
     filter:brightness(1);
   }
 }
+
+/* ED VOICE PULSE */
+.ed-listening {
+  animation:edVoicePulse .85s ease-in-out infinite;
+}
+
+@keyframes edVoicePulse {
+  50% {
+    transform:scale(1.10);
+    box-shadow:
+      0 0 24px rgb(var(--ed-primary-rgb)/.8),
+      0 0 46px rgb(var(--ed-secondary-rgb)/.55);
+  }
+}
+
+/* ED RADIAL GEOMETRY LOCK */
+.ed-page-node.opacity-100 {
+  animation:none !important;
+}
+
+.ed-page-node {
+  transform:translate(-50%,-50%) scale(1) !important;
+}
+
+.ed-page-node.opacity-0 {
+  transform:translate(-50%,-50%) scale(.45) !important;
+}
+
+/* keep nodes safely inside phone viewport */
+.ed-page-node:nth-of-type(1) { left:50% !important; top:7% !important; }
+.ed-page-node:nth-of-type(2) { left:15% !important; top:30% !important; }
+.ed-page-node:nth-of-type(3) { left:85% !important; top:30% !important; }
+.ed-page-node:nth-of-type(4) { left:15% !important; top:70% !important; }
+.ed-page-node:nth-of-type(5) { left:85% !important; top:70% !important; }
+.ed-page-node:nth-of-type(6) { left:50% !important; top:93% !important; }

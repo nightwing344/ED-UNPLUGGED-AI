@@ -22,6 +22,12 @@ export default function App() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  // Close temporary Settings/Theme UI whenever ED changes modules.
+  useEffect(() => {
+    document.getElementById('ed-theme-panel')?.classList.remove('open');
+    document.getElementById('ed-theme-control')?.classList.remove('ed-home-settings-visible');
+  }, [currentModule]);
+
   // Builder state
   const [builderCode, setBuilderCode] = useState<string | undefined>(undefined);
   const [builderLang, setBuilderLang] = useState<string>('typescript');

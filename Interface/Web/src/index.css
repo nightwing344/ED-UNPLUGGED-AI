@@ -399,8 +399,72 @@ html.ed-orb-home body {
 
 /* keep nodes safely inside phone viewport */
 .ed-page-node:nth-of-type(1) { left:50% !important; top:7% !important; }
-.ed-page-node:nth-of-type(2) { left:15% !important; top:30% !important; }
-.ed-page-node:nth-of-type(3) { left:85% !important; top:30% !important; }
-.ed-page-node:nth-of-type(4) { left:15% !important; top:70% !important; }
-.ed-page-node:nth-of-type(5) { left:85% !important; top:70% !important; }
+.ed-page-node:nth-of-type(2) { left:18% !important; top:30% !important; }
+.ed-page-node:nth-of-type(3) { left:82% !important; top:30% !important; }
+.ed-page-node:nth-of-type(4) { left:18% !important; top:70% !important; }
+.ed-page-node:nth-of-type(5) { left:82% !important; top:70% !important; }
 .ed-page-node:nth-of-type(6) { left:50% !important; top:93% !important; }
+
+
+/* ED B20 MOBILE INTERACTION SAFETY */
+
+/*
+ * Decorative core layers must never steal a tap from the
+ * microphone or other interactive children.
+ */
+.ed-home-core::before,
+.ed-home-core::after {
+  pointer-events:none !important;
+}
+
+/*
+ * The voice zone deliberately has a larger independent hit area
+ * than the microphone icon itself.
+ */
+.ed-voice-zone {
+  position:relative;
+  z-index:40;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.ed-voice-button {
+  position:relative;
+  z-index:41;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+
+/*
+ * Improve mobile tap reliability for radial nodes.
+ */
+.ed-page-node {
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+
+
+/* ED B20.3 CHAT + SETTINGS SAFETY */
+
+/* Orb Home normally hides the legacy global theme control.
+   Settings temporarily exposes it only while requested. */
+html.ed-orb-home #ed-theme-control.ed-home-settings-visible {
+  display:block !important;
+  z-index:9999 !important;
+  max-width:calc(100vw - 24px);
+}
+
+html.ed-orb-home
+#ed-theme-control.ed-home-settings-visible
+#ed-theme-panel {
+  max-width:calc(100vw - 24px);
+}
+
+/* Explicit mobile Chat shell. */
+.ed-chat-overlay {
+  isolation:isolate;
+}
+
+.ed-chat-overlay > div:last-child {
+  min-height:0;
+}

@@ -41,6 +41,7 @@ import { requestVaultTagSuggestions, CATEGORY_LABELS } from '../utils/vaultAI';
 interface MemoryVaultProps {
   memories: ProjectMemoryItem[];
   links: MemoryLink[];
+  runtimeMemoryFiles?: string[];
   onAddMemory: (item: Omit<ProjectMemoryItem, 'id' | 'lastUpdated'>) => void;
   onUpdateMemory?: (id: string, updates: Partial<ProjectMemoryItem>) => void;
   onDeleteMemory: (id: string) => void;
@@ -53,6 +54,7 @@ interface MemoryVaultProps {
 export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
   memories,
   links,
+  runtimeMemoryFiles = [],
   onAddMemory,
   onUpdateMemory,
   onDeleteMemory,
@@ -62,6 +64,106 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
   onImportJSON,
 }) => {
   const [viewMode, setViewMode] = useState<'graph' | 'cards'>('graph');
+  const [runtimeSearch, setRuntimeSearch] = useState('');
+  const [runtimeSearchResults, setRuntimeSearchResults] = useState<Array<{
+    path: string;
+    line: number;
+    preview: string;
+  }>>([]);
+  const [runtimeSearchBusy, setRuntimeSearchBusy] = useState(false);
+  const [runtimeFileOpen, setRuntimeFileOpen] = useState<string | null>(null);
+  const [runtimeFileContent, setRuntimeFileContent] = useState('');
+  const [runtimeFileLoading, setRuntimeFileLoading] = useState(false);
+
+  const [pendingMemoryProposals, setPendingMemoryProposals] = useState<Array<{
+    id: string;
+    title: string;
+    category?: string;
+    content: string;
+    tags?: string[];
+    createdAt?: string;
+  }>>([]);
+  const [pendingMemoryLoading, setPendingMemoryLoading] = useState(false);
+  const [reviewingMemoryId, setReviewingMemoryId] = useState<string | null>(null);
+  const [memoryReviewNotice, setMemoryReviewNotice] = useState<string | null>(null);
+
+  const loadPendingMemories = async () => {
+    setPendingMemoryLoading(true);
+
+    try {
+      const r = await fetch('/api/ed/memory/pending');
+      const d = await r.json();
+
+      if (d?.ok && Array.isArray(d.proposals)) {
+        setPendingMemoryProposals(d.proposals);
+      } else {
+        setPendingMemoryProposals([]);
+      }
+    } catch {
+      setPendingMemoryProposals([]);
+      setMemoryReviewNotice('Unable to load pending memory proposals.');
+    } finally {
+      setPendingMemoryLoading(false);
+    }
+  };
+
+  const reviewPendingMemory = async (
+    id: string,
+    action: 'approve' | 'reject'
+  ) => {
+    setReviewingMemoryId(id);
+    setMemoryReviewNotice(null);
+
+    try {
+      const r = await fetch('/api/ed/memory/review', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, action }),
+      });
+
+      const d = await r.json();
+
+      if (!r.ok || !d?.ok) {
+        throw new Error(d?.error || 'Memory review failed.');
+      }
+
+      setPendingMemoryProposals((prev) =>
+        prev.filter((item) => item.id !== id)
+      );
+
+      setMemoryReviewNotice(
+        action === 'approve'
+          ? 'Memory approved and activated.'
+          : 'Memory rejected and archived.'
+      );
+    } catch (error: any) {
+      setMemoryReviewNotice(
+        error?.message || 'Memory review failed.'
+      );
+    } finally {
+      setReviewingMemoryId(null);
+    }
+  };
+
+  useEffect(() => {
+    loadPendingMemories();
+  }, []);
+
+  const openRuntimeFile = async (file: string) => {
+    setRuntimeFileOpen(file);
+    setRuntimeFileLoading(true);
+    setRuntimeFileContent('');
+
+    try {
+      const r = await fetch(`/api/ed/memory/file?path=${encodeURIComponent(file)}`);
+      const d = await r.json();
+      setRuntimeFileContent(d?.content || d?.error || 'Unable to read file.');
+    } catch {
+      setRuntimeFileContent('Unable to read runtime memory file.');
+    } finally {
+      setRuntimeFileLoading(false);
+    }
+  };
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [isAdding, setIsAdding] = useState(false);
@@ -122,6 +224,51 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
     { id: 'context', label: 'Context & Influences' },
     { id: 'unfinished', label: 'Unfinished Work' },
   ];
+
+  const filteredRuntimeFiles = useMemo(() => {
+    const q = runtimeSearch.trim().toLowerCase();
+    if (!q) return runtimeMemoryFiles;
+    return runtimeMemoryFiles.filter((file) => file.toLowerCase().includes(q));
+  }, [runtimeMemoryFiles, runtimeSearch]);
+
+  useEffect(() => {
+    const q = runtimeSearch.trim();
+
+    if (!q) {
+      setRuntimeSearchResults([]);
+      return;
+    }
+
+    const controller = new AbortController();
+
+    const timer = setTimeout(async () => {
+      setRuntimeSearchBusy(true);
+
+      try {
+        const r = await fetch(
+          `/api/ed/memory/search?q=${encodeURIComponent(q)}`,
+          { signal: controller.signal }
+        );
+
+        const d = await r.json();
+
+        if (d?.ok && Array.isArray(d.results)) {
+          setRuntimeSearchResults(d.results);
+        } else {
+          setRuntimeSearchResults([]);
+        }
+      } catch {
+        if (!controller.signal.aborted) setRuntimeSearchResults([]);
+      } finally {
+        if (!controller.signal.aborted) setRuntimeSearchBusy(false);
+      }
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
+  }, [runtimeSearch]);
 
   // Map of memories
   const memoryMap = useMemo(() => {
@@ -203,11 +350,11 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
           setTimeout(() => setVoiceStatusNotice(null), 3000);
         } else if (lower.includes('suggest tags') || lower.includes('auto tag') || lower.includes('tag this')) {
           fetchTagSuggestions(newTitleRef.current, newDescriptionRef.current, true);
-          setVoiceStatusNotice('Gemini Tagging Engine triggered by voice');
+          setVoiceStatusNotice('Local Tagging Engine triggered by voice');
           setTimeout(() => setVoiceStatusNotice(null), 3000);
         } else if (lower.includes('apply tags') || lower.includes('apply all') || lower.includes('apply suggestions')) {
           handleApplyAllSuggestions();
-          setVoiceStatusNotice('Applied Gemini suggestions');
+          setVoiceStatusNotice('Applied local suggestions');
           setTimeout(() => setVoiceStatusNotice(null), 3000);
         }
       },
@@ -302,7 +449,7 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
     });
   };
 
-  // Automated Tagging Engine: Request suggestions from Gemini
+  // Automated Tagging Engine: Request suggestions locally
   const fetchTagSuggestions = async (title: string, desc: string, force = false) => {
     const cleanTitle = title.trim();
     const cleanDesc = desc.trim();
@@ -330,7 +477,7 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
       setTagSuggestions(result);
       setLastAnalyzedKey(key);
     } catch (err: any) {
-      console.error('Failed to get Gemini tag suggestions:', err);
+      console.error('Failed to get local tag suggestions:', err);
       setSuggestionEngineNotice('Automated tagging running in resilient mode.');
     } finally {
       setIsLoadingSuggestions(false);
@@ -484,6 +631,186 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
 
   return (
     <div className="flex-1 flex flex-col h-full bg-slate-950 overflow-y-auto pb-20 p-4 md:p-6" id="memory-vault-module">
+      <div className="mb-4 rounded-xl border border-amber-800/60 bg-amber-950/20 p-3">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <div className="text-xs font-semibold text-amber-300">
+              Pending Memory Review
+            </div>
+            <div className="mt-0.5 text-[10px] text-slate-500">
+              Nothing becomes active memory until you approve it.
+            </div>
+          </div>
+
+          <button
+            onClick={loadPendingMemories}
+            disabled={pendingMemoryLoading}
+            className="rounded-lg border border-slate-700 p-1.5 text-slate-400 hover:text-amber-300 disabled:opacity-50"
+            title="Refresh pending memory"
+          >
+            <RefreshCw className={`h-3.5 w-3.5 ${pendingMemoryLoading ? 'animate-spin' : ''}`} />
+          </button>
+        </div>
+
+        {memoryReviewNotice && (
+          <div className="mt-2 rounded-lg border border-slate-800 bg-slate-950/60 px-2.5 py-2 text-[10px] text-slate-300">
+            {memoryReviewNotice}
+          </div>
+        )}
+
+        <div className="mt-3 space-y-2">
+          {pendingMemoryProposals.map((proposal) => (
+            <div
+              key={proposal.id}
+              className="rounded-lg border border-amber-900/50 bg-slate-950/70 p-3"
+            >
+              <div className="flex flex-wrap items-start justify-between gap-2">
+                <div>
+                  <div className="text-xs font-semibold text-slate-200">
+                    {proposal.title || 'Untitled Memory'}
+                  </div>
+                  <div className="mt-1 font-mono text-[9px] text-slate-500">
+                    {proposal.id}
+                    {proposal.category ? ` • ${proposal.category}` : ''}
+                  </div>
+                </div>
+
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => reviewPendingMemory(proposal.id, 'approve')}
+                    disabled={reviewingMemoryId === proposal.id}
+                    className="flex items-center gap-1 rounded-lg border border-emerald-700/60 bg-emerald-950/40 px-2.5 py-1.5 text-[10px] font-semibold text-emerald-300 hover:bg-emerald-900/40 disabled:opacity-50"
+                  >
+                    <Check className="h-3 w-3" />
+                    Approve
+                  </button>
+
+                  <button
+                    onClick={() => reviewPendingMemory(proposal.id, 'reject')}
+                    disabled={reviewingMemoryId === proposal.id}
+                    className="flex items-center gap-1 rounded-lg border border-red-800/60 bg-red-950/30 px-2.5 py-1.5 text-[10px] font-semibold text-red-300 hover:bg-red-900/30 disabled:opacity-50"
+                  >
+                    <X className="h-3 w-3" />
+                    Reject
+                  </button>
+                </div>
+              </div>
+
+              <div className="mt-2 whitespace-pre-wrap text-[11px] leading-relaxed text-slate-300">
+                {proposal.content}
+              </div>
+
+              {proposal.tags && proposal.tags.length > 0 && (
+                <div className="mt-2 flex flex-wrap gap-1">
+                  {proposal.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded border border-slate-700 bg-slate-900 px-1.5 py-0.5 text-[9px] text-slate-400"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+
+          {!pendingMemoryLoading && pendingMemoryProposals.length === 0 && (
+            <div className="text-[10px] text-slate-500">
+              No memory proposals are waiting for review.
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="mb-4 rounded-xl border border-cyan-900/60 bg-cyan-950/20 p-3">
+        <div className="flex items-center justify-between">
+          <span className="text-xs font-semibold text-cyan-300">ED Runtime Memory</span>
+          <span className="font-mono text-xs text-cyan-400">{runtimeMemoryFiles.length} files</span>
+        </div>
+
+        <input
+          value={runtimeSearch}
+          onChange={(e) => setRuntimeSearch(e.target.value)}
+          placeholder="Search runtime memory..."
+          className="mt-3 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-slate-200 outline-none focus:border-cyan-600"
+        />
+
+        <div className="mt-2 max-h-52 space-y-1 overflow-auto font-mono text-[10px] text-slate-400">
+          {filteredRuntimeFiles.slice(0, 20).map((file) => (
+            <button
+              key={file}
+              onClick={() => openRuntimeFile(file)}
+              className="block w-full truncate text-left hover:text-cyan-300"
+            >
+              • {file}
+            </button>
+          ))}
+
+          {filteredRuntimeFiles.length === 0 && (
+            <div className="text-slate-500">No runtime memory files match.</div>
+          )}
+
+          {filteredRuntimeFiles.length > 20 && (
+            <div className="text-cyan-500">
+              + {filteredRuntimeFiles.length - 20} more matches
+            </div>
+          )}
+        </div>
+
+        {runtimeSearch.trim() && (
+          <div className="mt-3 border-t border-slate-800 pt-3">
+            <div className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-cyan-400">
+              Content Matches
+              {runtimeSearchBusy ? ' — searching...' : ` — ${runtimeSearchResults.length}`}
+            </div>
+
+            <div className="max-h-48 space-y-2 overflow-auto">
+              {runtimeSearchResults.slice(0, 20).map((result, i) => (
+                <button
+                  key={`${result.path}-${result.line}-${i}`}
+                  onClick={() => openRuntimeFile(result.path)}
+                  className="block w-full rounded border border-slate-800 bg-slate-950/70 p-2 text-left hover:border-cyan-800"
+                >
+                  <div className="truncate font-mono text-[10px] text-cyan-300">
+                    {result.path}:{result.line}
+                  </div>
+                  <div className="mt-1 text-[10px] text-slate-400">
+                    {result.preview}
+                  </div>
+                </button>
+              ))}
+
+              {!runtimeSearchBusy && runtimeSearchResults.length === 0 && (
+                <div className="text-[10px] text-slate-500">
+                  No content matches found.
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {runtimeFileOpen && (
+          <div className="mt-3 rounded-lg border border-slate-700 bg-slate-950 p-3">
+            <div className="mb-2 flex items-center justify-between gap-2">
+              <span className="truncate font-mono text-[10px] text-cyan-300">
+                {runtimeFileOpen}
+              </span>
+
+              <button
+                onClick={() => setRuntimeFileOpen(null)}
+                className="text-slate-400 hover:text-white"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <pre className="max-h-72 overflow-auto whitespace-pre-wrap text-[11px] text-slate-300">
+              {runtimeFileLoading ? 'Loading runtime memory...' : runtimeFileContent}
+            </pre>
+          </div>
+        )}
+      </div>
       <div className="max-w-6xl w-full mx-auto space-y-5">
         
         {/* Top Header & Core Tools */}
@@ -775,7 +1102,7 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
                 <div className="p-3 rounded-xl bg-cyan-950/25 border border-cyan-500/40 flex items-center justify-between gap-3 text-xs text-cyan-300 animate-pulse">
                   <div className="flex items-center gap-2.5">
                     <Sparkles className="w-4 h-4 text-cyan-400 animate-spin" />
-                    <span className="font-mono font-medium">Gemini 3.8 Flash automated tagging engine analyzing semantic context...</span>
+                    <span className="font-mono font-medium">Local heuristic tagging engine analyzing semantic context...</span>
                   </div>
                   <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
                     AI Analyzing
@@ -792,7 +1119,7 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs font-semibold text-cyan-200 font-mono">Gemini Automated Tagging Engine</span>
+                          <span className="text-xs font-semibold text-cyan-200 font-mono">Local Automated Tagging Engine</span>
                           <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
                             {tagSuggestions.confidence}% Confidence
                           </span>
@@ -806,7 +1133,7 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
                         type="button"
                         onClick={() => fetchTagSuggestions(newTitle, newDescription, true)}
                         className="px-2 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] flex items-center gap-1 transition-colors"
-                        title="Re-run Gemini classification"
+                        title="Re-run local classification"
                       >
                         <RefreshCw className="w-3 h-3 text-slate-400" />
                         <span>Re-analyze</span>
@@ -946,10 +1273,10 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
                     onClick={() => fetchTagSuggestions(newTitle, newDescription, true)}
                     disabled={isLoadingSuggestions || (!newTitle.trim() && !newDescription.trim())}
                     className="inline-flex items-center gap-1 text-[10px] text-cyan-400 hover:text-cyan-300 font-mono disabled:opacity-40 disabled:cursor-not-allowed"
-                    title="Ask Gemini to analyze title and content to generate tags"
+                    title="Ask ED to analyze title and content to generate tags"
                   >
                     <Sparkles className="w-3 h-3" />
-                    <span>{isLoadingSuggestions ? 'Analyzing...' : 'Suggest with Gemini'}</span>
+                    <span>{isLoadingSuggestions ? 'Analyzing...' : 'Suggest locally'}</span>
                   </button>
                 </div>
               </div>
@@ -1246,7 +1573,7 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
                                   ? 'text-cyan-300 font-semibold'
                                   : 'text-slate-400 hover:text-cyan-300'
                               }`}
-                              title="Generate AI tags & classification suggestions with Gemini"
+                              title="Generate AI tags & classification suggestions locally"
                             >
                               <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
                               <span>{loadingCardMap[item.id] ? 'Tagging...' : 'Auto-Tag'}</span>
@@ -1269,14 +1596,14 @@ export const MemoryVaultModule: React.FC<MemoryVaultProps> = ({
                           {loadingCardMap[item.id] ? (
                             <div className="flex items-center gap-2 text-xs text-cyan-300 font-mono py-1">
                               <Sparkles className="w-3.5 h-3.5 animate-spin" />
-                              <span>Gemini analyzing memory item for tags & category...</span>
+                              <span>Local analysis of memory item for tags & category...</span>
                             </div>
                           ) : cardSuggestionsMap[item.id] ? (
                             <div className="space-y-2">
                               <div className="flex items-center justify-between text-[11px]">
                                 <span className="text-cyan-300 font-semibold font-mono flex items-center gap-1">
                                   <Sparkles className="w-3 h-3" />
-                                  <span>Gemini Tag Recommendations</span>
+                                  <span>Local Tag Recommendations</span>
                                 </span>
                                 <button
                                   type="button"

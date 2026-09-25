@@ -93,10 +93,10 @@ Type 'help' for command syntax or 'ed think <topic>' to engage the core.`,
           command: cmd,
           output: `[ED OS TELEMETRY]:
   Runtime State:        ONLINE (Container Ingress Port 3000)
-  Core Engine:          Gemini 3.7 Flash & Modular Agents
+  Core Engine:          OpenClaw ED agent via local Ollama
   Thinking Protocol:    Truth & Honesty v2.4
   Memory Vault Items:   ${memories.length} entries stored locally
-  Local-First Mode:     ENABLED
+  Local-First Mode:     Check /api/health for live runtime status
   Execution Pipeline:   IDEA -> CONCEPT -> REQ -> ARCH -> MVP -> TEST -> OPT`,
           type: 'success',
           time: timestamp,
@@ -236,7 +236,7 @@ Type 'help' for command syntax or 'ed think <topic>' to engage the core.`,
       <div className="h-10 border-b border-slate-800 bg-slate-900/90 px-4 flex items-center justify-between">
         <div className="flex items-center gap-2 text-slate-300">
           <Terminal className="w-4 h-4 text-emerald-400" />
-          <span className="font-semibold text-slate-200 text-xs">ed-cli --session=active [bash-emulated]</span>
+          <span className="font-semibold text-slate-200 text-xs">ED agent console · tool execution follows OpenClaw approvals</span>
         </div>
         <button
           onClick={() => setHistory([])}

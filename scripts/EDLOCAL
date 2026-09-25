@@ -1,0 +1,104 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set +e
+REPO="$HOME/ED-UNPLUGGED-AI"
+STATE="$HOME/ED/runtime"
+mkdir -p "$STATE"
+EDPID="$STATE/ed-local.pid"
+OLLPID="$STATE/ollama.pid"
+EDLOG="$STATE/ed-local.log"
+OLLLOG="$STATE/ollama.log"
+
+cd "$REPO" || exit 1
+set -a
+[ -f .env ] && . ./.env
+set +a
+
+OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
+OLLAMA_MODEL="${OLLAMA_MODEL:-llama3.2:3b}"
+
+ollama_up(){ curl -fsS "$OLLAMA_URL/api/tags" >/dev/null 2>&1; }
+
+stop_repo_server(){
+  for p in $(pgrep -f 'tsx server\.ts|node dist/server\.cjs' 2>/dev/null); do
+    cwd="$(readlink "/proc/$p/cwd" 2>/dev/null)"
+    if [ "$cwd" = "$REPO" ]; then
+      kill "$p" 2>/dev/null
+      sleep 1
+      kill -0 "$p" 2>/dev/null && kill -9 "$p" 2>/dev/null
+    fi
+  done
+  rm -f "$EDPID"
+}
+
+start_ollama(){
+  if ! ollama_up; then
+    OLLAMA_HOST=127.0.0.1:11434 nohup ollama serve >>"$OLLLOG" 2>&1 &
+    echo $! > "$OLLPID"
+    for i in 1 2 3 4 5 6 7 8 9 10; do
+      sleep 1
+      ollama_up && break
+    done
+  fi
+
+  ollama_up || { echo "OLLAMA: FAILED"; return 1; }
+
+  if ! ollama list 2>/dev/null | awk 'NR>1 {print $1}' | grep -Fxq "$OLLAMA_MODEL"; then
+    ollama pull "$OLLAMA_MODEL" || return 1
+  fi
+
+  echo "OLLAMA: ONLINE — $OLLAMA_MODEL"
+}
+
+start_ed(){
+  npm run build || return 1
+  stop_repo_server
+
+  nohup node dist/server.cjs >>"$EDLOG" 2>&1 &
+  echo $! > "$EDPID"
+
+  for i in 1 2 3 4 5 6 7 8 9 10; do
+    sleep 1
+    curl -fsS http://127.0.0.1:3000/api/health >/dev/null 2>&1 && break
+  done
+
+  curl -fsS http://127.0.0.1:3000/api/health >/dev/null 2>&1 || {
+    echo "ED API: FAILED"
+    tail -100 "$EDLOG" 2>/dev/null
+    return 1
+  }
+
+  echo "ED API: ONLINE"
+}
+
+case "${1:-status}" in
+  start)
+    start_ollama || exit 1
+    start_ed || exit 1
+    ;;
+  restart)
+    stop_repo_server
+    start_ollama || exit 1
+    start_ed || exit 1
+    ;;
+  stop)
+    stop_repo_server
+    [ -f "$OLLPID" ] && kill "$(cat "$OLLPID")" 2>/dev/null
+    rm -f "$OLLPID"
+    echo "ED LOCAL STACK: STOPPED"
+    ;;
+  status)
+    ollama_up && echo "OLLAMA: ONLINE — $OLLAMA_MODEL" || echo "OLLAMA: OFFLINE"
+    curl -fsS http://127.0.0.1:3000/api/health 2>/dev/null || echo "ED API: OFFLINE"
+    echo
+    ;;
+  logs)
+    echo "=== ED ==="
+    tail -100 "$EDLOG" 2>/dev/null
+    echo "=== OLLAMA ==="
+    tail -100 "$OLLLOG" 2>/dev/null
+    ;;
+  *)
+    echo "Usage: EDLOCAL {start|restart|stop|status|logs}"
+    exit 2
+    ;;
+esac

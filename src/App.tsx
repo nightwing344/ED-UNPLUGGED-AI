@@ -4,7 +4,7 @@ import { getStoredMemories, saveStoredMemories, getStoredMemoryLinks, saveStored
 import { Header } from './components/Header';
 import { OSDock } from './components/OSDock';
 import { CommandPalette } from './components/CommandPalette';
-import { CoreModule } from './components/CoreModule';
+import { CoreHomeModule } from './components/CoreHomeModule';
 import { BuilderModule } from './components/BuilderModule';
 import { ResearchModule } from './components/ResearchModule';
 import { StrategyModule } from './components/StrategyModule';
@@ -22,6 +22,12 @@ export default function App() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  // Close temporary Settings/Theme UI whenever ED changes modules.
+  useEffect(() => {
+    document.getElementById('ed-theme-panel')?.classList.remove('open');
+    document.getElementById('ed-theme-control')?.classList.remove('ed-home-settings-visible');
+  }, [currentModule]);
+
   // Builder state
   const [builderCode, setBuilderCode] = useState<string | undefined>(undefined);
   const [builderLang, setBuilderLang] = useState<string>('typescript');
@@ -29,6 +35,7 @@ export default function App() {
   // Memories & Persistence
   const [memories, setMemories] = useState<ProjectMemoryItem[]>(() => getStoredMemories());
   const [memoryLinks, setMemoryLinks] = useState<MemoryLink[]>(() => getStoredMemoryLinks());
+  const [runtimeMemoryFiles, setRuntimeMemoryFiles] = useState<string[]>([]);
 
   // Conversation history
   const [messages, setMessages] = useState<EDMessage[]>([
@@ -66,7 +73,7 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
       progress: 100,
       logs: [
         { time: Date.now() - 60000, text: 'Booting ED OS daemon & loading memory context...', type: 'info' },
-        { time: Date.now() - 40000, text: 'Attached Google GenAI engine on port 3000.', type: 'success' },
+        { time: Date.now() - 40000, text: 'ED local backend on port 3000; OpenClaw and Ollama required.', type: 'success' },
         { time: Date.now() - 20000, text: 'Local-First storage verified with 4 core memory items.', type: 'info' },
         { time: Date.now() - 5000, text: 'System ready for autonomous task delegation.', type: 'success' },
       ],
@@ -83,6 +90,15 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
   useEffect(() => {
     saveStoredMemoryLinks(memoryLinks);
   }, [memoryLinks]);
+
+  useEffect(() => {
+    fetch('/api/ed/memory/status')
+      .then((r) => r.ok ? r.json() : null)
+      .then((d) => {
+        if (d?.ok && Array.isArray(d.files)) setRuntimeMemoryFiles(d.files);
+      })
+      .catch(() => {});
+  }, []);
 
   // Audio speech synthesis helper
   const playAudioVoice = useCallback((text: string) => {
@@ -145,6 +161,8 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
         thinkingMode,
         questions: data.questions || [],
         truthAssessment: data.truthAssessment,
+        memorySources: data.memorySources || [],
+        suggestedMemory: data.suggestedMemory,
         isResetNotice: isReset || data.isResetNotice,
       };
 
@@ -368,7 +386,7 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
       {/* Main OS Viewport Area */}
       <main className="flex-1 flex overflow-hidden relative">
         {currentModule === 'core' && (
-          <CoreModule
+          <CoreHomeModule
             messages={messages}
             onSendMessage={handleSendMessage}
             isLoading={isLoading}
@@ -495,6 +513,7 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
           <MemoryVaultModule
             memories={memories}
             links={memoryLinks}
+            runtimeMemoryFiles={runtimeMemoryFiles}
             onAddMemory={handleAddMemory}
             onUpdateMemory={handleUpdateMemory}
             onDeleteMemory={handleDeleteMemory}

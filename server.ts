@@ -2,7 +2,11 @@ import express from 'express';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import dotenv from 'dotenv';
-import { GoogleGenAI, Type } from '@google/genai';
+import fs from 'fs';
+import os from 'os';
+import { spawn } from 'child_process';
+import { promises as fsp } from 'fs';
+import { promisify } from 'util';
 
 dotenv.config();
 
@@ -10,6 +14,26 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json({ limit: '20mb' }));
+
+// ED_LOCAL_ANDROID_CORS
+const ED_LOCAL_ANDROID_ORIGINS = new Set([
+  'http://localhost',
+  'https://localhost',
+  'capacitor://localhost',
+]);
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin && ED_LOCAL_ANDROID_ORIGINS.has(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+    res.header('Vary', 'Origin');
+  }
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
+
 // ED_MOBILE_CORS: allow the APK WebView to reach the loopback API.
 app.use((req, res, next) => {
   const origin = req.headers.origin;
@@ -23,26 +47,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
-// Lazy Google GenAI Client
-let genAIClient: GoogleGenAI | null = null;
-function getGenAI(): GoogleGenAI | null {
-  const apiKey = process.env.GEMINI_API_KEY || '';
-  if (!apiKey) {
-    return null;
-  }
-  if (!genAIClient) {
-    genAIClient = new GoogleGenAI({
-      apiKey,
-      httpOptions: {
-        headers: {
-          'User-Agent': 'aistudio-build',
-        },
-      },
-    });
-  }
-  return genAIClient;
-}
 
 const MASTER_SYSTEM_PROMPT = `
 YOU ARE ED (ED UNPLUGGED AI) — A HIGH-CALIBER INTELLECTUAL COMPANION, TACTICAL PARTNER, AND AUTONOMOUS OPERATING SYSTEM.
@@ -89,50 +93,74 @@ FOUNDATIONAL ARCHETYPE & PHILOSOPHY:
 Format responses with crisp typography, clear markdown headings, bulleted actionable steps, and syntax-highlighted code blocks.
 `;
 
-// Helper: safe model generation with fallback
-async function generateEDContent(prompt: string, systemInstruction: string, options: { temperature?: number; tools?: any[] } = {}) {
-  const ai = getGenAI();
-  if (!ai) {
-    return {
-      text: `[ED Core Local Operating Protocol]\n\nI have analyzed your input:\n\n${prompt}\n\n**Strategic Synthesis:**\n1. **Core Assessment:** To ensure continuous operation, ED is running in local-first synthesis mode.\n2. **Action Vector:** Break the problem into the smallest meaningful execution step.\n3. **Recommendation:** Connect your Gemini API Key in AI Studio Settings to unlock real-time Gemini 3.7 Flash reasoning and Google Grounded Web Search.`,
-      sources: [],
-    };
-  }
-
-  try {
-    const config: any = {
-      systemInstruction,
-      temperature: options.temperature ?? 0.7,
-    };
-    if (options.tools) {
-      config.tools = options.tools;
-    }
-
-    const response = await ai.models.generateContent({
-      model: 'gemini-3.8-flash',
-      contents: prompt,
-      config,
-    });
-
-    const text = response.text || '';
-    const groundingChunks = response.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
-    const sources = groundingChunks
-      .filter((chunk: any) => chunk.web?.uri)
-      .map((chunk: any) => ({
-        title: chunk.web.title || chunk.web.uri,
-        uri: chunk.web.uri,
-      }));
-
-    return { text, sources };
-  } catch (err: any) {
-    console.error('Gemini API Call failed:', err);
-    // Fallback gracefully so UI never hangs
-    return {
-      text: `[ED Core Resilient Reasoning]\n\n${err.message?.includes('API_KEY') ? 'Please configure your Gemini API Key in the Settings menu for full live intelligence.' : 'ED processed your query through resilient core logic.'}\n\n**Analysis & Execution Plan:**\n- **Objective:** Address "${prompt.slice(0, 100)}..."\n- **Truth Assessment:** Reasonable Inference (Offline Fallback Engine)\n- **Next Step:** Break this task into immediate executable sub-steps.`,
-      sources: [],
-    };
-  }
+// Local bridge: the APK never receives the gateway operator credential.
+function gatewayToken(): string {
+  if (process.env.OPENCLAW_GATEWAY_TOKEN) return process.env.OPENCLAW_GATEWAY_TOKEN;
+  const config = fs.readFileSync(path.join(os.homedir(), '.openclaw/openclaw.json'), 'utf8');
+  const token = JSON.parse(config).gateway?.auth?.token;
+  if (typeof token !== 'string' || !token) throw new Error('OpenClaw gateway token unavailable');
+  return token;
 }
+
+async function generateEDContent(prompt: string, systemInstruction: string,
+  _options: { temperature?: number; tools?: any[] } = {}) {
+  const response = await fetch('http://127.0.0.1:18789/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${gatewayToken()}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: 'openclaw/ed-unplugged',
+      user: 'ed:phone:main',
+      messages: [
+        { role: 'system', content: systemInstruction },
+        { role: 'user', content: prompt },
+      ],
+      stream: false,
+    }),
+    signal: AbortSignal.timeout(180000),
+  });
+  if (!response.ok) throw new Error(`OpenClaw HTTP ${response.status}: ${(await response.text()).slice(0, 200)}`);
+  const body = await response.json() as { choices?: Array<{ message?: { content?: string } }> };
+  const text = body.choices?.[0]?.message?.content?.trim();
+  if (!text) throw new Error('ED agent returned an empty response');
+  return { text, sources: [] };
+}
+
+// Local microphone transcription; the model and binaries live in Termux.
+app.post('/api/transcribe', async (req, res) => {
+  const model = process.env.ED_WHISPER_MODEL;
+  const audio = String(req.body?.audio || '');
+  const mime = String(req.body?.mimeType || '');
+  if (!model || !fs.existsSync(model)) return res.status(503).json({ error: 'Local Whisper model unavailable' });
+  if (!/^audio\/(webm|mp4|ogg|wav)(;|$)/.test(mime) || audio.length > 12_000_000 || !/^[A-Za-z0-9+/=]+$/.test(audio))
+    return res.status(400).json({ error: 'Invalid or oversized audio' });
+  const dir = await fsp.mkdtemp(path.join(os.tmpdir(), 'ed-voice-'));
+  const input = path.join(dir, 'input');
+  const wav = path.join(dir, 'speech.wav');
+  const output = path.join(dir, 'reply');
+  const run = (command: string, args: string[]) => new Promise<void>((resolve, reject) => {
+    const child = spawn(command, args, { stdio: ['ignore', 'ignore', 'pipe'] });
+    let stderr = '';
+    child.stderr.on('data', data => { stderr = (stderr + data).slice(-400); });
+    const timer = setTimeout(() => child.kill('SIGKILL'), 120000);
+    child.on('error', error => { clearTimeout(timer); reject(error); });
+    child.on('close', code => { clearTimeout(timer); code === 0 ? resolve() : reject(new Error(`${command} exited ${code}: ${stderr}`)); });
+  });
+  try {
+    await fsp.writeFile(input, Buffer.from(audio, 'base64'));
+    await run('ffmpeg', ['-nostdin', '-loglevel', 'error', '-y', '-i', input, '-ar', '16000', '-ac', '1', wav]);
+    await run(process.env.ED_WHISPER_BIN || 'whisper-cli', ['-m', model, '-f', wav, '-otxt', '-of', output, '-nt']);
+    const text = (await fsp.readFile(`${output}.txt`, 'utf8')).trim();
+    if (!text) throw new Error('No speech recognized');
+    res.json({ text });
+  } catch (error: any) {
+    res.status(503).json({ error: error?.message || 'Local transcription failed' });
+  } finally {
+    await fsp.rm(dir, { recursive: true, force: true });
+  }
+});
 
 // 1. Health check
 app.get('/api/health', (req, res) => {
@@ -140,44 +168,116 @@ app.get('/api/health', (req, res) => {
     status: 'ok',
     os: 'ED Unplugged AI Operating System v2.4',
     runtime: 'Active',
-    hasKey: Boolean(process.env.GEMINI_API_KEY),
+    agent: 'ed-unplugged',
+    brain: 'ollama/llama3.2:3b',
   });
 });
 
 // 2. Chat / Core Dialogue Endpoint
 
-type EDLocalOptions = { temperature: number };
-async function generateEDLocal(
-  prompt: string,
-  system: string,
-  options: EDLocalOptions,
-): Promise<{ text: string; sources: string[] }> {
-  const response = await fetch('http://127.0.0.1:11434/api/chat', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: process.env.ED_OLLAMA_MODEL || 'llama3.2:3b',
-      stream: false,
-      messages: [
-        { role: 'system', content: system },
-        { role: 'user', content: prompt },
-      ],
-      options: { temperature: options.temperature },
-    }),
-    signal: AbortSignal.timeout(180000),
-  });
-  if (!response.ok) {
-    throw new Error('Ollama HTTP ' + response.status + ': ' +
-      (await response.text()).slice(0, 300));
+
+// ED_LOCAL_OLLAMA_ENGINE
+const ED_OLLAMA_URL = (process.env.OLLAMA_URL || 'http://127.0.0.1:11434').replace(/\/$/, '');
+const ED_OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'llama3.2:3b';
+
+async function edAskOllama(prompt: string, history: any[] = []) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 180000);
+
+  try {
+    const messages = [
+      { role: 'system', content: MASTER_SYSTEM_PROMPT },
+      ...history
+        .filter((m: any) => m && typeof m.content === 'string')
+        .map((m: any) => ({
+          role: m.role === 'assistant' ? 'assistant' : 'user',
+          content: String(m.content),
+        })),
+      { role: 'user', content: prompt },
+    ];
+
+    const r = await fetch(`${ED_OLLAMA_URL}/api/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: controller.signal,
+      body: JSON.stringify({
+        model: ED_OLLAMA_MODEL,
+        stream: false,
+        messages,
+        options: { temperature: 0.7 },
+      }),
+    });
+
+    if (!r.ok) throw new Error(`Ollama HTTP ${r.status}`);
+
+    const data: any = await r.json();
+    const text = data?.message?.content;
+    if (!text || typeof text !== 'string') {
+      throw new Error('Ollama returned no assistant content');
+    }
+
+    return text;
+  } finally {
+    clearTimeout(timer);
   }
-  const data = await response.json() as {
-    message?: { content?: string };
-  };
-  const text = data.message?.content?.trim();
-  if (!text) throw new Error('Ollama returned no chat text');
-  console.log('ED_LOCAL_OLLAMA_CHAT');
-  return { text, sources: [] };
 }
+
+app.get('/api/ed/local/health', async (_req, res) => {
+  try {
+    const r = await fetch(`${ED_OLLAMA_URL}/api/tags`);
+    const data: any = await r.json();
+
+    return res.status(r.ok ? 200 : 503).json({
+      ok: r.ok,
+      engine: 'ollama',
+      model: ED_OLLAMA_MODEL,
+      models: Array.isArray(data?.models) ? data.models.map((m: any) => m.name) : [],
+    });
+  } catch (error: any) {
+    return res.status(503).json({
+      ok: false,
+      engine: 'ollama',
+      model: ED_OLLAMA_MODEL,
+      error: error?.message || String(error),
+    });
+  }
+});
+
+app.post('/api/ed/local/chat', async (req, res) => {
+  try {
+    const body = req.body || {};
+    const prompt = String(
+      body.message ?? body.prompt ?? body.query ?? body.input ?? ''
+    ).trim();
+
+    if (!prompt) {
+      return res.status(400).json({ error: 'No prompt supplied.' });
+    }
+
+    const history = Array.isArray(body.history)
+      ? body.history
+      : Array.isArray(body.messages)
+        ? body.messages.filter((m: any) => m?.role !== 'system')
+        : [];
+
+    const text = await edAskOllama(prompt, history);
+
+    return res.json({
+      text,
+      engine: 'ollama',
+      model: ED_OLLAMA_MODEL,
+      local: true,
+    });
+  } catch (error: any) {
+    console.error('ED local Ollama error:', error);
+    return res.status(503).json({
+      error: 'Local Ollama engine unavailable.',
+      detail: error?.message || String(error),
+      engine: 'ollama',
+      model: ED_OLLAMA_MODEL,
+    });
+  }
+});
 
 app.post('/api/ed/chat', async (req, res) => {
   try {
@@ -215,7 +315,7 @@ app.post('/api/ed/chat', async (req, res) => {
       ? `Recent Conversation:\n${formattedHistory}\n\nUSER MESSAGE:\n${message}`
       : `USER MESSAGE:\n${message}`;
 
-    const result = await generateEDLocal(userPrompt, dynamicSystemPrompt, {
+    const result = await generateEDContent(userPrompt, dynamicSystemPrompt, {
       temperature: mode === 'outside_box' ? 0.9 : 0.7,
     });
 
@@ -277,15 +377,7 @@ app.post('/api/ed/chat', async (req, res) => {
     });
   } catch (error: any) {
     console.error('ED Chat Error:', error);
-    res.json({
-      text: `ED Core is operational. Received your message. Let's break this down into clear actionable steps:\n\n1. **Objective Review:** ${req.body?.message || 'Current task'}\n2. **Smallest Meaningful Step:** Identify requirements and begin direct implementation.`,
-      questions: ['Would you like to explore this in the Builder, Research, or What-If Scenario module?'],
-      truthAssessment: {
-        category: 'reasonable_inference',
-        explanation: 'Resilient fallback mode',
-        certaintyScore: 75,
-      },
-    });
+    res.status(503).json({ error: error?.message || 'ED local agent unavailable' });
   }
 });
 
@@ -616,7 +708,7 @@ Execute your mission thoroughly:
   }
 });
 
-// Heuristic fallback classifier for Memory Vault when offline or before Gemini returns
+// Heuristic fallback classifier for Memory Vault when offline or without cloud inference
 function suggestVaultTagsFallback(title: string, description: string, existingTags: string[] = []) {
   const combined = `${title} ${description}`.toLowerCase();
 
@@ -719,7 +811,7 @@ function suggestVaultTagsFallback(title: string, description: string, existingTa
   };
 }
 
-// 10. Automated Tagging & Classification Engine (Gemini 3.8 Flash)
+// 10. Automated Tagging & Classification Engine (local heuristic)
 app.post('/api/ed/vault/suggest-tags', async (req, res) => {
   try {
     const { title = '', description = '', currentCategory = '', existingTags = [] } = req.body;
@@ -732,110 +824,6 @@ app.post('/api/ed/vault/suggest-tags', async (req, res) => {
         confidence: 50,
         alternativeCategories: [],
       });
-    }
-
-    const ai = getGenAI();
-    if (ai) {
-      try {
-        const response = await ai.models.generateContent({
-          model: 'gemini-3.8-flash',
-          contents: `Analyze this Memory Vault entry and determine the most precise category, reasoning, and semantic tags:
-Title: "${title || 'Untitled'}"
-Content/Description: "${description || 'None provided'}"
-${currentCategory ? `User's draft category: ${currentCategory}` : ''}
-${existingTags?.length ? `Draft tags: ${existingTags.join(', ')}` : ''}`,
-          config: {
-            systemInstruction: `YOU ARE THE HIGH-PRECISION AUTOMATED TAGGING & CLASSIFICATION ENGINE FOR THE ED KNOWLEDGE VAULT.
-
-Your task is to analyze new knowledge items and provide optimal categorization and rich, highly specific semantic tags.
-
-Valid categories (must select exactly ONE as primary):
-- "legal": Child custody, parenting plans, divorce dissolution, court evidence, asset tracing, contracts, IP licensing, statutory compliance, risk audits.
-- "decision": Strategic decisions, architectural trade-offs, governance pivots, long-term plans, risk/reward trade-offs.
-- "project": Active software applications, MVPs, products, roadmaps, technical builds.
-- "architecture": Technical stack specs, system architecture, database design, backend services, protocols, APIs.
-- "preference": User taste, operating principles, core heuristics, lifestyle/work standards, ethical/philosophical guidelines.
-- "context": Background knowledge, historical references, artistic/scientific influences, external research.
-- "unfinished": Unfinished work, pending execution, open questions, backlog investigations.
-
-Tags guidelines:
-- Generate 5 to 8 concise, specific lowercase tags in kebab-case (e.g. "child-custody", "parenting-schedule", "postgres-schema", "offline-first", "statutory-audit").
-- Do NOT generate vague tags like "notes", "misc", "general", "other".
-- Focus on key subject matter, operational constraints, and domain terminology.`,
-            responseMimeType: 'application/json',
-            responseSchema: {
-              type: Type.OBJECT,
-              properties: {
-                category: {
-                  type: Type.STRING,
-                  description: 'Primary category from: legal, decision, project, architecture, preference, context, unfinished',
-                },
-                reasoning: {
-                  type: Type.STRING,
-                  description: 'One crisp sentence explaining why this category is optimal.',
-                },
-                tags: {
-                  type: Type.ARRAY,
-                  items: { type: Type.STRING },
-                  description: '5-8 specific semantic tags in lowercase kebab-case.',
-                },
-                confidence: {
-                  type: Type.NUMBER,
-                  description: 'Confidence percentage between 1 and 100.',
-                },
-                alternativeCategories: {
-                  type: Type.ARRAY,
-                  items: {
-                    type: Type.OBJECT,
-                    properties: {
-                      category: { type: Type.STRING },
-                      confidence: { type: Type.NUMBER },
-                      reason: { type: Type.STRING },
-                    },
-                    required: ['category', 'confidence'],
-                  },
-                },
-                suggestedConnections: {
-                  type: Type.ARRAY,
-                  items: { type: Type.STRING },
-                },
-              },
-              required: ['category', 'reasoning', 'tags'],
-            },
-          },
-        });
-
-        const parsed = JSON.parse(response.text || '{}');
-        const validCategories = ['legal', 'decision', 'project', 'architecture', 'preference', 'context', 'unfinished'];
-        let matchedCategory = (parsed.category || '').toLowerCase();
-        if (!validCategories.includes(matchedCategory)) {
-          matchedCategory = 'project';
-        }
-
-        if (Array.isArray(parsed.tags) && parsed.tags.length > 0) {
-          const cleanedTags = parsed.tags
-            .map((t: string) => t.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^a-z0-9\-_]/g, ''))
-            .filter((t: string) => t.length >= 2);
-
-          return res.json({
-            category: matchedCategory,
-            reasoning: parsed.reasoning || `Classified as ${matchedCategory} based on contextual analysis.`,
-            tags: cleanedTags,
-            confidence: typeof parsed.confidence === 'number' ? Math.round(parsed.confidence) : 92,
-            alternativeCategories: (parsed.alternativeCategories || [])
-              .filter((alt: any) => validCategories.includes(alt.category?.toLowerCase()))
-              .map((alt: any) => ({
-                category: alt.category.toLowerCase(),
-                confidence: typeof alt.confidence === 'number' ? Math.round(alt.confidence) : 60,
-                reason: alt.reason,
-              })),
-            suggestedConnections: parsed.suggestedConnections || [],
-            engine: 'gemini-3.8-flash',
-          });
-        }
-      } catch (err: any) {
-        console.warn('Gemini Tagging error, falling back to heuristic engine:', err.message);
-      }
     }
 
     // Resilient Fallback
@@ -866,10 +854,9 @@ async function start() {
     });
   }
 
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`[ED Unplugged AI OS] Running on http://0.0.0.0:${PORT}`);
+  app.listen(PORT, '127.0.0.1', () => {
+    console.log(`[ED Unplugged AI OS] Running on http://127.0.0.1:${PORT}`);
   });
 }
 
 start();
-

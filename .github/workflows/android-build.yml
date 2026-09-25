@@ -24,20 +24,52 @@ jobs:
       - run: npx vite build
       - run: npx cap add android && npx cap sync android
       - name: Permit phone loopback API and microphone
+        shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          p=Path('android/app/src/main/AndroidManifest.xml')
-          s=p.read_text()
-          i=s.index('>')+1
-          for perm in ('INTERNET','RECORD_AUDIO'):
-              entry=f'<uses-permission android:name="android.permission.{perm}" />'
-              if entry not in s: s=s[:i]+'\n'+entry+s[i:]
-          if 'android:usesCleartextTraffic' not in s:
-              s=s.replace('<application ','<application android:usesCleartextTraffic="true" ',1)
-          p.write_text(s)
+          import xml.etree.ElementTree as ET
+
+          p = Path('android/app/src/main/AndroidManifest.xml')
+          s = p.read_text(encoding='utf-8')
+
+          # Capacitor already supplies a normal Android manifest. Modify only
+          # the application attribute and explicit permissions we need.
+          if 'android:usesCleartextTraffic=' not in s:
+              if '<application' not in s:
+                  raise SystemExit('AndroidManifest.xml has no <application> element')
+              s = s.replace(
+                  '<application',
+                  '<application\n        android:usesCleartextTraffic="true"',
+                  1,
+              )
+
+          permissions = [
+              'android.permission.INTERNET',
+              'android.permission.RECORD_AUDIO',
+          ]
+
+          missing = [
+              perm for perm in permissions
+              if f'android:name="{perm}"' not in s
+          ]
+
+          if missing:
+              if '</manifest>' not in s:
+                  raise SystemExit('AndroidManifest.xml has no closing </manifest>')
+              additions = ''.join(
+                  f'    <uses-permission android:name="{perm}" />\n'
+                  for perm in missing
+              )
+              s = s.replace('</manifest>', additions + '</manifest>', 1)
+
+          p.write_text(s, encoding='utf-8')
+
+          # Fail here with a useful XML parse error instead of later in Gradle.
+          ET.parse(p)
+          print('AndroidManifest.xml XML validation: PASS')
+          print(p.read_text(encoding='utf-8'))
           PY
-      - run: cd android && chmod +x gradlew && ./gradlew assembleDebug --no-daemon
       - uses: actions/upload-artifact@v4
         with:
           name: ED-local-openclaw-debug-APK

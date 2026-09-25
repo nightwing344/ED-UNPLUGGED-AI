@@ -10,6 +10,19 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json({ limit: '20mb' }));
+// ED_MOBILE_CORS: allow the APK WebView to reach the loopback API.
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin && ['http://localhost', 'https://localhost', 'capacitor://localhost'].includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+  }
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
+
 
 // Lazy Google GenAI Client
 let genAIClient: GoogleGenAI | null = null;
@@ -132,6 +145,40 @@ app.get('/api/health', (req, res) => {
 });
 
 // 2. Chat / Core Dialogue Endpoint
+
+type EDLocalOptions = { temperature: number };
+async function generateEDLocal(
+  prompt: string,
+  system: string,
+  options: EDLocalOptions,
+): Promise<{ text: string; sources: string[] }> {
+  const response = await fetch('http://127.0.0.1:11434/api/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: process.env.ED_OLLAMA_MODEL || 'llama3.2:3b',
+      stream: false,
+      messages: [
+        { role: 'system', content: system },
+        { role: 'user', content: prompt },
+      ],
+      options: { temperature: options.temperature },
+    }),
+    signal: AbortSignal.timeout(180000),
+  });
+  if (!response.ok) {
+    throw new Error('Ollama HTTP ' + response.status + ': ' +
+      (await response.text()).slice(0, 300));
+  }
+  const data = await response.json() as {
+    message?: { content?: string };
+  };
+  const text = data.message?.content?.trim();
+  if (!text) throw new Error('Ollama returned no chat text');
+  console.log('ED_LOCAL_OLLAMA_CHAT');
+  return { text, sources: [] };
+}
+
 app.post('/api/ed/chat', async (req, res) => {
   try {
     const {
@@ -168,7 +215,7 @@ app.post('/api/ed/chat', async (req, res) => {
       ? `Recent Conversation:\n${formattedHistory}\n\nUSER MESSAGE:\n${message}`
       : `USER MESSAGE:\n${message}`;
 
-    const result = await generateEDContent(userPrompt, dynamicSystemPrompt, {
+    const result = await generateEDLocal(userPrompt, dynamicSystemPrompt, {
       temperature: mode === 'outside_box' ? 0.9 : 0.7,
     });
 

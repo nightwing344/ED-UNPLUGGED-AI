@@ -1,0 +1,44 @@
+name: Build ED Android APK
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build:web
+      - run: npx cap add android && npx cap sync android
+      - name: Enable loopback HTTP for local Termux API
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('android/app/src/main/AndroidManifest.xml')
+          s=p.read_text()
+          if 'android.permission.INTERNET' not in s:
+              i=s.index('>')+1
+              s=s[:i]+'\n<uses-permission android:name="android.permission.INTERNET" />'+s[i:]
+          if 'android:usesCleartextTraffic' not in s:
+              s=s.replace('<application ', '<application android:usesCleartextTraffic="true" ', 1)
+          p.write_text(s)
+          PY
+      - run: cd android && chmod +x gradlew && ./gradlew assembleDebug --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ED-Unplugged-AI-debug-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error

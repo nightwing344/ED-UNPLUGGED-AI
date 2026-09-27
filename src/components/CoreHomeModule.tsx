@@ -41,7 +41,7 @@ export const CoreHomeModule:React.FC<Props>=(props)=>{
   },[]);
 
   if(chat) return (
-    <section className="ed-chat-overlay fixed inset-0 z-[80] flex min-h-0 flex-col bg-slate-950 text-white">
+    <section className="ed-chat-overlay ed-sphere-workspace fixed inset-0 z-[90] flex min-h-0 flex-col text-white">
       <div className="flex shrink-0 items-center justify-between border-b border-slate-800 bg-slate-950/95 px-3 py-2">
         <button
           type="button"
@@ -63,7 +63,7 @@ export const CoreHomeModule:React.FC<Props>=(props)=>{
         </span>
       </div>
 
-      <div className="flex min-h-0 w-full flex-1">
+      <div className="ed-sphere-workspace-body flex min-h-0 w-full flex-1">
         <CoreModule {...props}/>
       </div>
     </section>

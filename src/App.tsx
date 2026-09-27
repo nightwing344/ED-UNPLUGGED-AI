@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { OSDock } from './components/OSDock';
 import { CommandPalette } from './components/CommandPalette';
 import { CoreHomeModule } from './components/CoreHomeModule';
+import { SphereWorkspace } from './components/SphereWorkspace';
 import { BuilderModule } from './components/BuilderModule';
 import { ResearchModule } from './components/ResearchModule';
 import { StrategyModule } from './components/StrategyModule';
@@ -400,7 +401,8 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
         )}
 
         {currentModule === 'whatif' && (
-          <WhatIfModule
+          <SphereWorkspace title="WHAT IF" onHome={() => setCurrentModule('core')}>
+<WhatIfModule
             onSaveToMemory={(title, content, tags) =>
               handleAddMemory({
                 title,
@@ -415,10 +417,12 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
             }
             onNavigateModule={(mod) => setCurrentModule(mod as EDModule)}
           />
+</SphereWorkspace>
         )}
 
         {currentModule === 'legal' && (
-          <LegalModule
+          <SphereWorkspace title="LEGAL" onHome={() => setCurrentModule('core')}>
+<LegalModule
             onSaveToMemory={(title, content, tags) =>
               handleAddMemory({
                 title,
@@ -433,10 +437,12 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
             }
             onNavigateModule={(mod) => setCurrentModule(mod as EDModule)}
           />
+</SphereWorkspace>
         )}
 
         {currentModule === 'builder' && (
-          <BuilderModule
+          <SphereWorkspace title="TOOLS" onHome={() => setCurrentModule('core')}>
+<BuilderModule
             initialCode={builderCode}
             initialLanguage={builderLang}
             onSaveToMemory={(title, code, notes) =>
@@ -449,10 +455,12 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
               })
             }
           />
+</SphereWorkspace>
         )}
 
         {currentModule === 'research' && (
-          <ResearchModule
+          <SphereWorkspace title="RESEARCH" onHome={() => setCurrentModule('core')}>
+<ResearchModule
             onSaveToMemory={(title, content, tags) =>
               handleAddMemory({
                 title,
@@ -463,10 +471,12 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
               })
             }
           />
+</SphereWorkspace>
         )}
 
         {currentModule === 'strategy' && (
-          <StrategyModule
+          <SphereWorkspace title="STRATEGY" onHome={() => setCurrentModule('core')}>
+<StrategyModule
             onSaveToMemory={(title, content, tags) =>
               handleAddMemory({
                 title,
@@ -477,10 +487,12 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
               })
             }
           />
+</SphereWorkspace>
         )}
 
         {currentModule === 'creative' && (
-          <CreativeModule
+          <SphereWorkspace title="CREATE" onHome={() => setCurrentModule('core')}>
+<CreativeModule
             onSaveToMemory={(title, content, tags) =>
               handleAddMemory({
                 title,
@@ -491,10 +503,12 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
               })
             }
           />
+</SphereWorkspace>
         )}
 
         {currentModule === 'agents' && (
-          <AgentsModule
+          <SphereWorkspace title="TASKS" onHome={() => setCurrentModule('core')}>
+<AgentsModule
             tasks={tasks}
             onDispatchTask={handleDispatchTask}
             onSaveToMemory={(title, content, tags) =>
@@ -507,10 +521,12 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
               })
             }
           />
+</SphereWorkspace>
         )}
 
         {currentModule === 'memory' && (
-          <MemoryVaultModule
+          <SphereWorkspace title="MEMORY" onHome={() => setCurrentModule('core')}>
+<MemoryVaultModule
             memories={memories}
             links={memoryLinks}
             runtimeMemoryFiles={runtimeMemoryFiles}
@@ -522,15 +538,18 @@ Master fundamentals, then think beyond them. Where shall we direct our intellige
             onExportJSON={handleExportJSON}
             onImportJSON={handleImportJSON}
           />
+</SphereWorkspace>
         )}
 
         {currentModule === 'terminal' && (
-          <TerminalModule
+          <SphereWorkspace title="TERMINAL" onHome={() => setCurrentModule('core')}>
+<TerminalModule
             onExecutePrompt={handleExecuteTerminalPrompt}
             memories={memories}
             onNavigateModule={setCurrentModule}
             onReset={handleTriggerReset}
           />
+</SphereWorkspace>
         )}
       </main>
 

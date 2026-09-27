@@ -70,6 +70,12 @@ jobs:
           print('AndroidManifest.xml XML validation: PASS')
           print(p.read_text(encoding='utf-8'))
           PY
+      - name: Restore persistent debug signing key
+        uses: actions/cache@v4
+        with:
+          path: ~/.android/debug.keystore
+          key: ed-android-debug-keystore-v1
+
       - name: Build Android debug APK
         run: |
           cd android

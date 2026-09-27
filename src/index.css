@@ -468,3 +468,159 @@ html.ed-orb-home
 .ed-chat-overlay > div:last-child {
   min-height:0;
 }
+
+/* =========================================================
+   ED UNPLUGGED — UNIFIED SPHERE WORKSPACE
+   ========================================================= */
+
+.ed-sphere-workspace {
+  background:
+    radial-gradient(
+      circle at 50% 22%,
+      rgb(var(--ed-secondary-rgb) / .18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 50% 70%,
+      rgb(var(--ed-primary-rgb) / .10),
+      transparent 48%
+    ),
+    #030406 !important;
+}
+
+.ed-sphere-workspace::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .18;
+  background-image:
+    linear-gradient(
+      rgb(var(--ed-primary-rgb) / .08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgb(var(--ed-primary-rgb) / .08) 1px,
+      transparent 1px
+    );
+  background-size: 28px 28px;
+  mask-image:
+    radial-gradient(circle at center, black, transparent 82%);
+}
+
+.ed-sphere-workspace-header {
+  position: relative;
+  z-index: 20;
+  border-bottom:
+    1px solid rgb(var(--ed-primary-rgb) / .30);
+  background:
+    linear-gradient(
+      180deg,
+      rgb(5 6 10 / .98),
+      rgb(5 6 10 / .88)
+    );
+  box-shadow:
+    0 8px 30px rgb(0 0 0 / .48),
+    0 1px 18px rgb(var(--ed-primary-rgb) / .12);
+  backdrop-filter: blur(18px);
+}
+
+.ed-sphere-home-button {
+  color: var(--ed-primary);
+  border:
+    1px solid rgb(var(--ed-primary-rgb) / .46);
+  background:
+    rgb(var(--ed-primary-rgb) / .08);
+  box-shadow:
+    inset 0 0 18px rgb(var(--ed-primary-rgb) / .06),
+    0 0 14px rgb(var(--ed-primary-rgb) / .10);
+}
+
+.ed-sphere-home-button:active {
+  transform: scale(.96);
+}
+
+.ed-sphere-workspace-body {
+  position: relative;
+  z-index: 10;
+  background: transparent !important;
+}
+
+/* Remove the Gemini-era slate shell while retaining functionality. */
+
+.ed-sphere-workspace [class*="bg-slate-950"],
+.ed-sphere-workspace [class*="bg-slate-900"],
+.ed-sphere-workspace [class*="bg-slate-800"] {
+  background-color:
+    rgb(5 7 10 / .74) !important;
+}
+
+.ed-sphere-workspace [class*="border-slate-"] {
+  border-color:
+    rgb(var(--ed-primary-rgb) / .22) !important;
+}
+
+.ed-sphere-workspace [class*="text-slate-100"],
+.ed-sphere-workspace [class*="text-slate-200"],
+.ed-sphere-workspace [class*="text-slate-300"] {
+  color:
+    rgb(239 246 255 / .94) !important;
+}
+
+.ed-sphere-workspace [class*="text-slate-400"],
+.ed-sphere-workspace [class*="text-slate-500"] {
+  color:
+    rgb(186 204 218 / .76) !important;
+}
+
+.ed-sphere-workspace input,
+.ed-sphere-workspace textarea,
+.ed-sphere-workspace select {
+  border-color:
+    rgb(var(--ed-primary-rgb) / .30) !important;
+  background:
+    rgb(2 5 8 / .78) !important;
+  color: #f8fafc !important;
+  box-shadow:
+    inset 0 0 18px rgb(0 0 0 / .34);
+}
+
+.ed-sphere-workspace input:focus,
+.ed-sphere-workspace textarea:focus,
+.ed-sphere-workspace select:focus {
+  outline: none !important;
+  border-color:
+    var(--ed-primary) !important;
+  box-shadow:
+    0 0 0 1px rgb(var(--ed-primary-rgb) / .28),
+    0 0 24px rgb(var(--ed-primary-rgb) / .15) !important;
+}
+
+.ed-sphere-workspace button {
+  transition:
+    transform .14s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+
+.ed-sphere-workspace button:active {
+  transform: scale(.97);
+}
+
+.ed-chat-overlay .ed-sphere-workspace-body {
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgb(var(--ed-secondary-rgb) / .10),
+      transparent 38%
+    ) !important;
+}
+
+/* Prevent underlying legacy app chrome from visually bleeding through. */
+
+.ed-sphere-workspace {
+  isolation: isolate;
+}
+

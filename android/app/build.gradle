@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace = "ai.edunplugged.beta"
+    namespace = "ai.edunplugged.mobile"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "ai.edunplugged.beta"

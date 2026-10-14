@@ -65,9 +65,14 @@ jobs:
         run: |
           APK=android/app/build/outputs/apk/debug/app-debug.apk
           test -s "$APK"
-          aapt dump badging "$APK" |
+          SDKROOT="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-}}"
+          test -n "$SDKROOT"
+          TOOLS="$SDKROOT/build-tools/36.0.0"
+          test -x "$TOOLS/aapt"
+          test -x "$TOOLS/apksigner"
+          "$TOOLS/aapt" dump badging "$APK" |
             grep "package: name='ai.edunplugged.mobile.dev'"
-          apksigner verify "$APK"
+          "$TOOLS/apksigner" verify "$APK"
           sha256sum "$APK"
 
       - name: Upload DEV APK

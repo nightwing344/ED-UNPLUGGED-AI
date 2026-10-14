@@ -104,6 +104,7 @@ function gatewayToken(): string {
 
 async function generateEDContent(prompt: string, systemInstruction: string,
   _options: { temperature?: number; tools?: any[] } = {}) {
+  try {
   const response = await fetch('http://127.0.0.1:18789/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -126,6 +127,11 @@ async function generateEDContent(prompt: string, systemInstruction: string,
   const text = body.choices?.[0]?.message?.content?.trim();
   if (!text) throw new Error('ED agent returned an empty response');
   return { text, sources: [] };
+  } catch (openclawError) {
+    console.warn('ED: OpenClaw unavailable; using local Ollama fallback');
+    const text = await edAskOllama(prompt, [], systemInstruction);
+    return { text, sources: [] };
+  }
 }
 
 // Local microphone transcription; the model and binaries live in Termux.
@@ -180,13 +186,13 @@ app.get('/api/health', (req, res) => {
 const ED_OLLAMA_URL = (process.env.OLLAMA_URL || 'http://127.0.0.1:11434').replace(/\/$/, '');
 const ED_OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'llama3.2:3b';
 
-async function edAskOllama(prompt: string, history: any[] = []) {
+async function edAskOllama(prompt: string, history: any[] = [], systemInstruction: string = MASTER_SYSTEM_PROMPT) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 180000);
 
   try {
     const messages = [
-      { role: 'system', content: MASTER_SYSTEM_PROMPT },
+      { role: 'system', content: systemInstruction },
       ...history
         .filter((m: any) => m && typeof m.content === 'string')
         .map((m: any) => ({

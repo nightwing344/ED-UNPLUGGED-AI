@@ -1,0 +1,78 @@
+name: ED Unplugged DEV APK
+
+on:
+  push:
+    branches:
+      - 'ed-dev-cloud-*'
+
+permissions:
+  contents: read
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android platform
+        run: |
+          sdkmanager "platforms;android-36" \
+                     "build-tools;36.0.0"
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci --no-audit --no-fund
+          else
+            npm install --no-audit --no-fund
+          fi
+
+      - name: Build web UI
+        run: npm run build
+
+      - name: Sync Android assets
+        run: npx cap sync android
+
+      - name: Verify DEV Gradle identity
+        run: |
+          grep -F 'ai.edunplugged.mobile.dev' \
+            android/app/build.gradle
+
+      - name: Assemble debug APK
+        working-directory: android
+        run: |
+          bash ./gradlew --no-daemon \
+            --console=plain :app:assembleDebug
+
+      - name: Verify APK
+        run: |
+          APK=android/app/build/outputs/apk/debug/app-debug.apk
+          test -s "$APK"
+          aapt dump badging "$APK" |
+            grep "package: name='ai.edunplugged.mobile.dev'"
+          apksigner verify "$APK"
+          sha256sum "$APK"
+
+      - name: Upload DEV APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: ED-Unplugged-DEV-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error

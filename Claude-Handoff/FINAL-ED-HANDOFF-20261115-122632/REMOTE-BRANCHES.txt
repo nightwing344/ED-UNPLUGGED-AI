@@ -1,0 +1,10 @@
+d93e3bd5460e8fdf83abb3a9d3fd54bdf538e6e7	refs/heads/ed-beta-apk
+e582fe92f79b0a16012a4f8c6078504f53c866da	refs/heads/ed-dev-cloud-20261013-220243
+74e95247bf8f10caa9d5a0101b51fc253f1b9237	refs/heads/ed-local-openclaw
+32420982a20d99be2d5700b384d64d903bb125db	refs/heads/ed-production
+dc7a17c0146dba7c8f4737e23c1d9c91e05b6944	refs/heads/ed-runtime-v1
+353b620ceea151c87e3e09cc1d2d76ef58a3c17d	refs/heads/ed-unified-v1
+4af0b83e381c6e0f3b7bcd542e62123b8a6c0d56	refs/heads/ed-v1.1-memory
+c08f19e77f5b866179df9e8ee35e934626f30b2c	refs/heads/main
+f8095e28da627f7b24b41536f45a0a5f0b6dc20f	refs/heads/phone-ed-core-20260919
+dc7a17c0146dba7c8f4737e23c1d9c91e05b6944	refs/heads/phone-ed-core-authoritative-20260919

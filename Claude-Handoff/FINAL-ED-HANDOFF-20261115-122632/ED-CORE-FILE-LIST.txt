@@ -1,0 +1,511 @@
+ED/AGENTS.md
+ED/Agents/Builder-ED/IDENTITY.md
+ED/Agents/Bus/message-20260729-161617.txt
+ED/Agents/Bus/message-20260729-161944.txt
+ED/Agents/Creative-ED/IDENTITY.md
+ED/Agents/Crypto-ED/IDENTITY.md
+ED/Agents/Developer-ED/IDENTITY.md
+ED/Agents/Legal-ED/IDENTITY.md
+ED/Agents/Research-ED/IDENTITY.md
+ED/Agents/Templates/Registry/DEFAULT-Builder.txt
+ED/Agents/Templates/Registry/DEFAULT-Creative-Agent.txt
+ED/Agents/Templates/Registry/DEFAULT-Legal-Assistant.txt
+ED/Agents/Templates/Registry/DEFAULT-Project-Manager.txt
+ED/Agents/Templates/Registry/DEFAULT-Researcher.txt
+ED/Agents/Templates/Registry/DEFAULT-Security-Analyst.txt
+ED/Applications/APPLICATION_FACTORY_REGISTRY.md
+ED/Automation/TASK_REGISTRY.txt
+ED/Core/ARCHITECTURE.md
+ED/Core/BUILD_STATUS.txt
+ED/Core/CHANGE_APPROVAL_POLICY.md
+ED/Core/CHANGE_CONTROL.md
+ED/Core/COMMUNICATION_REGISTRY.txt
+ED/Core/DECISION_FRAMEWORK.md
+ED/Core/Departments/REGISTRY.md
+ED/Core/Departments/SPECIALIST_REGISTRY.md
+ED/Core/Director/DIRECTOR_ED.md
+ED/Core/Director/DIRECTOR_REGISTRY.md
+ED/Core/Director/ROUTING_ENGINE.md
+ED/Core/Director/ROUTING_RULES.md
+ED/Core/Director/SPECIALIST_MAP.md
+ED/Core/Director/director-status.sh
+ED/Core/ED-CONSTITUTION.md
+ED/Core/ED-Identity.txt
+ED/Core/ED_CORE_CONSTITUTION.md
+ED/Core/Engines/CONFIDENCE_ENGINE.md
+ED/Core/Engines/Curiosity/CURIOSITY_REGISTRY.md
+ED/Core/Engines/ENGINE_REGISTRY.md
+ED/Core/Engines/MEMORY_ENGINE.md
+ED/Core/Engines/Memory-Intelligence/MEMORY_INTELLIGENCE_REGISTRY.md
+ED/Core/Engines/REALITY_CHECK_ENGINE.md
+ED/Core/Engines/ed-memory.sh
+ED/Core/FOUNDATION_LOCK.md
+ED/Core/GOALS.md
+ED/Core/GOVERNANCE.md
+ED/Core/Governance/ED_CONSTITUTION.md
+ED/Core/Governance/GOVERNANCE_ENGINE.md
+ED/Core/Governance/GOVERNANCE_REGISTRY.txt
+ED/Core/Governance/GOVERNANCE_RULES.md
+ED/Core/Governance/VOICE_PERMISSIONS.md
+ED/Core/Governance/governance-status.sh
+ED/Core/Governance/update-approval.sh
+ED/Core/IDENTITY.md
+ED/Core/INTELLIGENCE_REGISTRY.txt
+ED/Core/Identity/BEHAVIOR_RULES.md
+ED/Core/Identity/CAPABILITIES.md
+ED/Core/Identity/CURIOSITY_ENGINE.md
+ED/Core/Identity/ED_IDENTITY.md
+ED/Core/Identity/EVOLUTION_LOG.md
+ED/Core/Identity/IDENTITY.md
+ED/Core/Identity/IDENTITY_CORE.md
+ED/Core/Identity/IDENTITY_REGISTRY.md
+ED/Core/Identity/PERSONALITY.md
+ED/Core/Identity/identity-status.sh
+ED/Core/Interfaces/INTERFACE_REGISTRY.md
+ED/Core/OPERATING_RULES.md
+ED/Core/PERMISSIONS.md
+ED/Core/RESET_POLICY.md
+ED/Core/SECURITY_REGISTRY.txt
+ED/Core/STATUS.txt
+ED/Core/Security/SECURITY_POLICY.md
+ED/Core/Security/SECURITY_REGISTRY.txt
+ED/Core/Self-Improvement/SELF_IMPROVEMENT_ENGINE.md
+ED/Core/Services/SERVICE_REGISTRY.md
+ED/Core/TOOL_REGISTRY.txt
+ED/Core/USER_CONTROL_POLICY.md
+ED/Core/VERSION
+ED/Core/Voice/VOICE_CONTROL.md
+ED/Core/Voice/VOICE_ENGINE.md
+ED/Core/Voice/VOICE_RUNTIME.md
+ED/Core/Voice/WAKEWORD_ENGINE.md
+ED/Departments/DEPARTMENT_REGISTRY.md
+ED/Developer/DEVELOPER_REGISTRY.md
+ED/ED Build/ED-CONTROL.sh
+ED/ED Build/ED-NUKE.sh
+ED/ED Build/ED-PREFLIGHT.sh
+ED/ED Build/ED-RESTORE.sh
+ED/ED Build/ED-RESURRECT.sh
+ED/ED Build/ED-SAFE-UPDATE.sh
+ED/ED Build/ED-SYSTEM-REPORT.sh
+ED/ED Build/ED-SYSTEM-REPORT.txt
+ED/ED Build/README.txt
+ED/ED Build/ed-config-check.sh
+ED/ED Build/ed-health-check.sh
+ED/ED Build/ed-workspace-link.sh
+ED/ED Build/ed-workspace-verify.sh
+ED/ED Build/openclaw-repair-start.sh
+ED/ED Inventory/Phase-28/phase28-clipboard-check-20261030-012454.txt
+ED/ED Inventory/Phase-28/phase28-report-20261030-012454.txt
+ED/ED Inventory/Phase-28/phase28b-clipboard-check-20261030-012529.txt
+ED/ED Inventory/Phase-28/phase28b-source-20261030-012529.txt
+ED/ED Inventory/Phase-29/clipboard-check-20261030-012700.txt
+ED/ED Inventory/Phase-29/phase29-report-20261030-012700.txt
+ED/ED Inventory/Phase-29/server-check-20261030-012700.mjs
+ED/ED Inventory/Phase-30/phase30-report-20261030-012758.txt
+ED/ED Inventory/Phase-31/phase31-report-20261030-012911.txt
+ED/ED Inventory/Phase-32/phase32-report-20261030-013013.txt
+ED/ED Inventory/Phase-33/phase33-report-20261030-013122.txt
+ED/ED Inventory/Phase-34/phase34-report-20261030-013225.txt
+ED/ED Inventory/Phase-35/phase35-report-20261030-013424.txt
+ED/ED Inventory/Phase-36/phase36-report-20261030-013637.txt
+ED/ED Inventory/Phase-36/phase36-report-20261030-013658.txt
+ED/ED Inventory/Phase10-Source/ED-Phase10-Clipboard-Verify-20261029-223121.txt
+ED/ED Inventory/Phase10-Source/ED-Phase10-Diagnostics-20261029-223121.txt
+ED/ED Inventory/Phase10-Source/ED-Phase10-Report-20261029-223121.txt
+ED/ED Inventory/Phase10-Source/ED-Phase10-Status-20261029-223121.txt
+ED/ED Inventory/Phase12-Source-Extraction/ED-Phase12-Clipboard-Report-20261029-223807.txt
+ED/ED Inventory/Phase12-Source-Extraction/ED-Phase12-Clipboard-Verify-20261029-223807.txt
+ED/ED Inventory/Phase12-Source-Extraction/ED-Phase12-Diagnostics-20261029-223807.txt
+ED/ED Inventory/Phase12-Source-Extraction/ED-Phase12-Full-Extraction-20261029-223807.txt
+ED/ED Inventory/Phase12-Source-Extraction/ED-Phase12-Status-20261029-223807.txt
+ED/ED Inventory/Phase13-Source-Extraction/ED-Phase13-Clipboard-Readback-20261029-223943.txt
+ED/ED Inventory/Phase13-Source-Extraction/ED-Phase13-Clipboard-Verify-20261029-223943.txt
+ED/ED Inventory/Phase13-Source-Extraction/ED-Phase13-Diagnostics-20261029-223943.txt
+ED/ED Inventory/Phase13-Source-Extraction/ED-Phase13-Full-Extraction-20261029-223943.txt
+ED/ED Inventory/Phase13-Source-Extraction/ED-Phase13-Report-20261029-223943.txt
+ED/ED Inventory/Phase13-Source-Extraction/ED-Phase13-Section-Counts-20261029-223943.txt
+ED/ED Inventory/Phase14-Direct-Source/ED-Phase14-Clipboard-Readback-20261029-224048.txt
+ED/ED Inventory/Phase14-Direct-Source/ED-Phase14-Clipboard-Readback-20261029-224357.txt
+ED/ED Inventory/Phase14-Direct-Source/ED-Phase14-Clipboard-Verify-20261029-224048.txt
+ED/ED Inventory/Phase14-Direct-Source/ED-Phase14-Clipboard-Verify-20261029-224357.txt
+ED/ED Inventory/Phase14-Direct-Source/ED-Phase14-Diagnostics-20261029-224048.txt
+ED/ED Inventory/Phase14-Direct-Source/ED-Phase14-Diagnostics-20261029-224357.txt
+ED/ED Inventory/Phase14-Direct-Source/ED-Phase14-Full-Source-20261029-224048.txt
+ED/ED Inventory/Phase14-Direct-Source/ED-Phase14-Full-Source-20261029-224357.txt
+ED/ED Inventory/Phase14-Direct-Source/ED-Phase14-Report-20261029-224048.txt
+ED/ED Inventory/Phase14-Direct-Source/ED-Phase14-Report-20261029-224357.txt
+ED/ED Inventory/Phase16-Junior-Bootstrap/ED-Phase16-Chat-Test-20261029-225043.json
+ED/ED Inventory/Phase16-Junior-Bootstrap/ED-Phase16-Clipboard-Readback-20261029-225043.txt
+ED/ED Inventory/Phase16-Junior-Bootstrap/ED-Phase16-Clipboard-Verify-20261029-225043.txt
+ED/ED Inventory/Phase16-Junior-Bootstrap/ED-Phase16-Diagnostics-20261029-225043.txt
+ED/ED Inventory/Phase16-Junior-Bootstrap/ED-Phase16-Report-20261029-225043.txt
+ED/ED Inventory/Phase16-Junior-Bootstrap/ED-Phase16-Server-20261029-225043.pid
+ED/ED Inventory/Phase16-Junior-Bootstrap/chat-curl-error-20261029-225043.txt
+ED/ED Inventory/Phase16-Junior-Bootstrap/chat-http-20261029-225043.txt
+ED/ED Inventory/Phase16-Junior-Bootstrap/health-attempt-20261029-225043.json
+ED/ED Inventory/Phase16-Junior-Bootstrap/ollama-tags-20261029-225043.json
+ED/ED Inventory/Phase17-Junior-Interface/ED-Phase17-Clipboard-Readback-20261029-225216.txt
+ED/ED Inventory/Phase17-Junior-Interface/ED-Phase17-Clipboard-Verify-20261029-225216.txt
+ED/ED Inventory/Phase17-Junior-Interface/ED-Phase17-Diagnostics-20261029-225216.txt
+ED/ED Inventory/Phase17-Junior-Interface/ED-Phase17-Report-20261029-225216.txt
+ED/ED Inventory/Phase17-Junior-Interface/chat-1-20261029-225216.json
+ED/ED Inventory/Phase17-Junior-Interface/chat-2-20261029-225216.json
+ED/ED Inventory/Phase17-Junior-Interface/chat-3-20261029-225216.json
+ED/ED Inventory/Phase17-Junior-Interface/frontend-20261029-225216.html
+ED/ED Inventory/Phase17-Junior-Interface/health-20261029-225216.json
+ED/ED Inventory/Phase18-Junior-UI/ED-Phase18-Clipboard-Readback-20261029-230518.txt
+ED/ED Inventory/Phase18-Junior-UI/ED-Phase18-Clipboard-Verify-20261029-230518.txt
+ED/ED Inventory/Phase18-Junior-UI/ED-Phase18-Diagnostics-20261029-230518.txt
+ED/ED Inventory/Phase18-Junior-UI/ED-Phase18-Report-20261029-230518.txt
+ED/ED Inventory/Phase18-Junior-UI/chat-test-20261029-230518.json
+ED/ED Inventory/Phase18-Junior-UI/root-20261029-230518.html
+ED/ED Inventory/Phase19-Chat-Bridge/ED-Phase19-Clipboard-Readback-20261029-232416.txt
+ED/ED Inventory/Phase19-Chat-Bridge/ED-Phase19-Clipboard-Verify-20261029-232416.txt
+ED/ED Inventory/Phase19-Chat-Bridge/ED-Phase19-Diagnostics-20261029-232416.txt
+ED/ED Inventory/Phase19-Chat-Bridge/ED-Phase19-Report-20261029-232416.txt
+ED/ED Inventory/Phase19-Chat-Bridge/chat-20261029-232416.json
+ED/ED Inventory/Phase19-Chat-Bridge/root-20261029-232416.html
+ED/ED Inventory/Phase20-Junior-Speed/ED-Phase20-Clipboard-Readback-20261029-234519.txt
+ED/ED Inventory/Phase20-Junior-Speed/ED-Phase20-Clipboard-Verify-20261029-234519.txt
+ED/ED Inventory/Phase20-Junior-Speed/ED-Phase20-Clipboard-Verify-20261029-234645.txt
+ED/ED Inventory/Phase20-Junior-Speed/ED-Phase20-Diagnostics-20261029-234519.txt
+ED/ED Inventory/Phase20-Junior-Speed/ED-Phase20-Report-20261029-234519.txt
+ED/ED Inventory/Phase20-Junior-Speed/ED-Phase20-Review-20261029-234645.txt
+ED/ED Inventory/Phase20-Junior-Speed/ED-Phase20-Review-Diagnostics-20261029-234645.txt
+ED/ED Inventory/Phase20-Junior-Speed/ED-Phase21-Clipboard-Verify-20261029-234722.txt
+ED/ED Inventory/Phase20-Junior-Speed/ED-Phase21-Diagnostics-20261029-234722.txt
+ED/ED Inventory/Phase20-Junior-Speed/ED-Phase21-Response-Review-20261029-234722.txt
+ED/ED Inventory/Phase20-Junior-Speed/final-health-20261029-234519.json
+ED/ED Inventory/Phase20-Junior-Speed/junior-first-20261029-234519.json
+ED/ED Inventory/Phase20-Junior-Speed/junior-first-timing-20261029-234519.txt
+ED/ED Inventory/Phase20-Junior-Speed/junior-second-20261029-234519.json
+ED/ED Inventory/Phase20-Junior-Speed/junior-second-timing-20261029-234519.txt
+ED/ED Inventory/Phase20-Junior-Speed/ollama-benchmark-20261029-234519.json
+ED/ED Inventory/Phase20-Junior-Speed/ollama-tags-20261029-234519.json
+ED/ED Inventory/Phase20-Junior-Speed/ollama-timing-20261029-234519.txt
+ED/ED Inventory/Phase20-Junior-Speed/service-11434-20261029-234519.txt
+ED/ED Inventory/Phase20-Junior-Speed/service-3000-20261029-234519.txt
+ED/ED Inventory/Phase22-Real-Answer/ED-Phase22-Clipboard-Verify-20261029-234820.txt
+ED/ED Inventory/Phase22-Real-Answer/ED-Phase22-Diagnostics-20261029-234820.txt
+ED/ED Inventory/Phase22-Real-Answer/ED-Phase22-Report-20261029-234820.txt
+ED/ED Inventory/Phase22-Real-Answer/junior-20261029-234820.json
+ED/ED Inventory/Phase22-Real-Answer/junior-request-20261029-234820.json
+ED/ED Inventory/Phase22-Real-Answer/junior-timing-20261029-234820.txt
+ED/ED Inventory/Phase22-Real-Answer/ollama-20261029-234820.json
+ED/ED Inventory/Phase22-Real-Answer/ollama-request-20261029-234820.json
+ED/ED Inventory/Phase22-Real-Answer/ollama-timing-20261029-234820.txt
+ED/ED Inventory/Phase23-Streaming/ED-Phase23-Clipboard-Verify-20261029-234930.txt
+ED/ED Inventory/Phase23-Streaming/ED-Phase23-Diagnostics-20261029-234930.txt
+ED/ED Inventory/Phase23-Streaming/ED-Phase23-Report-20261029-234930.txt
+ED/ED Inventory/Phase24-Stream-Runtime/ED-Phase24-Clipboard-Verify-20261029-235014.txt
+ED/ED Inventory/Phase24-Stream-Runtime/ED-Phase24-Diagnostics-20261029-235014.txt
+ED/ED Inventory/Phase24-Stream-Runtime/ED-Phase24-Report-20261029-235014.txt
+ED/ED Inventory/Phase25-Backend-Trace/ED-Phase25-Full-20261029-235115.txt
+ED/ED Inventory/Phase25-Backend-Trace/ED-Phase25-Report-20261029-235115.txt
+ED/ED Inventory/Phase25-Backend-Trace/clipboard-error-20261029-235115.txt
+ED/ED Inventory/Phase26-Junior-Execution-Trace/ED-Phase26-Full-20261030-012213.txt
+ED/ED Inventory/Phase26-Junior-Execution-Trace/ED-Phase26-Report-20261030-012213.txt
+ED/ED Inventory/Phase26-Junior-Execution-Trace/clipboard-error-20261030-012213.txt
+ED/ED Inventory/Phase27-Streaming-Bridge/ED-Phase27-Full-20261030-012316.txt
+ED/ED Inventory/Phase27-Streaming-Bridge/ED-Phase27-Report-20261030-012316.txt
+ED/ED Inventory/Phase27-Streaming-Bridge/clipboard-error-20261030-012316.txt
+ED/ED Inventory/Phase5-20261029-215719/ARTIFACT-INDEX.txt
+ED/ED Inventory/Phase5-20261029-215719/BUILD-CONFIG-INVENTORY.txt
+ED/ED Inventory/Phase5-20261029-215719/DEVICE-ENVIRONMENT.txt
+ED/ED Inventory/Phase5-20261029-215719/FILE-MANIFEST.tsv
+ED/ED Inventory/Phase5-20261029-215719/GIT-INVENTORY.txt
+ED/ED Inventory/Phase5-20261029-215719/GITHUB-ACTIONS-INVENTORY.txt
+ED/ED Inventory/Phase5-20261029-215719/PHASE5-LOG.txt
+ED/ED Inventory/Phase5-20261029-215719/PHASE5-REPORT.txt
+ED/ED Inventory/Phase5-20261029-215719/PHASE5-UI-REVIEW-20261029-220627.txt
+ED/ED Inventory/Phase5-20261029-215719/PROJECT-ROOTS.txt
+ED/ED Inventory/Phase5-20261029-215719/PROJECT-TREE.txt
+ED/ED Inventory/Phase5-20261029-215719/UI-COMPARISON-20261029-220731/UI-COMPARISON-LOG.txt
+ED/ED Inventory/Phase5-20261029-215719/UI-COMPARISON-20261029-220731/UI-COMPARISON-REPORT.txt
+ED/ED Inventory/Phase5-20261029-215719/UI-DESIGN-INVENTORY.txt
+ED/ED Inventory/Phase5-20261029-215719/UI-ENTRYPOINT-CANDIDATES.txt
+ED/ED Inventory/Phase5-20261029-215719/UI-SUMMARY.txt
+ED/ED Inventory/Phase6-Review/ED-Phase6-Comparison-20261029-220957.txt
+ED/ED Inventory/Phase6-Review/ED-Phase6-Comparison-20261029-221030.txt
+ED/ED Inventory/Phase6-Review/ED-Phase6-Execution-Status-20261029-221431.txt
+ED/ED Inventory/Phase6-Review/ED-Phase6-Full-Comparison-20261029-221431.txt
+ED/ED Inventory/Phase6-Review/ED-Phase6-Path-Discovery-20261029-221151.txt
+ED/ED Inventory/Phase7-Forensic/ED-Phase7-Execution-Status-20261029-222029.txt
+ED/ED Inventory/Phase7-Forensic/ED-Phase7-Execution-Status-20261029-222254.txt
+ED/ED Inventory/Phase7-Forensic/ED-Phase7-Forensic-20261029-222029.txt
+ED/ED Inventory/Phase7-Forensic/ED-Phase7-Forensic-20261029-222254.txt
+ED/ED Inventory/Phase7-Forensic/ED-Phase7-Report-20261029-222541.txt
+ED/ED Inventory/Phase7-Forensic/ED-Phase7-Status-20261029-222541.txt
+ED/ED Inventory/Phase8-Integration/ED-Phase8-Diagnostics-20261029-222718.txt
+ED/ED Inventory/Phase8-Integration/ED-Phase8-Report-20261029-222718.txt
+ED/ED Inventory/Phase8-Integration/ED-Phase8-Status-20261029-222718.txt
+ED/ED Inventory/Phase9-Compatibility/ED-Phase8-Previous-Tail-20261029-222946.txt
+ED/ED Inventory/Phase9-Compatibility/ED-Phase9-Clipboard-Verify-20261029-222946.txt
+ED/ED Inventory/Phase9-Compatibility/ED-Phase9-Diagnostics-20261029-222946.txt
+ED/ED Inventory/Phase9-Compatibility/ED-Phase9-Report-20261029-222946.txt
+ED/ED Inventory/Phase9-Compatibility/ED-Phase9-Status-20261029-222946.txt
+ED/ED-JR-HANDOFF-PASTE.txt
+ED/ED-PHASE5-INVENTORY.sh
+ED/ED-PHASE5-PUBLISH-GITHUB.sh
+ED/ED-PHASE5-UI-COMPARE.sh
+ED/ED-REVIEW-PHASE5-UI.sh
+ED/ED_PROFILE.md
+ED/Economy/ECONOMIC_REGISTRY.md
+ED/Exports/ED-BUNDLE-REPORT-20261115-112412.txt
+ED/Exports/ED-BUNDLE-V2-REPORT-20261115-112549.txt
+ED/Exports/ED-FULL-PROJECT-20261115-011219-REPORT.txt
+ED/Exports/ED-FULL-PROJECT-20261115-011219.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-001-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-002-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-003-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-004-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-005-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-006-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-007-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-008-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-009-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-010-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-011-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-012-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-013-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-014-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-015-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-016-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-017-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-018-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-019-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-020-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-021-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-022-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-023-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-024-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-025-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-026-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-027-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-028-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-029-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-030-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-031-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-032-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-033-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-034-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-035-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-036-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-037-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-038-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-039-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-040-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-041-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-042-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-043-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-044-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-045-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-046-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-047-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-048-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-049-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-050-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-051-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-052-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-053-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-054-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-055-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-056-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-057-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-058-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-059-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-060-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-061-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-062-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-063-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-064-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-065-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-066-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-067-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-068-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-069-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-070-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-071-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-072-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-073-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-074-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-075-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-076-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-077-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-078-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-079-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-080-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-081-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-082-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-083-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-084-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-085-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-086-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-087-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-088-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-089-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-090-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-091-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-092-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-093-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-094-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-095-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-096-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-097-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/ED-PART-098-OF-098.zip
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/MASTER-INDEX.json
+ED/Exports/ED-INDEPENDENT-BUNDLES-V2-20261115-112549/REASSEMBLY-INSTRUCTIONS.txt
+ED/HEARTBEAT.md
+ED/IDENTITY.md
+ED/INSTALL_DATE.txt
+ED/Interfaces/Bridge/Queue/REQ-20260729-170835.txt
+ED/Interfaces/Bridge/Queue/REQ-20260729-171051.txt
+ED/Interfaces/Dashboard/Data/dashboard-status.json
+ED/Interfaces/Web/index.html
+ED/Knowledge/Graph/Edges/lesson-strategy.db
+ED/Knowledge/Graph/Edges/project-agent.db
+ED/Knowledge/Graph/Edges/project-decision.db
+ED/Knowledge/Graph/Nodes/agents.db
+ED/Knowledge/Graph/Nodes/decisions.db
+ED/Knowledge/Graph/Nodes/lessons.db
+ED/Knowledge/Graph/Nodes/projects.db
+ED/Knowledge/Graph/Nodes/skills.db
+ED/Knowledge/Graph/decisions.db
+ED/Knowledge/Graph/lessons.db
+ED/Knowledge/Graph/projects.db
+ED/Knowledge/Graph/relationships.db
+ED/Knowledge/Improvements/IMPROVE-20260729-162139.md
+ED/Knowledge/KNOWLEDGE_GATEWAY.md
+ED/Knowledge/Learning/learning-summary.md
+ED/Knowledge/Sources/Internet-Archive.link
+ED/Knowledge/Sources/SOURCE_REGISTRY.md
+ED/MEMORY.md
+ED/Memory-Vault/MEMORY_VAULT.md
+ED/Memory/Approved/legacy-memory-17715.txt
+ED/Memory/Brain/Sessions/20260728-0443.txt
+ED/Memory/Brain/Sessions/20260729-045042.txt
+ED/Memory/Context/Active/adaptive-director-package.txt
+ED/Memory/Context/Active/current-context.txt
+ED/Memory/Context/Active/director-context.txt
+ED/Memory/Context/Active/ed-response-package.txt
+ED/Memory/Context/Active/intelligent-context.txt
+ED/Memory/Context/Active/retrieved-memory.txt
+ED/Memory/Context/Active/skill-routing-package.txt
+ED/Memory/Context/Active/specialist-consultation.txt
+ED/Memory/Context/CONTEXT_REGISTRY.md
+ED/Memory/Context/Templates/CONTEXT_TEMPLATE.md
+ED/Memory/Curiosity/DISCOVERY_LOG.md
+ED/Memory/Curiosity/curiosity-20260729-153150.md
+ED/Memory/Decisions/improvement-proposal-20260729-153040.md
+ED/Memory/INDEX.txt
+ED/Memory/Inbox/Pending/MEM-20261025-072907-6f0648.json
+ED/Memory/Index/MEMORY_INDEX.md
+ED/Memory/Ingestion/INGESTION_REGISTRY.md
+ED/Memory/Lessons/CURIOSITY_ENGINE.md
+ED/Memory/MEMORY_ENTRY_TEMPLATE.md
+ED/Memory/MEMORY_INDEX.md
+ED/Memory/MEMORY_INDEX.txt
+ED/Memory/MEMORY_RULES.md
+ED/Memory/Projects/ED-JR-SELF-IMPROVEMENT-KNOWLEDGE-RETRIEVAL.md
+ED/Memory/Projects/ED-Senior-Handoff.md
+ED/Memory/Projects/ED-Unplugged-Genesis.md
+ED/Memory/Questions/question-20260729-153201.md
+ED/Memory/Reasoning/REASONING_REGISTRY.md
+ED/Memory/Retrieval/RETRIEVAL_REGISTRY.md
+ED/Memory/Semantic/Links/RELATION_MAP.txt
+ED/Memory/Semantic/SEMANTIC_REGISTRY.md
+ED/Memory/Semantic/TAG_TEMPLATE.md
+ED/Memory/Sessions/ED-HANDOFF-20261024-054507.md
+ED/Missions/Active/CURRENT_MISSION.md
+ED/Missions/ED-MSN-20260729-161905/Agents/assigned.txt
+ED/Missions/ED-MSN-20260729-161905/LAUNCH_RECORD.md
+ED/Missions/ED-MSN-20260729-161905/MISSION.md
+ED/Missions/ED-MSN-20260729-161905/Tasks/tasks.txt
+ED/Missions/ED-MSN-20260729-161905/id.txt
+ED/Missions/ED-MSN-20260729-161943/Agents/assigned.txt
+ED/Missions/ED-MSN-20260729-161943/MISSION.md
+ED/Missions/ED-MSN-20260729-161943/Tasks/tasks.txt
+ED/Missions/ED-MSN-20260729-161943/id.txt
+ED/Missions/ROADMAP.md
+ED/Models/Config/ED-BRAIN-STATUS.txt
+ED/Models/Config/ED-MODE-ROUTING.txt
+ED/Models/Config/MODE_STATUS.txt
+ED/Models/MODEL_INDEX.txt
+ED/Models/MODEL_REGISTRY.md
+ED/Models/Router/MODEL-20260729-170001.txt
+ED/Projects/PROJECT_INDEX.txt
+ED/Projects/PROJECT_REGISTRY.md
+ED/Projects/Templates/PROJECT_TEMPLATE.md
+ED/Registry/ed-system-registry.txt
+ED/Reputation/TRUST_REGISTRY.md
+ED/SOUL.md
+ED/Security/SECURITY_REGISTRY.md
+ED/Skills/Installed/Builder-ED/SKILL.md
+ED/Skills/Installed/Creative-ED/SKILL.md
+ED/Skills/Installed/Crypto-ED/SKILL.md
+ED/Skills/Installed/Developer-ED/SKILL.md
+ED/Skills/Installed/Legal-ED/SKILL.md
+ED/Skills/Installed/Research-ED/SKILL.md
+ED/Skills/Registry.txt
+ED/Skills/Registry/CORE_SKILLS_INDEX.md
+ED/Skills/Registry/SKILL_REGISTRY.md
+ED/Skills/Registry/SKILL_TEMPLATE.md
+ED/Skills/SKILL_REGISTRY.md
+ED/Specialists/Builder-ED/IDENTITY.md
+ED/Specialists/Builder-ED/KNOWLEDGE.md
+ED/Specialists/Builder-ED/Knowledge/KNOWLEDGE_INDEX.md
+ED/Specialists/Builder-ED/Memory/MEMORY.md
+ED/Specialists/Builder-ED/Sources/SOURCE_REGISTRY.md
+ED/Specialists/Creative-ED/IDENTITY.md
+ED/Specialists/Creative-ED/KNOWLEDGE.md
+ED/Specialists/Creative-ED/Knowledge/KNOWLEDGE_INDEX.md
+ED/Specialists/Creative-ED/Memory/MEMORY.md
+ED/Specialists/Creative-ED/Sources/SOURCE_REGISTRY.md
+ED/Specialists/Crypto-ED/IDENTITY.md
+ED/Specialists/Crypto-ED/KNOWLEDGE.md
+ED/Specialists/Crypto-ED/Knowledge/KNOWLEDGE_INDEX.md
+ED/Specialists/Crypto-ED/Memory/MEMORY.md
+ED/Specialists/Crypto-ED/Sources/SOURCE_REGISTRY.md
+ED/Specialists/DIY-ED/IDENTITY.md
+ED/Specialists/DIY-ED/KNOWLEDGE.md
+ED/Specialists/DIY-ED/Knowledge/KNOWLEDGE_INDEX.md
+ED/Specialists/DIY-ED/Memory/MEMORY.md
+ED/Specialists/DIY-ED/Sources/SOURCE_REGISTRY.md
+ED/Specialists/Developer-ED/IDENTITY.md
+ED/Specialists/Developer-ED/KNOWLEDGE.md
+ED/Specialists/Developer-ED/Knowledge/KNOWLEDGE_INDEX.md
+ED/Specialists/Developer-ED/Memory/MEMORY.md
+ED/Specialists/Developer-ED/Sources/SOURCE_REGISTRY.md
+ED/Specialists/Legal-ED/IDENTITY.md
+ED/Specialists/Legal-ED/KNOWLEDGE.md
+ED/Specialists/Legal-ED/Knowledge/KNOWLEDGE_INDEX.md
+ED/Specialists/Legal-ED/Memory/MEMORY.md
+ED/Specialists/Legal-ED/Sources/SOURCE_REGISTRY.md
+ED/Specialists/ProSe-AI-ED/IDENTITY.md
+ED/Specialists/ProSe-AI-ED/KNOWLEDGE.md
+ED/Specialists/ProSe-AI-ED/Knowledge/KNOWLEDGE_INDEX.md
+ED/Specialists/ProSe-AI-ED/Memory/MEMORY.md
+ED/Specialists/ProSe-AI-ED/Sources/SOURCE_REGISTRY.md
+ED/Specialists/Research-ED/IDENTITY.md
+ED/Specialists/Research-ED/KNOWLEDGE.md
+ED/Specialists/Research-ED/Knowledge/KNOWLEDGE_INDEX.md
+ED/Specialists/Research-ED/Memory/MEMORY.md
+ED/Specialists/Research-ED/Sources/SOURCE_REGISTRY.md
+ED/Specialists/Rogue-Litigan/IDENTITY.md
+ED/Specialists/Rogue-Litigan/KNOWLEDGE.md
+ED/Specialists/Rogue-Litigan/Knowledge/KNOWLEDGE_INDEX.md
+ED/Specialists/Rogue-Litigan/Memory/MEMORY.md
+ED/Specialists/Rogue-Litigan/Sources/SOURCE_REGISTRY.md
+ED/TOOLS.md
+ED/TRANSFER/ED-PROJECT-TRANSFER-20261105-191302-ED-GITHUB-COMPARE-FULL.tar.gz
+ED/USER.md
+ED/User-Profiles/ACTIVE_PROFILE.txt
+ED/User-Profiles/Adult/PROFILE.md
+ED/User-Profiles/Child/PROFILE.md
+ED/User-Profiles/DEFAULT_PROFILE.md
+ED/User-Profiles/Default/PROFILE.md
+ED/User-Profiles/PROFILE_SYSTEM.md
+ED/User-Profiles/profile-reset.sh
+ED/User-Profiles/profile-status.sh
+ED/openclaw-workspace-state.json
+PACKAGE-MANIFEST.json

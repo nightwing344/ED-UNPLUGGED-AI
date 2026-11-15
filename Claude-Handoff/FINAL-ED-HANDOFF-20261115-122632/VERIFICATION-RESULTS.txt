@@ -1,0 +1,205 @@
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-000 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-001 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-002 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-003 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-004 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-005 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-006 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-007 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-008 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-009 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-010 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-011 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-012 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-013 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-014 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-015 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-016 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-017 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-018 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-019 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-020 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-021 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-022 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-023 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-024 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-025 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-026 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-027 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-028 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-029 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-030 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-031 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-032 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-033 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-034 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-035 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-036 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-037 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-038 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-039 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-040 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-041 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-042 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-043 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-044 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-045 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-046 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-047 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-048 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-049 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-050 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-051 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-052 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-053 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-054 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-055 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-056 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-057 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-058 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-059 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-060 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-061 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-062 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-063 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-064 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-065 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-066 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-067 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-068 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-069 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-070 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-071 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-072 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-073 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-074 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-075 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-076 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-077 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-078 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-079 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-080 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-081 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-082 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-083 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-084 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-CORE.part-085 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-ARCHIVE.part-000 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-ARCHIVE.part-001 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-ARCHIVE.part-002 | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/20261115-121614/ED-ARCHIVE.part-003 | SHA256 verified
+PASS | SUMCOUNT:PART-SHA256SUMS.txt | Verified entries: 90
+PASS | PART:/storage/emulated/0/ED/Claude-Handoff/LOCAL-DELTA-20261115-122027/ED-LOCAL-CHANGES.part-000 | SHA256 verified
+PASS | SUMCOUNT:PART-SHA256SUMS.txt | Verified entries: 1
+PASS | PART:/storage/emulated/0/ED/Exports/ED-CORE-20261115-114842.zip | SHA256 verified
+PASS | PART:/storage/emulated/0/ED/Exports/ED-ARCHIVE-20261115-114842.zip | SHA256 verified
+PASS | SUMCOUNT:ORIGINAL-SHA256SUMS.txt | Verified entries: 2
+PASS | DELTA_ZIP_EXISTS | 
+PASS | DELTA_ZIP_SHA256 | f6917d20cdec3190ac662eb80c6f9c5ac747da9a619238b930db217c1bda8cb1
+PASS | DELTA_ZIP_CRC | CRC passed
+PASS | ENV_PRESENT:.env.example | /data/data/com.termux/files/home/ED-GITHUB-COMPARE/Checkpoints/ED-COMPANION-DOCK-20261026-001349/build-check/Interface/Web/.env.example
+PASS | ENV_PRESENT:.env.example | /data/data/com.termux/files/home/ED-GITHUB-COMPARE/Checkpoints/ED-COMPANION-NAV-20261026-002451/build/.env.example
+PASS | ENV_PRESENT:.env.example | /data/data/com.termux/files/home/ED-GITHUB-COMPARE/Checkpoints/ED-COMPANION-NAV-V3-20261026-003252/build/.env.example
+PASS | ENV_TEMPLATES_IDENTICAL | b6d12c728de0aac8b0bc6239e53aa8088c1431bcb4f9a3d61e5e8a2df1c7c400,b6d12c728de0aac8b0bc6239e53aa8088c1431bcb4f9a3d61e5e8a2df1c7c400,b6d12c728de0aac8b0bc6239e53aa8088c1431bcb4f9a3d61e5e8a2df1c7c400
+PASS | DELTA_MANIFEST_JSON | 
+PASS | SIZE:ED-CORE-FILE-LIST.txt | 28746
+PASS | SIZE:ED-ARCHIVE-FILE-LIST.txt | 39346
+PASS | SIZE:ED-CORE.part-000 | 25000000
+PASS | SIZE:ED-CORE.part-001 | 25000000
+PASS | SIZE:ED-CORE.part-002 | 25000000
+PASS | SIZE:ED-CORE.part-003 | 25000000
+PASS | SIZE:ED-CORE.part-004 | 25000000
+PASS | SIZE:ED-CORE.part-005 | 25000000
+PASS | SIZE:ED-CORE.part-006 | 25000000
+PASS | SIZE:ED-CORE.part-007 | 25000000
+PASS | SIZE:ED-CORE.part-008 | 25000000
+PASS | SIZE:ED-CORE.part-009 | 25000000
+PASS | SIZE:ED-CORE.part-010 | 25000000
+PASS | SIZE:ED-CORE.part-011 | 25000000
+PASS | SIZE:ED-CORE.part-012 | 25000000
+PASS | SIZE:ED-CORE.part-013 | 25000000
+PASS | SIZE:ED-CORE.part-014 | 25000000
+PASS | SIZE:ED-CORE.part-015 | 25000000
+PASS | SIZE:ED-CORE.part-016 | 25000000
+PASS | SIZE:ED-CORE.part-017 | 25000000
+PASS | SIZE:ED-CORE.part-018 | 25000000
+PASS | SIZE:ED-CORE.part-019 | 25000000
+PASS | SIZE:ED-CORE.part-020 | 25000000
+PASS | SIZE:ED-CORE.part-021 | 25000000
+PASS | SIZE:ED-CORE.part-022 | 25000000
+PASS | SIZE:ED-CORE.part-023 | 25000000
+PASS | SIZE:ED-CORE.part-024 | 25000000
+PASS | SIZE:ED-CORE.part-025 | 25000000
+PASS | SIZE:ED-CORE.part-026 | 25000000
+PASS | SIZE:ED-CORE.part-027 | 25000000
+PASS | SIZE:ED-CORE.part-028 | 25000000
+PASS | SIZE:ED-CORE.part-029 | 25000000
+PASS | SIZE:ED-CORE.part-030 | 25000000
+PASS | SIZE:ED-CORE.part-031 | 25000000
+PASS | SIZE:ED-CORE.part-032 | 25000000
+PASS | SIZE:ED-CORE.part-033 | 25000000
+PASS | SIZE:ED-CORE.part-034 | 25000000
+PASS | SIZE:ED-CORE.part-035 | 25000000
+PASS | SIZE:ED-CORE.part-036 | 25000000
+PASS | SIZE:ED-CORE.part-037 | 25000000
+PASS | SIZE:ED-CORE.part-038 | 25000000
+PASS | SIZE:ED-CORE.part-039 | 25000000
+PASS | SIZE:ED-CORE.part-040 | 25000000
+PASS | SIZE:ED-CORE.part-041 | 25000000
+PASS | SIZE:ED-CORE.part-042 | 25000000
+PASS | SIZE:ED-CORE.part-043 | 25000000
+PASS | SIZE:ED-CORE.part-044 | 25000000
+PASS | SIZE:ED-CORE.part-045 | 25000000
+PASS | SIZE:ED-CORE.part-046 | 25000000
+PASS | SIZE:ED-CORE.part-047 | 25000000
+PASS | SIZE:ED-CORE.part-048 | 25000000
+PASS | SIZE:ED-CORE.part-049 | 25000000
+PASS | SIZE:ED-CORE.part-050 | 25000000
+PASS | SIZE:ED-CORE.part-051 | 25000000
+PASS | SIZE:ED-CORE.part-052 | 25000000
+PASS | SIZE:ED-CORE.part-053 | 25000000
+PASS | SIZE:ED-CORE.part-054 | 25000000
+PASS | SIZE:ED-CORE.part-055 | 25000000
+PASS | SIZE:ED-CORE.part-056 | 25000000
+PASS | SIZE:ED-CORE.part-057 | 25000000
+PASS | SIZE:ED-CORE.part-058 | 25000000
+PASS | SIZE:ED-CORE.part-059 | 25000000
+PASS | SIZE:ED-CORE.part-060 | 25000000
+PASS | SIZE:ED-CORE.part-061 | 25000000
+PASS | SIZE:ED-CORE.part-062 | 25000000
+PASS | SIZE:ED-CORE.part-063 | 25000000
+PASS | SIZE:ED-CORE.part-064 | 25000000
+PASS | SIZE:ED-CORE.part-065 | 25000000
+PASS | SIZE:ED-CORE.part-066 | 25000000
+PASS | SIZE:ED-CORE.part-067 | 25000000
+PASS | SIZE:ED-CORE.part-068 | 25000000
+PASS | SIZE:ED-CORE.part-069 | 25000000
+PASS | SIZE:ED-CORE.part-070 | 25000000
+PASS | SIZE:ED-CORE.part-071 | 25000000
+PASS | SIZE:ED-CORE.part-072 | 25000000
+PASS | SIZE:ED-CORE.part-073 | 25000000
+PASS | SIZE:ED-CORE.part-074 | 25000000
+PASS | SIZE:ED-CORE.part-075 | 25000000
+PASS | SIZE:ED-CORE.part-076 | 25000000
+PASS | SIZE:ED-CORE.part-077 | 25000000
+PASS | SIZE:ED-CORE.part-078 | 25000000
+PASS | SIZE:ED-CORE.part-079 | 25000000
+PASS | SIZE:ED-CORE.part-080 | 25000000
+PASS | SIZE:ED-CORE.part-081 | 25000000
+PASS | SIZE:ED-CORE.part-082 | 25000000
+PASS | SIZE:ED-CORE.part-083 | 25000000
+PASS | SIZE:ED-CORE.part-084 | 25000000
+PASS | SIZE:ED-CORE.part-085 | 21210866
+PASS | SIZE:ED-ARCHIVE.part-000 | 25000000
+PASS | SIZE:ED-ARCHIVE.part-001 | 25000000
+PASS | SIZE:ED-ARCHIVE.part-002 | 25000000
+PASS | SIZE:ED-ARCHIVE.part-003 | 23295984
+PASS | SIZE:ED-LOCAL-CHANGES.part-000 | 6550935
+PASS | PART_FILES_DISCOVERED | Found 93 possible split parts
+
+PASS_COUNT: 198
+FAIL_COUNT: 0
+INITIAL_HASH_ENTRIES: 90
+DELTA_HASH_ENTRIES: 1
+ORIGINAL_HASH_ENTRIES: 2
+DISCOVERED_PART_FILES: 93

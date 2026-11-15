@@ -1,0 +1,6 @@
+M	Interface/Web/index.html
+M	Interface/Web/server.ts
+M	Interface/Web/src/App.tsx
+M	Interface/Web/src/components/CoreHomeModule.tsx
+M	Runtime/ed-ask-v1.sh
+M	Runtime/ed-memory-retrieve.py

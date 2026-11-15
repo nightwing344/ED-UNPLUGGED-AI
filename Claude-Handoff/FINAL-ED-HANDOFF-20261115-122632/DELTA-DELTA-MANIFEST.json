@@ -1,0 +1,10 @@
+{
+  "candidate_count": 1180,
+  "included_count": 1162,
+  "excluded_count": 18,
+  "included_bytes": 16667093,
+  "zip_bytes": 6550935,
+  "zip_sha256": "f6917d20cdec3190ac662eb80c6f9c5ac747da9a619238b930db217c1bda8cb1",
+  "zip_integrity": "PASS",
+  "verification_errors": []
+}

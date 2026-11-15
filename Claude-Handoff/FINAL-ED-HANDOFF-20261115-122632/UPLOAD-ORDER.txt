@@ -1,0 +1,17 @@
+ED FINAL CLAUDE UPLOAD MAP
+Generated: 2026-11-15T12:26:38-06:00
+
+UPLOAD FIRST: /storage/emulated/0/ED/Claude-Handoff/FINAL-ED-HANDOFF-20261115-122632/CLAUDE-START-HERE.md
+UPLOAD SUPPORTING DOCS: /storage/emulated/0/ED/Claude-Handoff/FINAL-ED-HANDOFF-20261115-122632
+
+UPLOAD ED CORE PARTS FROM: /storage/emulated/0/ED/Claude-Handoff/20261115-121614
+UPLOAD ED ARCHIVE PARTS FROM: /storage/emulated/0/ED/Claude-Handoff/20261115-121614
+UPLOAD LOCAL DELTA FROM: /storage/emulated/0/ED/Claude-Handoff/FINAL-ED-HANDOFF-20261115-122632/ED-LOCAL-CHANGES.zip
+ORIGINAL DELTA PART: /storage/emulated/0/ED/Claude-Handoff/LOCAL-DELTA-20261115-122027/ED-LOCAL-CHANGES.part-000
+
+PART LIMIT: 25,000,000 bytes
+UPLOAD ALL CORE AND ARCHIVE PARTS.
+Use the matching SHA256SUMS files for reconstruction.
+
+Do not upload original environment files.
+Use the sanitized .env.example in this folder.
